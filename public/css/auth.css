@@ -1,0 +1,102 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@400;500&display=swap');
+
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background: #ececec;
+}
+
+/* Login and Signup */
+.box-area {
+    width: 430px;
+}
+
+.box .logo {
+    color: #003396;
+}
+
+.box {
+    padding: 40px 30px 40px 40px;
+}
+
+.border,
+.form-control,
+.btn {
+    border-radius: 8px;
+}
+
+.btn-login {
+    font-weight: 500;
+    font-size: 20px;
+    /* background: linear-gradient(90deg, #da8cff 0%, #9a55ff 100%); */
+    background: linear-gradient(90deg, #004be0 0%, #003396 100%);
+    transition: filter 0.3s ease;
+}
+
+.btn-login:hover,
+.btn-login:focus {
+    filter: brightness(85%);
+}
+
+.btn-signup {
+    font-weight: 500;
+    font-size: 20px;
+    background: linear-gradient(90deg, #004be0 0%, #003396 100%);
+    transition: filter 0.3s ease;
+}
+
+.btn-signup:hover,
+.btn-signup:focus {
+    filter: brightness(85%);
+}
+
+.form-check-input {
+    cursor: pointer;
+}
+
+.signup a,
+.forgot a {
+    text-decoration: none;
+    color: #003396;
+}
+
+.signup:hover a,
+.forgot:hover a {
+    text-decoration: underline;
+}
+
+.signup a {
+    text-decoration: none;
+}
+
+.form-check-input {
+    border-color: #003396;
+}
+
+.form-check-input:checked {
+    background-color: #003396 !important;
+    border-color: #003396 !important;
+}
+
+/* For small screens login and signup */
+@media only screen and (max-width: 768px) {
+    .box-area {
+        margin: 0 10px;
+    }
+
+    .form-check {
+        margin-top: 20px;
+    }
+
+    .mba {
+        display: flex;
+        flex-direction: column;
+        justify-content: center;
+        align-items: center;
+    }
+}

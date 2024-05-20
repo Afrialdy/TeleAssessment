@@ -1,0 +1,133 @@
+.content {
+    background-color: #e7effd;
+}
+
+.navbar {
+    background-color: #e7effd;
+}
+
+.data-kandidat {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: auto;
+}
+
+.data-kandidat .data-box {
+    position: relative;
+    display: grid;
+    padding: 40px 40px;
+    background: #fff;
+    width: 100%;
+    border-radius: 15px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 15px;
+    -moz-border-radius: 15px;
+    -ms-border-radius: 15px;
+    -o-border-radius: 15px;
+}
+
+.data-kandidat .data-box td i {
+    font-size: 20px;
+    color: #0a3a8f;
+}
+
+.separator td {
+    border-bottom: 2px solid #ccc;
+    height: 10px;
+}
+
+.data-kandidat .data-box .profil {
+    border-radius: 20%;
+    margin-top: 10px;
+    margin-bottom: -5px;
+}
+
+.data-kandidat .data-box .profil .avatar {
+    border-radius: 28%;
+    -webkit-border-radius: 28%;
+    -moz-border-radius: 28%;
+    -ms-border-radius: 28%;
+    -o-border-radius: 28%;
+}
+
+.data-kandidat .data-box td h5 {
+    font-size: 15px;
+}
+
+.data-kandidat .data-box .user h5 {
+    font-size: 15px;
+    font-weight: 600;
+}
+
+.data-kandidat .data-box .user p {
+    font-size: 12px;
+    margin-top: -8px;
+}
+
+.data-kandidat .data-box .actived {
+    padding-left: 35px;
+}
+
+.data-kandidat .data-box .no-actived {
+    padding-left: 20px;
+}
+
+.data-kandidat .data-box .female {
+    padding-left: 0px;
+}
+
+.data-kandidat .data-box .aktif {
+    border-radius: 13%;
+    background: #1ca800;
+    border: none;
+    -webkit-border-radius: 13%;
+    -moz-border-radius: 13%;
+    -ms-border-radius: 13%;
+    -o-border-radius: 13%;
+}
+
+.data-kandidat .data-box .tidak-aktif {
+    padding: 5px 5px;
+    border-radius: 13%;
+    background: #e21212;
+    border: none;
+    -webkit-border-radius: 13%;
+    -moz-border-radius: 13%;
+    -ms-border-radius: 13%;
+    -o-border-radius: 13%;
+}
+
+.data-kandidat .data-box .edit {
+    border-radius: 13%;
+    background: #0e4ebe;
+    color: f8f8f8;
+    border: none;
+    width: 60px;
+}
+
+.data-kandidat .data-box .delete {
+    border-radius: 13%;
+    background-color: transparent;
+    color: #0e4ebe;
+    border: 1px #004be0 solid;
+    padding: 6px 8px;
+}
+
+@media (max-width: 768px) {
+    .data-kandidat .data-box {
+        padding: 20px 10px;
+    }
+
+    .data-kandidat .data-box td:nth-child(2),
+    .data-kandidat .data-box td:nth-child(3),
+    .data-kandidat .data-box td:nth-child(4) {
+        display: none;
+    }
+
+    .data-kandidat .data-box td:nth-child(5),
+    .data-kandidat .data-box td:nth-child(6) {
+        text-align:left;
+    }
+}
+

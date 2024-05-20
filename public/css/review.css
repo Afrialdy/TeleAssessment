@@ -1,0 +1,51 @@
+.rev {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: auto;
+}
+
+.rev .revbox {
+    position: relative;
+    background: #e7effd;
+    width: 100%;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.rev .revbox img {
+    margin-right: 20px;
+}
+
+.rev .revbox h5 {
+    font-size: 18px;
+}
+
+.rev .revbox h6 {
+    font-size: 18px;
+    margin-top: -5px;
+}
+
+.rev .revbox p {
+    font-size: 15px;
+}
+
+.rev .revbox .star {
+    margin: -3px 0px 5px 0px;
+}
+
+.rev .revbox .star span {
+    margin-right: 3px;
+}
+
+.rev .revbox .star span.checked {
+    color: orange;
+}
+
+@media (max-width: 768px) {
+    .rev .revbox p{
+        font-size: 12px;
+    }
+
+}
