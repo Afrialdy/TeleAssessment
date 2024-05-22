@@ -46,6 +46,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                     <img src="../img/logo/ta1.png" alt="" class="sidebar-logo-img">
                 </a>
             </div>
+
             <ul class="sidebar-nav">
                 <li class="sidebar-item">
                     <a href="{{ route('dashboard') }}" class="sidebar-link">
@@ -70,15 +71,8 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
 
                 <li class="sidebar-item">
                     <a href="{{ route('laporan') }}" class="sidebar-link">
-                    <i class="lni lni-clipboard"></i>
-                    <span>Laporan</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('blog') }}" class="sidebar-link">
-                        <i class="lni lni-popup"></i>
-                        <span>Blog</span>
-
+                        <i class="lni lni-clipboard"></i>
+                        <span>Laporan</span>
                     </a>
                 </li>
                 <li class="sidebar-item">
@@ -90,11 +84,33 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
 
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#auth" aria-expanded="false" aria-controls="auth">
+                        data-bs-target="#konten" aria-expanded="false" aria-controls="konten">
+                        <i class="lni lni-files"></i>
+                        <span>Konten</span>
+                    </a>
+                    <ul id="konten" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="{{ route('review') }}" class="sidebar-link">
+                                <i class="lni lni-book"></i>
+                                Review
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('blog') }}" class="sidebar-link">
+                                <i class="lni lni-popup"></i>
+                                Blog
+                            </a>
+                        </li>
+                    </ul>
+                </li>
+
+                <li class="sidebar-item">
+                    <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#pengaturan" aria-expanded="false" aria-controls="pengaturan">
                         <i class="lni lni-cog"></i>
                         <span>Pengaturan</span>
                     </a>
-                    <ul id="auth" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                    <ul id="pengaturan" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
                         <li class="sidebar-item">
                             <a href="{{ route('profile') }}" class="sidebar-link">
                             <i class="lni lni-user"></i>
@@ -201,19 +217,6 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                             <a href="#" class="text-body-secondary">
                                 <strong>Tele Asessment</strong>
                             </a>
-                        </div>
-                        <div class="col-6 text-end text-body-secondary d-none d-md-block">
-                            <ul class="list-inline mb-0">
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-body-secondary">Contact</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-body-secondary">About Us</a>
-                                </li>
-                                <li class="list-inline-item">
-                                    <a href="#" class="text-body-secondary">Term & Conditions</a>
-                                </li>
-                            </ul>
                         </div>
                     </div>
                 </div>

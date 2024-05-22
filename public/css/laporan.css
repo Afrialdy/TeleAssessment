@@ -1,0 +1,82 @@
+
+.content .container-fluid .icons {
+    align-items: center;
+    margin-left: auto;
+    font-size: 25px;
+}
+
+.content .container-fluid .icons i {
+    font-weight: 600;
+    color: #0a3a8f;
+    margin-left: 20px;
+}
+
+.laporan {
+    position: relative;
+    display: flex;
+    width: 100%;
+    min-height: auto;
+}
+
+.laporan .tbl {
+    table-layout: fixed;
+    width: 100%;
+    min-width: 650px;
+    border-collapse: collapse;
+    background: #f8f8f8;
+    border-radius: 15px;
+    overflow: hidden;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.laporan .tbl thead th {
+    font-size: 18px;
+    padding: 10px 20px;
+    background-color: #0a3a8f;
+    text-align: center;
+    color: #fff;
+}
+
+.laporan .tbl tbody td {
+    padding: 10px 20px;
+    text-align: center;
+    word-break: break-all;
+    margin: auto;
+}
+
+.laporan .tbl tbody td .btn {
+    padding: 3px 20px;
+    background: #0d498e;
+    border: none;
+    border-radius: 13px;
+    -webkit-border-radius: 13px;
+    -moz-border-radius: 13px;
+    -ms-border-radius: 13px;
+    -o-border-radius: 13px;
+}
+
+.laporan .tbl tbody td .btn:hoveR {
+    background: #3496ff;
+}
+
+/* .laporan .tbl tbody tr:hover td {
+    color: #fff;
+    cursor: pointer;
+    background-color: #333;
+} */
+
+/* .laporan .tbl thead th:nth-child(1) {
+    text-align: start;
+}
+
+.laporan .tbl thead th:nth-child(5) {
+    text-align: end;
+}
+
+.laporan .tbl tbody td:nth-child(1) {
+    text-align: start;
+}
+
+.laporan .tbl tbody td:nth-child(5) {
+    text-align: end;
+} */

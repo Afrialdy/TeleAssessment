@@ -66,7 +66,7 @@
                     </div>
 
                     <!-- Grafik Peserta -->
-                    <div class="graphBox mt-4">
+                    <div class="graphBox mt-2">
                         <div class="box d-flex flex-column">
                             <h5 class="fw-bold mb-4">Grafik Peserta Perbulan</h5>
                             <canvas id="lineChart"></canvas>
@@ -78,7 +78,7 @@
                         <div class="q-box d-flex flex-column">
                             <h5 class="fw-bold mb-4">Pertanyaan Interview</h5>
                             <div class="d-flex box-profil mb-4">
-                                <img src="img/interview test.png" class="avatar img-fluid" alt="avatar">
+                                <img src="img/interview test.png" class="img-fluid" alt="">
                                 <div class="d-flex flex-column">
                                     <h2>INTERVIEW TEST</h2>
                                     <P>Analisis sentimen wajah & analisis sentimen suara.</P>
@@ -89,9 +89,9 @@
                             </div>
 
                             <div class="d-flex box-profil mb-4">
-                                <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
+                                <img src="img/interest and talent.png" class="img-fluid" alt="">
                                 <div class="d-flex flex-column">
-                                    <h2>INTEREST AND TALENT TEST</h2>
+                                    <h2>INTEREST TALENT TEST</h2>
                                     <P>Mengetes kemampuan kognitif test.</P>
                                 </div>
                                 <a href="">
@@ -100,7 +100,7 @@
                             </div>
 
                             <div class="d-flex box-profil mb-4">
-                                <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
+                                <img src="img//cognitive style.png" class="img-fluid" alt="">
                                 <div class="d-flex flex-column">
                                     <h2>COGNITIVE STYLE TEST</h2>
                                     <P>Mengetes kemampuan kognitif test.</P>
@@ -111,7 +111,7 @@
                             </div>
 
                             <div class="d-flex box-profil mb-4">
-                                <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
+                                <img src="img/validation test.png" class="img-fluid" alt="">
                                 <div class="d-flex flex-column">
                                     <h2>VALIDATION TEST</h2>
                                     <P>Test tertulis untuk memvalidasi hasil asesmen interaktif</P>
@@ -166,35 +166,30 @@
                             <h5 class="fw-bold mb-4 text-center">Review Terbaru</h5>
                             <div class="d-flex box-profil mb-4">
                                 <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta
-                                    optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
+                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
                             </div>
 
                             <div class="d-flex box-profil mb-4">
                                 <img src="img/profil-review/probe.jpeg" class="avatar img-fluid" alt="avatar">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta
-                                    optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
                             </div>
 
                             <div class="d-flex box-profil mb-4">
                                 <img src="img/profil-review/tok-abah.jpeg" class="avatar img-fluid" alt="avatar">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta
-                                    optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
                             </div>
 
                             <div class="d-flex box-profil mb-4">
                                 <img src="img/profil-review/cikgu.jpg" class="avatar img-fluid" alt="avatar">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta
-                                    optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
                             </div>
 
                             <div class="d-flex box-profil mb-4">
                                 <img src="img/profil-review/upin.jpeg" class="avatar img-fluid" alt="avatar">
-                                <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta
-                                    optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
+                                    <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Facere quaerat iste dicta optio, quae rerum aspernatur nam ex laudantium perspiciatis?</p>
                             </div>
 
-                            <a href="page/review.php" class="text-center">
+                            <a href="{{ route('review') }}" class="text-center">
                                 <button type="button" class="btn btn-primary">Show Details</button>
                             </a>
                         </div>

@@ -43,6 +43,47 @@
     color: orange;
 }
 
+.reply-box {
+    display: flex;
+    align-items: center;
+    margin-top: 10px;
+}
+
+.reply-box .reply-input {
+    flex: 1;
+    padding: 12px 40px;
+    border: none;
+    border-radius: 20px;
+    margin-right: 10px;
+    background: #b5cefa;
+    resize: none;
+    overflow: hidden;
+    font-size: 15px;
+}
+
+.reply-box .reply-button {
+    background: #0a3a8f;
+    border: none;
+    border-radius: 50%;
+    padding: 13px;
+    margin-left: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+}
+
+.reply-box .reply-button i {
+    color: #fff;
+    font-size: 20px;
+}
+
+.reply-box .reply-button:hover {
+    background: #0056b3;
+}
+
+
+
 @media (max-width: 768px) {
     .rev .revbox p{
         font-size: 12px;

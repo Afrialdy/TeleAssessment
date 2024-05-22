@@ -10,6 +10,26 @@ input[type="date"] {
     margin-left: -12px;
 }
 
+.content .cover {
+    display: flex;
+    align-items: center;
+}
+
+.content .cover h5 {
+    font-weight: 700;
+}
+
+.content .cover img {
+    width: 30px;
+    margin-right: 20px;
+}
+
+.content .cover a {
+    margin-left: auto;
+    color: #0f57d6;
+    font-weight: 600;
+}
+
 .asess {
     position: relative;
     display: flex;
@@ -28,6 +48,12 @@ input[type="date"] {
 
 .asess .asessbox h1 {
     font-size: 18px;
+}
+
+.asess .asessbox .hasil-tes {
+    margin: auto;
+    margin-right: 0;
+    height: auto;
 }
 
 .asess .asessbox h3 {

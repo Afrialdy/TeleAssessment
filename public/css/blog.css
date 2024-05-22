@@ -1,0 +1,16 @@
+.content .container .row label {
+    font-weight: 600;
+}
+
+.content .container .row .form-control {
+    border: 1px solid black;
+}
+
+.content .container .row .btn {
+    border: 1px solid transparent;
+    border-radius: 25px;
+    padding: 5px 20px;
+    background-color: #0e4ebe;
+    color: #fff;
+    font-weight: 400;
+}

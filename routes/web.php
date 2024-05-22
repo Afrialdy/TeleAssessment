@@ -31,7 +31,7 @@ Route::get('/index', [AuthController::class, 'index'])->name('index');
 
 
 Route::get('/dashboard', function () {
-    return view('dashboard'); // Ensure you have a dashboard view
+    return view('dashboard');
 })->name('dashboard')->middleware('auth');
 
 Route::get('/dataKandidat', function () {
@@ -42,9 +42,17 @@ Route::get('/assessment', function () {
     return view('assessment');
 })->name('assessment')->middleware('auth');
 
+Route::get('/hasil-test', function () {
+    return view('hasil-test');
+})->name('hasil-test');
+
 Route::get('/laporan', function () {
     return view('laporan');
 })->name('laporan')->middleware('auth');
+
+Route::get('/detail-laporan', function () {
+    return view('detail-laporan');
+})->name('detail-laporan');
 
 Route::get('/blog', function () {
     return view('blog');
@@ -66,6 +74,14 @@ Route::get('/logout', function () {
     return view('login');
 })->name('logout')->middleware('auth');
 
+Route::get('/review', function () {
+    return view('review');
+})->name('review');
+
+
+Route::get('/contoh', function () {
+    return view('contoh');
+})->name('contoh');
 
 
 Route::post('/blog/create', [BlogController::class, 'create'])->name('postCreateBlog');
