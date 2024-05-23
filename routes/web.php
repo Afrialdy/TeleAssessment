@@ -1,7 +1,9 @@
 <?php
 
+use App\Models\User;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
+use App\Http\Controllers\UserController;
 use Illuminate\Support\Facades\Route;
 
 /*
@@ -29,13 +31,17 @@ Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
 
 Route::get('/index', [AuthController::class, 'index'])->name('index');
 
+Route::get('dataKandidat',[UserController::class,'dataKandidat']);
+Route::get('user/{id}',[UserController::class,'update']);
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
 
 Route::get('/dataKandidat', function () {
-    return view('dataKandidat');
+    return view('dataKandidat', [
+        'users'=>User::get(),
+    ]);
 })->name('dataKandidat')->middleware('auth');
 
 Route::get('/assessment', function () {
@@ -77,11 +83,6 @@ Route::get('/logout', function () {
 Route::get('/review', function () {
     return view('review');
 })->name('review');
-
-
-Route::get('/contoh', function () {
-    return view('contoh');
-})->name('contoh');
 
 
 Route::post('/blog/create', [BlogController::class, 'create'])->name('postCreateBlog');

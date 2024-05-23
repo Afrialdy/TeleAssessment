@@ -1,52 +1,80 @@
 @extends('layout.master')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/dataKandidat.css') }}">
+    <link href="https://cdn.datatables.net/v/bs5/dt-2.0.7/datatables.min.css" rel="stylesheet" type="text/css">
+    <link rel="stylesheet" href="{{ asset('css/dataKandidat.css') }}">
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">
             <div class="mb-3">
                 <h3 class="fw-bold">Data Kandidat</h3>
                 <div class="data-kandidat mt-4">
-                    <div class="data-box">
-                        <table>
-                            <thead class="px-4">
-                                <tr>
-                                    <td>Pengguna</td>
-                                    <td style="padding-right: 30px;">ID</td>
-                                    <td style="padding-left: 10px;">No Telepon</td>
-                                    <td>Tanggal Lahir</td>
-                                    <td style="padding-right: 30px;">Usia</td>
-                                    <td style="padding-right: 20px;">Gender</td>
-                                    <td style="padding-left: 15px;">Keterangan</td>
-                                    <td>
-                                        <a href="" style="padding-left: 17px">
-                                            <i class="lni lni-printer"></i>
-                                        </a>
-                                    </td>
-                                    <td>
-                                        <a href="" style="padding-left: 20px">
-                                            <i class="lni lni-download"></i>
-                                        </a>
-                                    </td>
-                                </tr>
-                            </thead>
-
-                            <tr class="separator">
-                                <td colspan="12"></td>
+                <table id="myTable" class="table table-striped">
+                    <thead>
+                        <tr>
+                            <th>Pengguna</th>
+                            <th>ID</th>
+                            <th>No Telepon</th>
+                            <th>Usia</th>
+                            <th>Gender</th>
+                            <th>Keterangan</th>
+                        </tr>
+                    </thead>
+                    <tbody>
+                        @foreach ($users as $user)
+                            <tr>
+                                <td class="profil d-flex">
+                                    <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
+                                    <div class="user">
+                                        <h5 class="mt-3">{{ $user->name }}</h5>
+                                        <p>{{ $user->email }}</p>
+                                    </div>
+                                </td>
+                                <td><h5>{{ $user->id }}</h5></td>
+                                <td><h5>{{ $user->phone }}</h5></td>
+                                <td><h5>{{ $user->age }}</h5></td>
+                                <td><h5>{{ $user->gender }}</h5></td>
+                                <td>
+                                    <a href="user/{{ $user->id }}" class="btn btn-sm btn-{{ $user->is_active ? 'success' : 'danger' }}">
+                                        {{ $user->is_active ? 'Aktif' : 'Tidak Aktif' }}
+                                    </a>
+                                </td>
                             </tr>
+                        @endforeach
+                    </tbody>
 
-                            <tbody id="dataContainer">
-                                <!-- Data akan diisi oleh JavaScript -->
-                            </tbody>
-                        </table>
-                    </div>
-                </div>
+                </table>
             </div>
         </div>
     </main>
 
-    <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js" integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous"></script>
-    <script src="{{ asset('js/generateData.js') }}"></script>
-    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRMSOm4l6H2z+EuhvzrQF2s6D8zjri5+7NfXKhv6N" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
+    <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-2.0.7/datatables.min.js"></script>
+    <script>
+        let table = new DataTable('#myTable');
+
+        document.addEventListener('DOMContentLoaded', (event) => {
+        document.querySelectorAll('.dropdown-item').forEach(item => {
+        item.addEventListener('click', event => {
+            let button = event.target.closest('.dropdown').querySelector('button');
+            if (button.classList.contains('btn-aktif')) {
+                // Update teks dropdown
+                event.target.textContent = 'Aktif';
+                // Update kelas tombol
+                button.classList.remove('btn-aktif');
+                button.classList.add('btn-tidak-aktif');
+                button.textContent = 'Tidak Aktif';
+            } else {
+                // Update teks dropdown
+                event.target.textContent = 'Tidak Aktif';
+                // Update kelas tombol
+                button.classList.remove('btn-tidak-aktif');
+                button.classList.add('btn-aktif');
+                button.textContent = 'Aktif';
+                    }
+                });
+            });
+        });
+    </script>
 @endsection

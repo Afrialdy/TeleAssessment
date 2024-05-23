@@ -19,6 +19,10 @@ class CreateUsersTable extends Migration
             $table->string('email')->unique();
             $table->timestamp('email_verified_at')->nullable();
             $table->string('password');
+            $table->string('no_telepon'); // Menambahkan kolom no_telepon
+            $table->integer('usia'); // Menambahkan kolom usia
+            $table->enum('gender', ['Male', 'Female']); // Menambahkan kolom gender
+            $table->boolean('keterangan'); // Menambahkan kolom keterangan
             $table->rememberToken();
             $table->timestamps();
         });
