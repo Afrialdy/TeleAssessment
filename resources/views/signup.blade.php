@@ -15,37 +15,40 @@
             <div class="box">
                 <div class="align-items-center">
                     <div class="logo text-center">
-                        <h1>Tele Asessment</h1>
+                        <h1>Tele Assessment</h1>
                     </div>
                     <div class="header-text mb-4 text-center">
                         <h3>Sign Up</h3>
                         <p class="text-secondary">Signing up is easy. It only takes a few steps</p>
                     </div>
                     <!-- Alert Section -->
-                    <form action="{{ route('postRegister')  }}" method="POST">
+                    <form action="{{ route('postRegister') }}" method="POST">
                         @csrf
                         <div id="signupAlert" class="alert alert-success d-none fs-6 text-center" role="alert">
                             Signup successful! You will be redirected to login page.
                         </div>
                         <!-- End Alert Section -->
-                            <div class="input-group mb-3">
-                                <input type="text" name="fullname" class="form-control form-control-lg fs-6" placeholder="Full Name" id="name" required>
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="email" name="email" class="form-control form-control-lg fs-6" placeholder="Email address" id="email" required>
-                            </div>
-                            <div class="input-group mb-5">
-                                <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" id="password" required>
-                            </div>
-                            <div class="input-group mb-3">
-                                <input type="submit" name="signup" class="btn btn-lg btn-dark w-100 fs-6 text-uppercase btn-signup" value="Sign up">
-                            </div>
-                            <div class="text-center signup">
+                        <div class="input-group mb-3">
+                            <input type="text" name="name" class="form-control form-control-lg fs-6" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="email" name="email" class="form-control form-control-lg fs-6" placeholder="Email address" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="password" name="password_confirmation" class="form-control form-control-lg fs-6" placeholder="Confirm Password" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="submit" name="signup" class="btn btn-lg btn-dark w-100 fs-6 text-uppercase btn-signup" value="Sign up">
+                        </div>
+                        <div class="text-center signup">
                             <h6 class="fw-lighter">Already have an account? <a href="{{ route('login') }}">Login</a></h6>
-                            </div>
+                        </div>
                     </form>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 

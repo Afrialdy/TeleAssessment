@@ -25,11 +25,11 @@ Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/signup', [AuthController::class, 'getSignup'])->name('signup');
 
 Route::post('/login', [AuthController::class, 'postLogin'])->name('postLogin');
-Route::get('/index', [AuthController::class, 'index'])->name('index');
+Route::post('/register', [AuthController::class, 'postRegister'])->name('postRegister'); // Ensure this route exists
 
 Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
 
-Route::get('/index', [AuthController::class, 'index'])->name('index');
+Route::get('/index', [AuthController::class, 'index'])->name('index')->middleware('auth');
 
 Route::get('dataKandidat',[UserController::class,'dataKandidat']);
 Route::get('user/{id}',[UserController::class,'update']);

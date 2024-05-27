@@ -2,10 +2,11 @@
 
 namespace App\Http\Controllers;
 
-use App\Models\User; // Import the User model
+use App\Models\User;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Hash;
+use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
@@ -28,28 +29,33 @@ class AuthController extends Controller
         }
     }
 
-
     public function postRegister(Request $request)
     {
-        $validated = $request->validate([
+        $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
             'password' => 'required|string|min:8|confirmed',
+            'password_confirmation' => 'required'
         ]);
 
-        dd($validated);
+        if ($validator->fails()) {
+            return response([
+                'status' => false,
+                'message' => 'Validation errors !',
+                'error' => $validator->errors()
+            ]);
+        }
 
-        $user = User::create([
-            'name' => $validated['name'],
-            'email' => $validated['email'],
-            'password' => Hash::make($validated['password']),
-        ]);
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']); // Hash the password before saving
+
+        $user = User::create($input);
 
         Auth::login($user);
 
         $request->session()->regenerate();
 
-        return redirect()->route('index'); // Ensure this route exists
+        return redirect()->route('dashboard');
     }
 
     public function postLogout(Request $request)
@@ -57,7 +63,8 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
-        
+
         return redirect()->route('login'); // Ensure this route exists
     }
 }
+
