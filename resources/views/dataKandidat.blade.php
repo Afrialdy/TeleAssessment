@@ -6,9 +6,18 @@
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">
-            <div class="mb-3">
-                <h3 class="fw-bold">Data Kandidat</h3>
-                <div class="data-kandidat mt-4">
+            <div class="mb-3 d-flex justify-content-between align-items-center"> <!-- Update disini -->
+                <h3 class="fw-bold mb-0">Data Kandidat</h3>
+                <div class="icons">
+                    <a href="">
+                        <i class="lni lni-printer"></i>
+                    </a>
+                    <a href="">
+                        <i class="lni lni-download"></i>
+                    </a>
+                </div>
+            </div>
+            <div class="data-kandidat mt-4">
                 <table id="myTable" class="table table-striped">
                     <thead>
                         <tr>
@@ -35,14 +44,13 @@
                                 <td><h5>{{ $user->age }}</h5></td>
                                 <td><h5>{{ $user->gender }}</h5></td>
                                 <td>
-                                    <a href="user/{{ $user->id }}" class="btn btn-sm btn-{{ $user->is_active ? 'success' : 'danger' }}">
+                                    <a href="user/{{ $user->id }}" class="btn btn-sm {{ $user->is_active ? 'btn-custom-active' : 'btn-custom-nonactive' }}">
                                         {{ $user->is_active ? 'Aktif' : 'Tidak Aktif' }}
                                     </a>
                                 </td>
                             </tr>
                         @endforeach
                     </tbody>
-
                 </table>
             </div>
         </div>
@@ -55,23 +63,23 @@
         let table = new DataTable('#myTable');
 
         document.addEventListener('DOMContentLoaded', (event) => {
-        document.querySelectorAll('.dropdown-item').forEach(item => {
-        item.addEventListener('click', event => {
-            let button = event.target.closest('.dropdown').querySelector('button');
-            if (button.classList.contains('btn-aktif')) {
-                // Update teks dropdown
-                event.target.textContent = 'Aktif';
-                // Update kelas tombol
-                button.classList.remove('btn-aktif');
-                button.classList.add('btn-tidak-aktif');
-                button.textContent = 'Tidak Aktif';
-            } else {
-                // Update teks dropdown
-                event.target.textContent = 'Tidak Aktif';
-                // Update kelas tombol
-                button.classList.remove('btn-tidak-aktif');
-                button.classList.add('btn-aktif');
-                button.textContent = 'Aktif';
+            document.querySelectorAll('.dropdown-item').forEach(item => {
+                item.addEventListener('click', event => {
+                    let button = event.target.closest('.dropdown').querySelector('button');
+                    if (button.classList.contains('btn-aktif')) {
+                        // Update teks dropdown
+                        event.target.textContent = 'Aktif';
+                        // Update kelas tombol
+                        button.classList.remove('btn-aktif');
+                        button.classList.add('btn-tidak-aktif');
+                        button.textContent = 'Tidak Aktif';
+                    } else {
+                        // Update teks dropdown
+                        event.target.textContent = 'Tidak Aktif';
+                        // Update kelas tombol
+                        button.classList.remove('btn-tidak-aktif');
+                        button.classList.add('btn-aktif');
+                        button.textContent = 'Aktif';
                     }
                 });
             });

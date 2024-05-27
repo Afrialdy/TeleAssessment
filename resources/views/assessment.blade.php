@@ -5,17 +5,12 @@
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">
-            <div class="">
-                <h4 class="fw-bold">Hasil Tes Peserta</h4>
-                <input type="date">
+            <h4 class="fw-bold">Hasil Tes Peserta</h4>
+            <div class="date-picker-body">
+                <input type="date" id="start-date" class="date-input">
+                <span class="separator">—</span>
+                <input type="date" id="end-date" class="date-input">
             </div>
-            {{-- <div class="cover mt-4">
-                <img src="../img/interview test.png" alt="" class="img-fluid">
-                <h5 class="mt-2">INTERVIEW TEST</h5>
-                <a href="">
-                    <span>See all</span>
-                </a>
-            </div> --}}
             <div class="row">
 
                 <div class="col-md-6">

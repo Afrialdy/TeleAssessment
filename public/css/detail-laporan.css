@@ -1,14 +1,17 @@
-/* General Styles */
 .row .profil-box,
 .row .deskripsi-box,
 .row .kesimpulan-box {
     background: #dbe7fc;
     padding: 20px 20px;
     border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
 }
 
 .row .profil-box {
-    min-height: 360px;
+    min-height: 300px;
     display: flex;
     align-items: center;
 }
@@ -17,7 +20,11 @@
     max-width: 174px;
     width: 100%;
     height: auto;
-    border-radius: 10px;
+    border-radius: 50%;
+    -webkit-border-radius: 50%;
+    -moz-border-radius: 50%;
+    -ms-border-radius: 50%;
+    -o-border-radius: 50%;
 }
 
 .row .profil-box .user-box {
@@ -43,6 +50,20 @@
     align-items: center;
 }
 
+.row .profil-box .user-box .user-info .icon-item {
+    display: flex;
+    align-items: center;
+}
+
+.row .profil-box .user-box .user-info .icon-item i {
+    font-weight: 600;
+    font-size: 18px;
+}
+
+.row .profil-box .user-box .user-info .icon-item h3 {
+    margin-left: 10px;
+}
+
 .row .profil-box .user-box .icons {
     font-size: 30px;
     display: flex;
@@ -65,7 +86,7 @@
 }
 
 .row .deskripsi-box {
-    min-height: 360px;
+    min-height: 300px;
 }
 
 .header-box {
@@ -84,6 +105,10 @@
     padding: 0 50px;
 }
 
+.row .deskripsi-box ol li {
+    list-style: decimal;
+}
+
 .row .deskripsi-box ul li {
     list-style: disc;
     margin-top: 5px;
@@ -92,6 +117,7 @@
 .row .kesimpulan-box {
     padding: 20px 20px;
 }
+
 
 /* Media Query for Mobile Devices */
 @media (max-width: 768px) {

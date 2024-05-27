@@ -21,6 +21,7 @@ Route::get('/', function () {
     return redirect()->route('login');
 })->name('home');
 
+/* AuthController */
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/signup', [AuthController::class, 'getSignup'])->name('signup');
 
@@ -31,6 +32,7 @@ Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
 
 Route::get('/index', [AuthController::class, 'index'])->name('index')->middleware('auth');
 
+/* UserController */
 Route::get('dataKandidat',[UserController::class,'dataKandidat']);
 Route::get('user/{id}',[UserController::class,'update']);
 
@@ -53,7 +55,9 @@ Route::get('/hasil-test', function () {
 })->name('hasil-test');
 
 Route::get('/laporan', function () {
-    return view('laporan');
+    return view('laporan', [
+        'users'=>User::get(),
+    ]);
 })->name('laporan')->middleware('auth');
 
 Route::get('/detail-laporan', function () {

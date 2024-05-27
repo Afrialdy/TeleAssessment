@@ -1,82 +1,53 @@
-
-.content .container-fluid .icons {
-    align-items: center;
-    margin-left: auto;
-    font-size: 25px;
+.content {
+    background-color: #e7effd;
 }
 
-.content .container-fluid .icons i {
+.container-fluid .icons i {
+    font-size: 25px;
+    margin-left: 10px;
     font-weight: 600;
     color: #0a3a8f;
-    margin-left: 20px;
 }
 
-.laporan {
-    position: relative;
-    display: flex;
-    width: 100%;
-    min-height: auto;
+#myTable {
+    max-width: 100%;
 }
 
-.laporan .tbl {
-    table-layout: fixed;
-    width: 100%;
-    min-width: 650px;
-    border-collapse: collapse;
-    background: #f8f8f8;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-}
-
-.laporan .tbl thead th {
+#myTable thead tr th {
+    text-align: left;
     font-size: 18px;
-    padding: 10px 20px;
-    background-color: #0a3a8f;
-    text-align: center;
-    color: #fff;
 }
 
-.laporan .tbl tbody td {
-    padding: 10px 20px;
-    text-align: center;
-    word-break: break-all;
-    margin: auto;
+#myTable tbody tr td {
+    text-align: left;
+    vertical-align: middle;
+    padding: 10px 20px 10px 10px;
 }
 
-.laporan .tbl tbody td .btn {
-    padding: 3px 20px;
-    background: #0d498e;
-    border: none;
-    border-radius: 13px;
-    -webkit-border-radius: 13px;
-    -moz-border-radius: 13px;
-    -ms-border-radius: 13px;
-    -o-border-radius: 13px;
+#myTable tbody tr td h5 {
+    font-size: 16px;
+    margin: 0;
+    display: flex;
+    align-items: center;
+    height: 100%;
 }
 
-.laporan .tbl tbody td .btn:hoveR {
-    background: #3496ff;
+#myTable tbody tr td a button {
+    display: flex;
+    align-items: center;
+    background-color: #0d49b3;
+    border-radius: 10px;
+    padding: 2px 20px;
 }
 
-/* .laporan .tbl tbody tr:hover td {
-    color: #fff;
-    cursor: pointer;
-    background-color: #333;
-} */
-
-/* .laporan .tbl thead th:nth-child(1) {
-    text-align: start;
+#myTable tbody tr td a button:hover {
+    background-color: transparent;
+    color: #000;
+    border-color: #000;
 }
 
-.laporan .tbl thead th:nth-child(5) {
-    text-align: end;
+.form-control,
+.form-select {
+    border-color: #000;
+    border-radius: 10px;
 }
-
-.laporan .tbl tbody td:nth-child(1) {
-    text-align: start;
-}
-
-.laporan .tbl tbody td:nth-child(5) {
-    text-align: end;
-} */

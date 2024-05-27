@@ -64,14 +64,56 @@
                             <textarea class="form-control" id="description" name="description" rows="5" required></textarea>
                         </div>
                         <div class="text-center mb-5">
-                            <button type="submit" class="btn">Ubah Profil</button>
+                            <button type="submit" class="btn" id="editProfil">Ubah Profil</button>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="row mt-2 px-5">
+                    <div class="col-md-6">
+                        <div class="asess">
+                            <div class="asessbox mt-3">
+                                <h2 class="fs-5">Kata Sandi</h2>
+                                <p>***********</p>
+                                <h5 class="fs-6">Terakhir diubah 10 Januari 2024</h5>
+                                <button class="btn btn-primary">Ubah Password</button>
+                            </div>
                         </div>
                     </div>
 
-                    <div class="user-profil">
+                    <div class="col-md-6">
+                        <div class="asess">
+                            <div class="asessbox-setting d-flex mt-3 flex-column gap-3">
+                                <button class="btn-language btn-primary d-flex">
+                                    <div class="d-flex flex-column">
+                                        <div class="language">
+                                            <i class="lni lni-world"></i>
+                                            Bahasa
+                                        </div>
+                                        <span>Indonesia</span>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="lni lni-arrow-right"></i>
+                                    </div>
+                                </button>
 
+                                <button class="btn-language btn-primary d-flex">
+                                    <div class="d-flex flex-column">
+                                        <div class="language">
+                                            <i class="lni lni-map-marker"></i>
+                                            Wilayah
+                                        </div>
+                                        <span>Indonesia</span>
+                                    </div>
+                                    <div class="icon">
+                                        <i class="lni lni-arrow-right"></i>
+                                    </div>
+                                </button>
+                            </div>
+                        </div>
                     </div>
                 </div>
+
             </div>
         </div>
     </main>

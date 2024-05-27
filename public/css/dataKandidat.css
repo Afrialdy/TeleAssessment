@@ -2,6 +2,13 @@
     background-color: #e7effd;
 }
 
+.container-fluid .icons i {
+    font-size: 25px;
+    margin-left: 10px;
+    font-weight: 600;
+    color: #0a3a8f;
+}
+
 #myTable {
     max-width: 100%;
 }
@@ -18,13 +25,32 @@
 }
 
 #myTable tbody tr td h5 {
-    font-size: 15px;
+    font-size: 16px;
     margin-top: 28px;
 }
 
 #myTable tbody tr td .btn {
     margin-top: 21px;
     padding: 5px 15px;
+    border-radius: 10px;
+    -webkit-border-radius: 10px;
+    -moz-border-radius: 10px;
+    -ms-border-radius: 10px;
+    -o-border-radius: 10px;
+}
+
+.btn-custom-active {
+    background-color: #1ca800 !important;
+    border-color: #1ca800 !important;
+    color: #fff;
+    font-size: 15px;
+}
+
+.btn-custom-nonactive {
+    background-color: #e21212 !important;
+    border-color: #e21212 !important;
+    color: #fff;
+    font-size: 15px;
 }
 
 .profil {
@@ -33,7 +59,7 @@
 }
 
 .profil .avatar {
-    border-radius: 28%;
+    border-radius: 50%;
     min-width: 50px;
     width: 100%;
     height: auto;
@@ -48,6 +74,7 @@
 
 #myTable tbody tr .profil .user h5 {
     font-size: 18px;
+    font-weight: 600;
 }
 
 .user p {
@@ -55,4 +82,8 @@
     margin-top: -8px;
 }
 
-
+.form-control,
+.form-select {
+    border-color: #000;
+    border-radius: 10px;
+}
