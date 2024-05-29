@@ -23,6 +23,7 @@
                         <tr>
                             <th>Pengguna</th>
                             <th>ID</th>
+                            <th>Tanggal</th>
                             <th>No Telepon</th>
                             <th>Usia</th>
                             <th>Gender</th>
@@ -40,6 +41,7 @@
                                     </div>
                                 </td>
                                 <td><h5>{{ $user->id }}</h5></td>
+                                <td><h5>{{ $user->updated_at }}</h5></td>
                                 <td><h5>{{ $user->phone }}</h5></td>
                                 <td><h5>{{ $user->age }}</h5></td>
                                 <td><h5>{{ $user->gender }}</h5></td>

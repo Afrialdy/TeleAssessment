@@ -1,5 +1,7 @@
 <?php
 
+use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\DatakandidatController;
 use App\Models\User;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
@@ -32,23 +34,21 @@ Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
 
 Route::get('/index', [AuthController::class, 'index'])->name('index')->middleware('auth');
 
-/* UserController */
-Route::get('dataKandidat',[UserController::class,'dataKandidat']);
-Route::get('user/{id}',[UserController::class,'update']);
+/* DatakandidatController */
+Route::get('/dataKandidat', [DatakandidatController::class, 'index'])
+    ->name('dataKandidat')
+    ->middleware('auth');
+Route::get('user/{id}',[DatakandidatController::class,'update']);
+
+/* AssessmentController */
+Route::get('/assessment', [AssessmentController::class, 'index'])
+    ->name('assessment')
+    ->middleware('auth');
+Route::get('/search', [AssessmentController::class, 'search'])->name('search');
 
 Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
-
-Route::get('/dataKandidat', function () {
-    return view('dataKandidat', [
-        'users'=>User::get(),
-    ]);
-})->name('dataKandidat')->middleware('auth');
-
-Route::get('/assessment', function () {
-    return view('assessment');
-})->name('assessment')->middleware('auth');
 
 Route::get('/hasil-test', function () {
     return view('hasil-test');

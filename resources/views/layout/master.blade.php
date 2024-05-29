@@ -140,12 +140,10 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 <div class="navbar-collapse collapse">
                     <h2 class="fw-bold">Hello, {{ Auth::user()->name }}</h2>
                     <ul class="navbar-nav ms-auto align-items-center d-flex">
-                        <form action="#" class="search">
-                            <div class="input-group input-group-navbar">
-                                <input type="text" class="form-control rounded-2" placeholder="Search..">
-                                <button class="btn rounded-2" type="button">
-                                    Search
-                                </button>
+                        <form action="">
+                            <div class="search-box">
+                                <input type="text" placeholder="Search...">
+                                <button type="submit"><i class="lni lni-search-alt"></i></button>
                             </div>
                         </form>
 
@@ -223,7 +221,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
             </footer>
         </div>
     </div>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/js/bootstrap.bundle.min.js"
         integrity="sha384-YvpcrYf0tY3lHB60NNkmXc5s9fDVZLESaAA55NDzOxhy9GkcIdslK1eN7N6jIeHz" crossorigin="anonymous">
     </script>
