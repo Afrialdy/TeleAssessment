@@ -76,6 +76,15 @@ input[type="date"] {
     color: #fff;
 }
 
+.entries {
+    display: flex;
+}
+
+.pagination {
+    display: flex;
+    justify-content: flex-end;
+}
+
 @media (max-width: 768px) {
     .asess .asessbox {
         padding: 20px;
@@ -83,5 +92,14 @@ input[type="date"] {
 
     .asess .asessbox .items {
         flex-direction: column;
+    }
+
+    .entries {
+        margin-top: 10px;
+        justify-content: center;
+    }
+
+    .pagination {
+        justify-content: center;
     }
 }

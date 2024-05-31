@@ -4,18 +4,11 @@ use App\Models\User;
 use App\Http\Controllers\AuthController;
 use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
-use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\SurveyController;
+use App\Http\Controllers\AssessmentController;
+use App\Http\Controllers\DatakandidatController;
 
-/*
-|--------------------------------------------------------------------------
-| Web Routes
-|--------------------------------------------------------------------------
-|
-| Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
-|
-*/
+use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect()->route('login');
@@ -38,15 +31,17 @@ Route::get('/dashboard', function () {
     return view('dashboard');
 })->name('dashboard')->middleware('auth');
 
-Route::get('/dataKandidat', function () {
-    return view('dataKandidat', [
-        'users'=>User::get(),
-    ]);
-})->name('dataKandidat')->middleware('auth');
+/* DatakandidatController */
+Route::get('/dataKandidat', [DatakandidatController::class, 'index'])
+    ->name('dataKandidat')
+    ->middleware('auth');
+Route::get('user/{id}',[DatakandidatController::class,'update']);
 
-Route::get('/assessment', function () {
-    return view('assessment');
-})->name('assessment')->middleware('auth');
+/* AssessmentController */
+Route::get('/assessment', [AssessmentController::class, 'index'])
+    ->name('assessment')
+    ->middleware('auth');
+Route::get('/search', [AssessmentController::class, 'search'])->name('search');
 
 Route::get('/hasil-test', function () {
     return view('hasil-test');
@@ -64,9 +59,9 @@ Route::get('/blog', function () {
     return view('blog');
 })->name('blog')->middleware('auth');
 
-Route::get('/quiz', function () {
-    return view('quiz');
-})->name('quiz')->middleware('auth');
+Route::get('/surveyEdit', function () {
+    return view('surveyEdit');
+})->name('surveyEdit')->middleware('auth');
 
 Route::get('/profile', function () {
     return view('profile');
@@ -84,9 +79,12 @@ Route::get('/review', function () {
     return view('review');
 })->name('review');
 
+// Survey Routes
+Route::get('/pertanyaan_test', [SurveyController::class, 'index'])->name('pertanyaan_test');
+Route::get('/pertanyaan_test/json/{id}', [SurveyController::class, 'getSurveyJson'])->name('pertanyaan_test.get');
+Route::get('/pertanyaan_test/{id}', [SurveyController::class, 'showSurveyView'])->name('pertanyaan_test.show');
 
 Route::post('/blog/create', [BlogController::class, 'create'])->name('postCreateBlog');
-
 
 // Uncomment the following line if you want to use the blog route
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');

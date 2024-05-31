@@ -20,6 +20,10 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
     <link rel="stylesheet" href="{{ asset('css/style.css') }}">
     <link rel="stylesheet" href="{{ asset('css/review.css') }}">
 
+    <link rel="stylesheet" href="{{ mix('css/app.css') }}">
+    <script src="{{ mix('js/app.js') }}"></script>
+
+
     @yield('style')
 </head>
 
@@ -63,10 +67,25 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 </li>
 
                 <li class="sidebar-item">
-                    <a href="{{ route('assessment') }}" class="sidebar-link">
-                        <i class="lni lni-remove-file"></i>
+                    <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
+                        data-bs-target="#survey" aria-expanded="false" aria-controls="survey">
+                        <i class="lni lni-stackoverflow"></i>
                         <span>Assessment</span>
                     </a>
+                    <ul id="survey" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
+                        <li class="sidebar-item">
+                            <a href="{{ route('pertanyaan_test') }}" class="sidebar-link">
+                                <i class="lni lni-book"></i>
+                                Pertanyaan Test
+                            </a>
+                        </li>
+                        <li class="sidebar-item">
+                            <a href="{{ route('surveyEdit') }}" class="sidebar-link">
+                                <i class="lni lni-write"></i>
+                                Hasil Assessment
+                            </a>
+                        </li>
+                    </ul>
                 </li>
 
                 <li class="sidebar-item">
@@ -75,13 +94,6 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                         <span>Laporan</span>
                     </a>
                 </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('quiz') }}" class="sidebar-link">
-                        <i class="lni lni-write"></i>
-                        <span>Quiz Create</span>
-                    </a>
-                </li>
-
                 <li class="sidebar-item">
                     <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#konten" aria-expanded="false" aria-controls="konten">
@@ -140,12 +152,10 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 <div class="navbar-collapse collapse">
                     <h2 class="fw-bold">Hello, {{ Auth::user()->name }}</h2>
                     <ul class="navbar-nav ms-auto align-items-center d-flex">
-                        <form action="#" class="search">
-                            <div class="input-group input-group-navbar">
-                                <input type="text" class="form-control rounded-2" placeholder="Search..">
-                                <button class="btn rounded-2" type="button">
-                                    Search
-                                </button>
+                        <form action="">
+                            <div class="search-box">
+                                <input type="text" placeholder="Search...">
+                                <button type="submit"><i class="lni lni-search-alt"></i></button>
                             </div>
                         </form>
 
