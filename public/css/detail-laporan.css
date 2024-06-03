@@ -64,15 +64,24 @@
     margin-left: 10px;
 }
 
-.row .profil-box .user-box .icons {
-    font-size: 30px;
+.row .profil-box .user-box .icons #exportPDF {
+    background-color: #004BE0;
     display: flex;
-    gap: 20px;
+    align-items: center;
+    justify-content: center;
+}
+
+.row .profil-box .user-box .icons #exportPDF:hover {
+    background-color: #0055ff;
+}
+
+.row .profil-box .user-box .icons span {
+    margin-right: 8px;
 }
 
 .row .profil-box .user-box .icons i {
+    font-size: 18px;
     font-weight: 600;
-    color: #0a3a8f;
 }
 
 .row .profil-box .user-box .user-detail {

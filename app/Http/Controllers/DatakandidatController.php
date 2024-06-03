@@ -9,7 +9,7 @@ class DatakandidatController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::orderBy('updated_at', 'desc')->get();
         return view('dataKandidat', compact('users'));
     }
 

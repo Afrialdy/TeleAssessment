@@ -2,11 +2,21 @@
     background-color: #e7effd;
 }
 
-.container-fluid .icons i {
-    font-size: 25px;
-    margin-left: 10px;
+.container-fluid #exportPDF {
+    background-color: #004BE0;
+}
+
+.container-fluid #exportPDF:hover {
+    background-color: #0055ff;
+}
+
+.container-fluid #exportPDF span {
+    margin-right: 8px;
+}
+
+.container-fluid #exportPDF i {
+    font-size: 18px;
     font-weight: 600;
-    color: #0a3a8f;
 }
 
 #myTable {

@@ -52,15 +52,12 @@
                         <div class="input-group mb-3">
                             <input type="submit" class="btn btn-lg btn-dark w-100 fs-6 text-uppercase btn-login" value="Login">
                         </div>
-                        <div class="input-group mb-3">
-                            <button class="btn btn-lg btn-light w-100 fs-6"><img src="../img/google.png" style="width:20px" class="me-2"><small>Sign In with Google</small></button>
-                        </div>
                         <div class="text-center signup">
                             <h6 class="fw-lighter">Don't have an account? <a href="{{ route('signup') }}">Sign Up</a></h6>
                         </div>
                     </form>
                 </div>
-            </div> 
+            </div>
         </div>
     </div>
 

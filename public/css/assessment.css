@@ -1,5 +1,34 @@
+.container-fluid #exportPDF {
+    background-color: #004BE0;
+}
+
+.container-fluid #exportPDF:hover {
+    background-color: #0055ff;
+}
+
+.container-fluid #exportPDF span {
+    margin-right: 8px;
+}
+
+.container-fluid #exportPDF i {
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .container-fluid h4 {
     margin-bottom: 0.5px;
+}
+
+.date-picker-body .filter {
+    background-color: #004BE0;
+}
+
+.date-picker-body .filter:hover {
+    background-color: #0055ff;
+}
+
+.date-picker-body .reset:hover {
+    background-color: #ff3e51;
 }
 
 input[type="date"] {
@@ -8,6 +37,14 @@ input[type="date"] {
 
 ::-webkit-calendar-picker-indicator {
     margin-left: -12px;
+}
+
+.input-group .search {
+    background-color: #004BE0;
+}
+
+.input-group .search:hover {
+    background-color: #0055ff;
 }
 
 .content .cover {

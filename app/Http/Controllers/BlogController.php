@@ -9,7 +9,7 @@ class BlogController extends Controller
     public function create(Request $request)
     {
         dd($request->all());
-        
+
         // Validate the incoming request data
         $validatedData = $request->validate([
             'name' => 'required',

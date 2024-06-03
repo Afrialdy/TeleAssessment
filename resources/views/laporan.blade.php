@@ -8,16 +8,12 @@
         <div class="container-fluid">
             <div class="mb-3 d-flex justify-content-between align-items-center"> <!-- Update disini -->
                 <h3 class="fw-bold mb-0">Laporan Asessment</h3>
-                <div class="icons">
-                    <a href="">
-                        <i class="lni lni-printer"></i>
-                    </a>
-                    <a href="">
-                        <i class="lni lni-download"></i>
-                    </a>
-                </div>
+                <button id="exportPDF" class="btn btn-primary">
+                    <span>Export PDF</span>
+                    <i class="lni lni-download"></i>
+                </button>
             </div>
-                <div class="data-kandidat mt-4">
+            <div class="data-kandidat mt-4">
                 <table id="myTable" class="table table-striped">
                     <thead>
                         <tr>
@@ -56,9 +52,14 @@
     <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRMSOm4l6H2z+EuhvzrQF2s6D8zjri5+7NfXKhv6N" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-2.0.7/datatables.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
+
     <script>
         $(document).ready(function() {
-            let table = new DataTable('#myTable');
+            let table = $('#myTable').DataTable({
+                "order": [], // Menghapus pengaturan default order
+            });
 
             function randomKepribadian() {
                 const kepribadianOptions = ['INTJ', 'ENTP', 'INFJ', 'ESTP', 'ISTJ', 'ENFJ'];
@@ -77,14 +78,40 @@
 
             // Populate random values for each row
             table.on('draw', function() {
-            $('#myTable tbody tr').each(function() {
-            $(this).find('.kepribadian h5').text(randomKepribadian());
-            $(this).find('.bakat-minat h5').text(randomBakatMinat());
-            $(this).find('.intelegensi h5').text(randomIntelegensi());
+                $('#myTable tbody tr').each(function() {
+                    $(this).find('.kepribadian h5').text(randomKepribadian());
+                    $(this).find('.bakat-minat h5').text(randomBakatMinat());
+                    $(this).find('.intelegensi h5').text(randomIntelegensi());
                 });
             });
 
             table.draw();
+
+            $('#exportPDF').on('click', function () {
+                const { jsPDF } = window.jspdf;
+                const doc = new jsPDF('landscape', 'pt', 'A4');
+                const rows = [];
+
+                @foreach ($users as $user)
+                    rows.push([
+                        '{{ $user->name }}',
+                        '{{ $user->id }}',
+
+                    ]);
+                @endforeach
+
+                doc.autoTable({
+                    head: [['Pengguna', 'ID', 'Kepribadian', 'Bakat Minat', 'Intelegensi']],
+                    body: rows,
+                    margin: { top: 30, left: 30, right: 30, bottom: 30 },
+                    styles: {
+                        fontSize: 10,
+                        cellPadding: 10
+                    }
+                });
+
+                doc.save('Laporan Assessment.pdf');
+            });
         });
     </script>
 

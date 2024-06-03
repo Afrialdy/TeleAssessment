@@ -5,17 +5,27 @@
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">
-            <h4 class="fw-bold">Hasil Tes Peserta</h4>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <h3 class="fw-bold mb-0">Hasil Tes Peserta</h3>
+                <button id="exportPDF" class="btn btn-primary">
+                    <span>Export PDF</span>
+                    <i class="lni lni-download"></i>
+                </button>
+            </div>
             <div class="d-flex justify-content-between align-items-center">
-                <div class="date-picker-body d-flex align-items-center">
-                    <input type="date" id="start-date" class="date-input me-2">
-                    <span class="separator me-2">—</span>
-                    <input type="date" id="end-date" class="date-input">
-                </div>
+                <form method="GET" action="{{ route('filter') }}">
+                    <div class="date-picker-body d-flex align-items-center">
+                        <input type="date" id="start_date" class="date-input me-2" name="start_date" value="{{ request()->input('start_date') }}">
+                        <span class="separator me-2">—</span>
+                        <input type="date" id="end_date" class="date-input me-4" name="end_date" value="{{ request()->input('end_date') }}">
+                        <button type="submit" class="btn btn-primary filter">Filter</button>
+                        <button type="button" class="btn btn-danger ms-2 reset" onclick="resetFilter()">Reset</button>
+                    </div>
+                </form>
                 <form action="{{ route('search') }}" method="GET" class="d-flex">
                     <div class="input-group">
                         <input type="text" class="form-control" placeholder="cari nama peserta" name="search">
-                        <button class="btn btn-primary" type="submit">
+                        <button class="btn btn-primary search" type="submit">
                             <i class="lni lni-search-alt mt-1"></i>
                         </button>
                     </div>
@@ -44,17 +54,74 @@
             </div>
             <div class="row">
                 <div class="col-md-6 mt-3 entries">
-                    Showing
-                    {{ $users->firstItem() }}
-                    to
-                    {{ $users->lastItem() }}
-                    of
-                    {{ $users->total() }}
-                    entries
+                    @if ($users instanceof \Illuminate\Pagination\AbstractPaginator)
+                        Showing
+                        {{ $users->firstItem() }}
+                        to
+                        {{ $users->lastItem() }}
+                        of
+                        {{ $users->total() }}
+                        entries
+                    @endif
                 </div>
-                <div class="col-md-6 pagination mt-3 text-end">
-                    {{ $users->links('pagination::bootstrap-4') }}
-                </div>
+                @if ($users instanceof \Illuminate\Pagination\AbstractPaginator)
+                    <div class="col-md-6 pagination mt-3 text-end">
+                        {{ $users->appends(request()->input())->links('pagination::bootstrap-4') }}
+                    </div>
+                @endif
             </div>
+
     </main>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.17/jspdf.plugin.autotable.min.js"></script>
+    <script>
+        document.getElementById('exportPDF').addEventListener('click', async () => {
+            const { jsPDF } = window.jspdf;
+            const doc = new jsPDF('landscape', 'pt', 'A4');
+            const rows = [];
+
+            // Fetch all users from the server
+            const response = await fetch('{{ route('all_users') }}');
+            const users = await response.json();
+
+            // Function to format date with explicit timezone
+            const formatDate = (dateString) => {
+                const date = new Date(dateString);
+                const formattedDate = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')} ${date.getUTCHours().toString().padStart(2, '0')}:${date.getUTCMinutes().toString().padStart(2, '0')}:${date.getUTCSeconds().toString().padStart(2, '0')}`;
+                return formattedDate;
+            };
+
+            // Push all users to the rows array
+            users.forEach(user => {
+                rows.push([
+                    user.name,
+                    user.email,
+                    user.id,
+                    formatDate(user.updated_at),
+                    user.phone,
+                    user.age,
+                    user.gender
+                ]);
+            });
+
+            // Generate PDF with all users
+            doc.autoTable({
+                head: [['Pengguna', 'Email', 'ID', 'Tanggal', 'No Telepon', 'Usia', 'Gender']],
+                body: rows,
+                margin: { top: 30, left: 30, right: 30, bottom: 30 },
+                styles: {
+                    fontSize: 10,
+                    cellPadding: 10
+                }
+            });
+
+            doc.save('Assessment.pdf');
+        });
+
+        function resetFilter() {
+            window.location.href = "{{ route('assessment') }}";
+        }
+    </script>
+
 @endsection
