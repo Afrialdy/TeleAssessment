@@ -99,15 +99,12 @@
                     user.email,
                     user.id,
                     formatDate(user.updated_at),
-                    user.phone,
-                    user.age,
-                    user.gender
                 ]);
             });
 
             // Generate PDF with all users
             doc.autoTable({
-                head: [['Pengguna', 'Email', 'ID', 'Tanggal', 'No Telepon', 'Usia', 'Gender']],
+                head: [['Pengguna', 'Email', 'ID', 'Penilaian Kandidat']],
                 body: rows,
                 margin: { top: 30, left: 30, right: 30, bottom: 30 },
                 styles: {

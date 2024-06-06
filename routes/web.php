@@ -83,6 +83,10 @@ Route::get('/review', function () {
     return view('review');
 })->name('review');
 
+Route::get('/edit-pertanyaan', function () {
+    return view('edit-pertanyaan');
+})->name('edit-pertanyaan');
+
 // Survey Routes
 Route::get('/pertanyaan_test', [SurveyController::class, 'index'])->name('pertanyaan_test');
 Route::get('/pertanyaan_test/json/{id}', [SurveyController::class, 'getSurveyJson'])->name('pertanyaan_test.get');
@@ -92,3 +96,8 @@ Route::post('/blog/create', [BlogController::class, 'create'])->name('postCreate
 
 // Uncomment the following line if you want to use the blog route
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+
+
+Route::get('/testing', function () {
+    return view('testing');
+})->name('testing');

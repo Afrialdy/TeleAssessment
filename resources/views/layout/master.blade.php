@@ -94,7 +94,14 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                         <span>Laporan</span>
                     </a>
                 </li>
+
                 <li class="sidebar-item">
+                    <a href="{{ route('review') }}" class="sidebar-link">
+                        <i class="lni lni-book"></i>
+                        <span>Review</span>
+                    </a>
+                </li>
+                {{-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#konten" aria-expanded="false" aria-controls="konten">
                         <i class="lni lni-files"></i>
@@ -114,9 +121,21 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
 
                 <li class="sidebar-item">
+                    <a href="{{ route('login') }}" class="sidebar-link">
+                        <i class="lni lni-exit"></i>
+                        <span>Logout</span>
+                    </a>
+                </li>
+                <li class="sidebar-item">
+                    <a href="{{ route('testing') }}" class="sidebar-link">
+                        <i class="lni lni-empty-file"></i>
+                        <span>Testing Pertanyaan</span>
+                    </a>
+                </li>
+                {{-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#pengaturan" aria-expanded="false" aria-controls="pengaturan">
                         <i class="lni lni-cog"></i>
@@ -136,7 +155,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                             </a>
                         </li>
                     </ul>
-                </li>
+                </li> --}}
                 <!-- </div> -->
             </ul>
             <!-- <div class="sidebar-footer">

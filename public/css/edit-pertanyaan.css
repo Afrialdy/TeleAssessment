@@ -1,0 +1,95 @@
+.video-upload {
+    margin-top: 25px;
+}
+
+.upload-container {
+    position: relative;
+    width: 100%;
+    max-width: 800px;
+}
+
+.upload-area {
+    border: 2px dashed #007bff;
+    position: relative;
+    text-align: center;
+    cursor: pointer;
+    height: 400px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: 20px;
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+#uploadedVideo {
+    width: 100%;
+    height: 100%;
+    object-fit: contain;
+}
+
+.upload-area.video-uploaded {
+    border: none;
+}
+
+.upload-icon i {
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #e9f3ff;
+    color: #0e4ebe;
+    border-color: #0056b3;
+}
+
+.upload-icon i:hover {
+    background-color: #0e4ebe;
+    color: #fff;
+}
+
+.delete-icon i {
+    font-size: 30px;
+    border-radius: 50%;
+    padding: 15px;
+    background-color: #f8ecec;
+    color: #ff0000;
+    font-weight: 600;
+    cursor: pointer;
+    margin-left: 40px;
+}
+
+.delete-icon i:hover {
+    background-color: #ff0000;
+    color: #fff;
+}
+
+.deskripsi {
+    width: 100%;
+    margin-top: 25px;
+    padding: 15px;
+    border-radius: 20px;
+    background-color: #e7effd;
+    border: 1px solid #000;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    -webkit-border-radius: 20px;
+    -moz-border-radius: 20px;
+    -ms-border-radius: 20px;
+    -o-border-radius: 20px;
+}
+
+.box-deskripsi .form-label {
+    font-weight: 600;
+    font-size: 20px;
+}
+
+.box-deskripsi .form-control {
+    border: 1px #999ca0 solid;
+    background-color: transparent;
+}
+
+.btn {
+    margin-top: 25px;
+    background-color: #0e4ebe;
+    padding: 5px 20px;
+}

@@ -26,13 +26,13 @@
                                 <th>Kepribadian</th>
                                 <th>Minat Bakat</th>
                                 <th>Intelegensi</th>
-                                <th>Keputusan</th>
+                                {{-- <th>Keputusan</th> --}}
                             </tr>
                             <tr class="">
                                 <td>ENTP</td>
                                 <td>Programmer</td>
                                 <td>Tinggi</td>
-                                <td>Diterima</td>
+                                {{-- <td>Diterima</td> --}}
                             </tr>
                         </table>
                     </div>
