@@ -1,0 +1,153 @@
+.test-item {
+    position: relative;
+    max-width: 100%;
+    height: 150px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
+    background-color: #e7effd;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    text-align: center;
+    color: #555;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+}
+
+.icon-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+}
+
+.group-image {
+    width: 45px;
+    display: block;
+    margin: 0 auto;
+}
+
+.text-content {
+    text-align: center;
+}
+
+.number {
+    font-size: 20px;
+    font-weight: 600;
+    color: #082c6b;
+}
+
+.label {
+    font-size: 17px;
+    color: #555;
+    font-weight: 600;
+}
+
+.chart-wrapper {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.chart-wrapper .chart {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.chart-wrapper .chart-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.test-item .chart .percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 900;
+    color: #369670;
+    z-index: 2;
+}
+
+.test-item .chart .percent:after {
+    content: attr(data-after);
+    display: inline-block;
+    font-size: 18px;
+}
+
+.test-item .chart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.tooltip-inner {
+    background-color: #4a88d0;
+    color: #fff;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #4a88d0;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+}
+
+.box-chart {
+    background: #e7effd;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    min-width: 300px;
+}
+
+.box-chart h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+@media (max-width: 880px) {
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+    #doughnut-chart {
+        padding: 50px;
+    }
+
+    #doughnut {
+        padding: 50px;
+    }
+}
+
+@media (max-width: 768px) {
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+    .box-chart {
+        min-width: 100%;
+    }
+
+    #doughnut {
+        padding: 0;
+    }
+
+
+}

@@ -46,7 +46,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 </div>
             </div>
             <div class="logo mt-2">
-                <a href="https://maxy.academy/" target="_blank">
+                <a href="https://moon.torodeveloper.co/assessment-test-lp/public/" target="_blank">
                     <img src="../img/logo/ta1.png" alt="" class="sidebar-logo-img">
                 </a>
             </div>

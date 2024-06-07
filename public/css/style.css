@@ -300,100 +300,128 @@ a.sidebar-link:hover {
 
 /* Main */
 
-.card {
+.test-item {
+    position: relative;
+    max-width: 100%;
+    height: 150px;
+    padding: 20px;
+    border: 1px solid #ddd;
+    border-radius: 20px;
     background-color: #e7effd;
-    transition: .4s;
-    cursor: pointer;
-    color: #000;
-    margin-bottom: 1rem;
-    border-radius: 30px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    height: 350px;
-    justify-content: center;
+    text-align: center;
+    color: #555;
+    display: flex;
+    flex-direction: column;
     align-items: center;
+    justify-content: center;
 }
 
-.card:hover {
-    transform: translateY(-10.5px);
-}
-
-.card-body {
+.icon-container {
+    display: flex;
     justify-content: center;
     align-items: center;
+    margin-bottom: 10px;
+}
+
+.group-image {
+    width: 45px;
+    display: block;
+    margin: 0 auto;
+}
+
+.text-content {
     text-align: center;
 }
 
-.card-body h2 {
-    font-weight: 900;
-    color: #003396;
+.number {
+    font-size: 20px;
+    font-weight: 600;
+    color: #082c6b;
 }
 
-.card-body img {
-    width: 60px;
-    height: auto;
+.label {
+    font-size: 17px;
+    color: #555;
+    font-weight: 600;
 }
 
-.card-body canvas {
-    width: 200px !important;
-    height: 200px !important;
-}
-
-.time-info {
-    justify-content: space-between;
-    width: 100%;
-}
-
-.time-info span {
-    font-size: 14px;
-    margin: 0 5px;
-}
-
-.time-info .aa {
-    color: #165baa;
-}
-
-.time-info .bb {
-    color: #f765a3;
-}
-
-.time-info .cc {
-    color: #e697ff;
-}
-
-.time-info .dd {
-    color: #2d9cdb;
-}
-
-.time-info .ee {
-    color: #a155b9;
-}
-
-.time-info .ff {
-    color: #e13760;
-}
-
-/* Grafik Peserta */
-.graphBox {
-    position: relative;
+.chart-wrapper {
     display: flex;
-    width: 100%;
-    min-height: 400px;
-}
-
-.graphBox .box {
-    position: relative;
-    background: #e7effd;
-    width: 100%;
-    padding: 40px 0;
-    border-radius: 30px;
-    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
-    justify-content: center;
+    flex-direction: column;
     align-items: center;
 }
 
-.graphBox .box canvas {
-    max-width: 80% !important;
-    max-height: 400px;
+.chart-wrapper .chart {
+    width: 90px;
+    height: 90px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    cursor: pointer;
+}
+
+.chart-wrapper .chart-text {
+    font-size: 16px;
+    font-weight: bold;
+    margin-top: 10px;
+}
+
+.test-item .chart .percent {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    font-size: 18px;
+    font-weight: 900;
+    color: #369670;
+    z-index: 2;
+}
+
+.test-item .chart .percent:after {
+    content: attr(data-after);
+    display: inline-block;
+    font-size: 18px;
+}
+
+.test-item .chart canvas {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100% !important;
+    height: 100% !important;
+}
+
+.tooltip-inner {
+    background-color: #4a88d0;
+    color: #fff;
+}
+
+.tooltip.top .tooltip-arrow {
+    border-top-color: #4a88d0;
+}
+
+.charts {
+    display: grid;
+    grid-template-columns: 2fr 1fr;
+    grid-gap: 20px;
+    width: 100%;
+}
+
+.box-chart {
+    background: #e7effd;
+    padding: 20px;
+    border-radius: 20px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    width: 100%;
+    min-width: 300px;
+}
+
+.box-chart h2 {
+    text-align: center;
+    font-size: 24px;
+    font-weight: 600;
 }
 
 /* Pertanyaan Interview */
@@ -647,10 +675,31 @@ a.sidebar-link:hover {
     margin-top: auto;
 }
 
+@media (max-width: 880px) {
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+    #doughnut-chart {
+        padding: 50px;
+    }
+
+    #doughnut {
+        padding: 50px;
+    }
+}
+
 @media (max-width: 768px) {
-    .graphBox .box canvas {
-        width: 250px !important;
-        height: 200px !important;
+    .charts {
+        grid-template-columns: 1fr;
+    }
+
+    .box-chart {
+        min-width: 100%;
+    }
+
+    #doughnut {
+        padding: 0;
     }
 
     #sidebar.expand {

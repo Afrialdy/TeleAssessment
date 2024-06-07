@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DatakandidatController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -27,9 +28,8 @@ Route::get('/index', [AuthController::class, 'index'])->name('index')->middlewar
 Route::get('dataKandidat',[UserController::class,'dataKandidat']);
 Route::get('user/{id}',[UserController::class,'update']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard')->middleware('auth');
+/* DashboardController */
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 /* DatakandidatController */
 Route::get('/dataKandidat', [DatakandidatController::class, 'index'])
