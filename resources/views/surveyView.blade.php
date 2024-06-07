@@ -14,11 +14,9 @@
     <script>
         const json = @json($surveyJson);  // Use the JSON passed from the controller
         const survey = new Survey.Model(json);
-
         survey.onComplete.add((sender, options) => {
             console.log(JSON.stringify(sender.data, null, 3));
         });
-
         $("#surveyElement").Survey({
             model: survey
         });
@@ -30,15 +28,12 @@
     <script>
         // Mengambil data JSON dari PHP dan menginisialisasi variabel json di JavaScript
         const json = @json($surveyJson);
-
         // Menghapus bagian 'const json =' dan ';' di akhir jika ada
         const surveyJson = JSON.parse(json.replace(const json = |;$/g, ''));
-
         const survey = new Survey.Model(surveyJson);
         survey.onComplete.add((sender, options) => {
             document.querySelector('#surveyResult').innerHTML = "Result: " + JSON.stringify(sender.data, null, 3);
         });
-
         $("#surveyElement").Survey({ model: survey });
     </script>
 @endsection

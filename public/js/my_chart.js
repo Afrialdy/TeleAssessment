@@ -1,110 +1,145 @@
-const ctx = document.getElementById('myChart');
-const ourchart = document.getElementById('ourchart');
-const lineChart = document.getElementById('lineChart');
 
-/* Chart Pie */
-var myChart = new Chart(ctx, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [10, 18, 26, 24, 22],
-      label: '# of Minute',
-      borderWidth: 1,
-      backgroundColor: [
-        '#165baa',
-        '#f765a3',
-        '#e697ff',
-        '#2d9cdb',
-        '#a155b9'
-      ]
-    }],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false
-      },
-    }
-  }
+/* Test Chart */
+'use strict';
+
+$(document).ready(function() {
+    $('.chart').appear(function() {
+        setTimeout(function() {
+            $('.chart').each(function() {
+                var $this = $(this);
+                $this.easyPieChart({
+                    easing: 'easeOutElastic',
+                    delay: 3000,
+                    barColor: function() {
+                        var canvas = document.createElement('canvas');
+                        var context = canvas.getContext('2d');
+                        var gradient = context.createLinearGradient(0, 0, 100, 100);
+                        gradient.addColorStop(0, '#e17cfd');
+                        gradient.addColorStop(1, '#4a88d0');
+                        return gradient;
+                    },
+                    trackColor: '#e7effd',  // Warna latar belakang chart, sesuai dengan box
+                    scaleColor: false,
+                    lineWidth: 21,
+                    trackWidth: 21,
+                    size: 180, // Sesuaikan dengan ukuran yang diinginkan, dalam contoh ini 200px
+                    lineCap: 'round',
+                    onStep: function(from, to, percent) {
+                        this.el.children[0].innerHTML = Math.round(percent);
+                    }
+                });
+            });
+
+            // Aktifkan Tooltip
+            $('[data-toggle="tooltip"]').tooltip({
+                placement: 'top'
+            });
+        }, 150);
+    });
 });
 
-/* Chart Pie */
-var myChart = new Chart(ourchart, {
-  type: 'pie',
-  data: {
-    datasets: [{
-      data: [5, 3, 20, 27, 24, 21],
-      label: '# of Score',
-      borderWidth: 1,
-      backgroundColor: [
-        '#165baa',
-        '#f765a3',
-        '#e697ff',
-        '#2d9cdb',
-        '#a155b9',
-        '#e13760'
-      ]
-    }],
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false
-      }
-    }
-  }
-});
 
-/* Line Chart */
-var myChart = new Chart(lineChart, {
-  type: 'line',
-  data: {
-    labels: ['Nov', 'Des', 'Jan', 'Feb', 'Mar', 'Apr'],
-    datasets: [{
-      label: '# of Votes',
-      data: [-2, 22, -5, 20, 40, 15],
-      backgroundColor: [
-        'rgba(85, 85, 85, 1)'        
-      ],
-      borderColor: [
-        'rgb(41, 155, 99)'
-      ],
-      borderWidth: 1
-    }]
-  },
-  options: {
-    responsive: true,
-    plugins: {
-      legend: {
-        display: false
-      }
+/* Line and Doughnut Chart */
+const ctx = document.getElementById('lineChart');
+const cts = document.getElementById('doughnut');
+
+const getTextColor = (bgColor) => {
+    // Function to calculate luminance and determine text color
+    const color = bgColor.match(/\d+/g).map(Number);
+    const luminance = (0.299 * color[0] + 0.587 * color[1] + 0.114 * color[2]) / 255;
+
+    return luminance > 0.5 ? '#000' : '#fff';
+};
+
+new Chart(ctx, {
+    type: 'bar',
+    data: {
+        labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
+        datasets: [{
+            label: 'Peserta',
+            data: [200, 300, 250, 500, 600, 450, 100, 350, 320, 400, 500, 250],
+            backgroundColor: [
+                'rgb(70,129,198)',
+                'rgb(183,127,240)',
+                'rgb(174,197,235)',
+                'rgb(225,124,253)',
+                'rgb(161,161,215)',
+                'rgb(86,85,193)',
+                'rgb(170,169,247)',
+                'rgb(164,128,234)',
+                'rgb(181,206,250)',
+                'rgb(105,148,222)',
+                'rgb(195,194,249)',
+                'rgb(143,131,229)',
+            ],
+            borderColor: 'rgb(8,44,107)',
+            borderWidth: 1
+        }]
     },
-    elements: {
-      line: {
-        borderWidth: 3 // Mengatur ketebalan garis
-      }
+    options: {
+        responsive: true,
+        scales: {
+            y: {
+                beginAtZero: true
+            }
+        },
+        plugins: {
+            datalabels: {
+                color: (context) => {
+                    const backgroundColor = context.dataset.backgroundColor[context.dataIndex];
+                    return getTextColor(backgroundColor);
+                },
+                font: {
+                    size: 16,
+                    weight: 'bold'
+                },
+                formatter: (value) => value
+            }
+        }
     },
-    scales: {
-      x: {
-        ticks: {
-          font: {
-            weight: 'bold' // Mengatur ketebalan huruf sumbu x
-          }
-        }
-      },
-      y: {
-        min: -100, // Mulai dari -100
-        max: 100, // Hingga 100
-        ticks: {
-          
-          font: {
-            weight: 'bold' // Mengatur ketebalan huruf sumbu y
-          }
-        }
-      }
-    }
-  }
+    plugins: [ChartDataLabels]
 });
 
+new Chart(cts, {
+    type: 'doughnut',
+    data: {
+        labels: ['INTJ', 'INTP', 'ISTP', 'ENTJ', 'ENTP', 'ISFP', 'INFJ', 'INFP', 'ESTP', 'ENFJ', 'ENFP', 'ESFP'],
+        datasets: [{
+            label: 'Peserta',
+            data: [18, 45, 12, 50, 30, 20, 33, 34, 12, 40, 44, 23],
+            backgroundColor: [
+                'rgb(70,129,198)',
+                'rgb(183,127,240)',
+                'rgb(174,197,235)',
+                'rgb(225,124,253)',
+                'rgb(161,161,215)',
+                'rgb(86,85,193)',
+                'rgb(170,169,247)',
+                'rgb(164,128,234)',
+                'rgb(181,206,250)',
+                'rgb(105,148,222)',
+                'rgb(195,194,249)',
+                'rgb(143,131,229)',
+            ],
+            borderColor: 'rgb(8,44,107)',
+            borderWidth: 1
+        }]
+    },
+    options: {
+        responsive: true,
+        plugins: {
+            datalabels: {
+                color: (context) => {
+                    const backgroundColor = context.dataset.backgroundColor[context.dataIndex];
+                    return getTextColor(backgroundColor);
+                },
+                font: {
+                    size: 16,
+                    weight: 'bold'
+                },
+                formatter: (value) => value
+            }
+        }
+    },
+    plugins: [ChartDataLabels]
+});

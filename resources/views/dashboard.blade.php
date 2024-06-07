@@ -5,71 +5,60 @@
         <main class="content px-3 py-4">
             <div class="container-fluid">
                 <div class="mb-3">
-                    <div class="row g-sm-5">
-                        <div class="col-12 col-md-4">
-                            <div class="card border-0">
-                                <div class="card-body p-5 d-flex flex-column">
-                                    <img src="img/group.png" alt="" class="mb-2">
-                                    <h5 class="fw-bold">Jumlah Peserta</h5>
-                                    <h2 class="mb-4">400</h2>
-                                    <div class="mb-0">
-                                        <span class="fw-lighter">
-                                            Bulan April
-                                        </span>
+                    <div class="">
+                        <div class="row d-flex flex-row">
+                            <div class="col-md-3 mb-4">
+                                <div class="test-item">
+                                    <div class="icon-container">
+                                        <img src="img/group.png" alt="Group" class="group-image">
+                                    </div>
+                                    <div class="text-content d-flex flex-column">
+                                        <span class="number">{{ $userCount }}</span>
+                                        <span class="label">Jumlah Peserta</span>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="card border-0">
-                                <div class="card-body py-4 d-flex flex-column">
-                                    <h5 class="fw-bold">Waktu Interview</h5>
-                                    <p class="mb-2 fw-lighter">
-                                        Rata-Rata
-                                    </p>
-                                    <canvas id="myChart"></canvas>
-                                    <div class="time-info d-flex mt-2">
-                                        <span class="aa fw-bold">25 Menit</span>
-                                        <span class="bb fw-bold">30 Menit</span>
-                                        <span class="cc fw-bold">45 Menit</span>
-                                    </div>
-                                    <div class="time-info d-flex mt-2 justify-content-center">
-                                        <span class="dd fw-bold">50 Menit</span>
-                                        <span class="ee fw-bold">60 Menit</span>
+                            <div class="col-md-3 mb-4">
+                                <div class="test-item">
+                                    <div class="chart-wrapper">
+                                        <div class="chart" data-percent="90" data-toggle="tooltip" title="User 90 dari 100">
+                                            <span class="percent" data-after="%"></span>
+                                        </div>
+                                        <div class="chart-text">Tes Cognitive</div>
                                     </div>
                                 </div>
                             </div>
-                        </div>
-                        <div class="col-12 col-md-4">
-                            <div class="card border-0">
-                                <div class="card-body py-4 d-flex flex-column">
-                                    <h5 class="fw-bold">Tes Kepribadian</h5>
-                                    <p class="mb-2 fw-lighter">
-                                        Rata-Rata
-                                    </p>
-                                    <canvas id="ourchart"></canvas>
-                                    <div class="time-info d-flex mt-2">
-                                        <span class="aa fw-bold">INFJ</span>
-                                        <span class="bb fw-bold">INFP</span>
-                                        <span class="cc fw-bold">ENFJ</span>
-                                        <span class="cc fw-bold">ENTJ</span>
+                            <div class="col-md-3 mb-4">
+                                <div class="test-item">
+                                    <div class="chart-wrapper">
+                                        <div class="chart" data-percent="80" data-toggle="tooltip" title="User 80 dari 100">
+                                            <span class="percent" data-after="%"></span>
+                                        </div>
+                                        <div class="chart-text">Tes Interview</div>
                                     </div>
-                                    <div class="time-info d-flex mt-2">
-                                        <span class="dd fw-bold">ENFP</span>
-                                        <span class="ee fw-bold">INTJ</span>
-                                        <span class="ff fw-bold">INTP</span>
-                                        <span class="ff fw-bold">ENTP</span>
+                                </div>
+                            </div>
+                            <div class="col-md-3 mb-4">
+                                <div class="test-item">
+                                    <div class="chart-wrapper">
+                                        <div class="chart" data-percent="100" data-toggle="tooltip" title="User 100 dari 100">
+                                            <span class="percent" data-after="%"></span>
+                                        </div>
+                                        <div class="chart-text">Tes Validasi</div>
                                     </div>
                                 </div>
                             </div>
                         </div>
                     </div>
-
-                    <!-- Grafik Peserta -->
-                    <div class="graphBox mt-2">
-                        <div class="box d-flex flex-column">
-                            <h5 class="fw-bold mb-4">Grafik Peserta Perbulan</h5>
+                    <div class="charts">
+                        <div class="box-chart">
+                            <h2>Grafik Peserta Perbulan</h2>
                             <canvas id="lineChart"></canvas>
+                        </div>
+
+                        <div class="box-chart" id="doughtnut-chart">
+                            <h2>Tes Kepribadian</h2>
+                            <canvas id="doughnut"></canvas>
                         </div>
                     </div>
 
@@ -198,4 +187,16 @@
                 </div>
             </div>
         </main>
+
+        <script type="text/javascript" src="https://www.gstatic.com/charts/loader.js"></script>
+        <script src="{{ asset('js/jquery-2.2.4.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.appear.min.js') }}"></script>
+        <script src="{{ asset('js/jquery.easypiechart.min.js') }}"></script>
+        <script src="{{ asset('js/jquery-ui.min.js') }}"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+        <script src="https://cdn.jsdelivr.net/npm/chartjs-plugin-datalabels@2.0.0"></script>
+        <script src="{{ asset('js/my_chart.js') }}"></script>
+    <script>
+
+    </script>
     @endsection

@@ -26,7 +26,7 @@
 
                 <div class="reply-box mt-3 d-flex">
                     <textarea class="reply-input" oninput="adjustTextareaHeight(this)" rows="1"></textarea>
-                    <button class="reply-button">
+                    <button type="submit" class="reply-button">
                         <i class="lni lni-arrow-right"></i>
                     </button>
                 </div>

@@ -7,6 +7,7 @@ use App\Http\Controllers\UserController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DatakandidatController;
+use App\Http\Controllers\DashboardController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -14,6 +15,8 @@ Route::get('/', function () {
     return redirect()->route('login');
 })->name('home');
 
+
+/* AuthController */
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/signup', [AuthController::class, 'getSignup'])->name('signup');
 
@@ -83,12 +86,17 @@ Route::get('/review', function () {
     return view('review');
 })->name('review');
 
+Route::get('/edit-pertanyaan', function () {
+    return view('edit-pertanyaan');
+})->name('edit-pertanyaan');
+
+
 // Survey Routes
 Route::get('/pertanyaan_test', [SurveyController::class, 'index'])->name('pertanyaan_test');
 Route::get('/pertanyaan_test/json/{id}', [SurveyController::class, 'getSurveyJson'])->name('pertanyaan_test.get');
 Route::get('/pertanyaan_test/{id}', [SurveyController::class, 'showSurveyView'])->name('pertanyaan_test.show');
 
-Route::post('/blog/create', [BlogController::class, 'create'])->name('postCreateBlog');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 // Uncomment the following line if you want to use the blog route
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');

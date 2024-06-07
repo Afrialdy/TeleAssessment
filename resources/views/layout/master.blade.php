@@ -10,6 +10,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tele Asessment</title>
@@ -94,26 +95,12 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                         <span>Laporan</span>
                     </a>
                 </li>
+
                 <li class="sidebar-item">
-                    <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#konten" aria-expanded="false" aria-controls="konten">
-                        <i class="lni lni-files"></i>
-                        <span>Konten</span>
+                    <a href="{{ route('review') }}" class="sidebar-link">
+                        <i class="lni lni-book"></i>
+                        <span>Review</span>
                     </a>
-                    <ul id="konten" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="{{ route('review') }}" class="sidebar-link">
-                                <i class="lni lni-book"></i>
-                                Review
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="{{ route('blog') }}" class="sidebar-link">
-                                <i class="lni lni-popup"></i>
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
                 </li>
 
                 <li class="sidebar-item">
@@ -132,7 +119,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                         <li class="sidebar-item">
                             <a href="{{ route('login') }}" class="sidebar-link">
                                 <i class="lni lni-exit"></i>
-                                Keluar
+                                Logout
                             </a>
                         </li>
                     </ul>
