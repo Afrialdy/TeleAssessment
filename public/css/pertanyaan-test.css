@@ -1,0 +1,112 @@
+.content {
+    margin-top: -10px;
+}
+
+.title {
+    margin-top: -10px;
+}
+
+#dropdownMenuLink {
+    margin-top: -20px;
+    background-color: #0f57d6;
+}
+
+#dropdownMenuLink:hover {
+    background-color: #0275d8;
+}
+
+.dropdown-menu {
+    background-color: #0f57d6;
+}
+
+.title {
+    align-items: center;
+}
+
+.title img {
+    width: 50px;
+    height: 50px;
+    margin-right: 20px;
+}
+
+.title h2 {
+    font-size: 20px;
+}
+
+.title p {
+    font-size: 15px;
+}
+
+.title h2,
+.title p {
+    margin: 0;
+}
+
+.title .btn {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    height: 40px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.title .view {
+    background-color: #0f57d6;
+}
+
+.title .view:hover {
+    background-color: #0275d8;
+}
+
+.test-box {
+    margin-top: 30px;
+    position: relative;
+    display: flex;
+    background: #e7effd;
+    width: 100%;
+    padding: 20px;
+    border-radius: 30px;
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+}
+
+.test-box h2 {
+    font-size: 22px;
+    color: #9195a0;
+    font-weight: 600;
+}
+
+.test-box .deskripsi p {
+    padding-right: 5px;
+}
+
+.test-box .box-content {
+    padding: 5px 20px;
+}
+
+.test-box .content-test video {
+    max-width: 100%;
+    width: 350px;
+    height: 100%;
+    max-height: 200px;
+    border-radius: 20px;
+    margin-right: 3em;
+}
+
+.test-box .content-test .btn-test {
+    gap: 15px;
+    display: flex;
+}
+
+.test-box .content-test .btn-test .btn {
+    box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 40px;
+    margin-bottom: 10px;
+    min-width: 100px;
+}
+
+.test-box .content-test .btn-test .btn i {
+    font-size: 20px;
+}

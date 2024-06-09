@@ -17,15 +17,26 @@ class AuthController extends Controller
             'password' => 'required'
         ]);
 
-        if (Auth::attempt($validated)) {
+        $credentials = $request->only('email', 'password');
+
+        if (Auth::attempt($credentials)) {
             $request->session()->regenerate();
             $user = Auth::user();
             $request->session()->put('name', $user->name); // Store the user's name in the session
             return redirect()->route('dashboard'); // Ensure this route exists
         } else {
-            return back()->withErrors([
-                'email' => 'The provided credentials do not match our records.',
-            ])->withInput($request->only('email'));
+            // Check if email exists
+            $user = User::where('email', $request->email)->first();
+
+            if ($user) {
+                return back()->withErrors([
+                    'password' => 'Password yang anda masukkan salah.',
+                ])->withInput($request->only('email'));
+            } else {
+                return back()->withErrors([
+                    'email' => 'Email yang anda masukkan salah.',
+                ]);
+            }
         }
     }
 
@@ -34,7 +45,7 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => 'required|string|email|max:255|unique:users',
-            'password' => 'required|string|min:8|confirmed',
+            'password' => 'required|string|confirmed',
             'password_confirmation' => 'required'
         ]);
 
@@ -67,4 +78,5 @@ class AuthController extends Controller
         return redirect()->route('login'); // Ensure this route exists
     }
 }
+
 

@@ -10,6 +10,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
 <html lang="en">
 
 <head>
+
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Tele Asessment</title>
@@ -46,7 +47,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 </div>
             </div>
             <div class="logo mt-2">
-                <a href="https://moon.torodeveloper.co/assessment-test-lp/public/" target="_blank">
+                <a href="https://maxy.academy/" target="_blank">
                     <img src="../img/logo/ta1.png" alt="" class="sidebar-logo-img">
                 </a>
             </div>
@@ -101,41 +102,8 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                         <span>Review</span>
                     </a>
                 </li>
-                {{-- <li class="sidebar-item">
-                    <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
-                        data-bs-target="#konten" aria-expanded="false" aria-controls="konten">
-                        <i class="lni lni-files"></i>
-                        <span>Konten</span>
-                    </a>
-                    <ul id="konten" class="sidebar-dropdown list-unstyled collapse" data-bs-parent="#sidebar">
-                        <li class="sidebar-item">
-                            <a href="{{ route('review') }}" class="sidebar-link">
-                                <i class="lni lni-book"></i>
-                                Review
-                            </a>
-                        </li>
-                        <li class="sidebar-item">
-                            <a href="{{ route('blog') }}" class="sidebar-link">
-                                <i class="lni lni-popup"></i>
-                                Blog
-                            </a>
-                        </li>
-                    </ul>
-                </li> --}}
 
                 <li class="sidebar-item">
-                    <a href="{{ route('login') }}" class="sidebar-link">
-                        <i class="lni lni-exit"></i>
-                        <span>Logout</span>
-                    </a>
-                </li>
-                <li class="sidebar-item">
-                    <a href="{{ route('testing') }}" class="sidebar-link">
-                        <i class="lni lni-empty-file"></i>
-                        <span>Testing Pertanyaan</span>
-                    </a>
-                </li>
-                {{-- <li class="sidebar-item">
                     <a href="#" class="sidebar-link has-dropdown collapsed" data-bs-toggle="collapse"
                         data-bs-target="#pengaturan" aria-expanded="false" aria-controls="pengaturan">
                         <i class="lni lni-cog"></i>
@@ -151,11 +119,11 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                         <li class="sidebar-item">
                             <a href="{{ route('login') }}" class="sidebar-link">
                                 <i class="lni lni-exit"></i>
-                                Keluar
+                                Logout
                             </a>
                         </li>
                     </ul>
-                </li> --}}
+                </li>
                 <!-- </div> -->
             </ul>
             <!-- <div class="sidebar-footer">

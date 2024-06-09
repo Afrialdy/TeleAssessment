@@ -61,9 +61,8 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.18/jspdf.plugin.autotable.min.js"></script>
     <script>
         let table = $('#myTable').DataTable({
-                "order": [], // Menghapus pengaturan default order
-            });
-
+                        "order": [], // Menghapus pengaturan default order
+                    });
         document.addEventListener('DOMContentLoaded', (event) => {
             document.querySelectorAll('.dropdown-item').forEach(item => {
                 item.addEventListener('click', event => {

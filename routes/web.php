@@ -15,6 +15,8 @@ Route::get('/', function () {
     return redirect()->route('login');
 })->name('home');
 
+
+/* AuthController */
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/signup', [AuthController::class, 'getSignup'])->name('signup');
 
@@ -28,8 +30,9 @@ Route::get('/index', [AuthController::class, 'index'])->name('index')->middlewar
 Route::get('dataKandidat',[UserController::class,'dataKandidat']);
 Route::get('user/{id}',[UserController::class,'update']);
 
-/* DashboardController */
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
+Route::get('/dashboard', function () {
+    return view('dashboard');
+})->name('dashboard')->middleware('auth');
 
 /* DatakandidatController */
 Route::get('/dataKandidat', [DatakandidatController::class, 'index'])
@@ -87,17 +90,26 @@ Route::get('/edit-pertanyaan', function () {
     return view('edit-pertanyaan');
 })->name('edit-pertanyaan');
 
+
 // Survey Routes
 Route::get('/pertanyaan_test', [SurveyController::class, 'index'])->name('pertanyaan_test');
 Route::get('/pertanyaan_test/json/{id}', [SurveyController::class, 'getSurveyJson'])->name('pertanyaan_test.get');
 Route::get('/pertanyaan_test/{id}', [SurveyController::class, 'showSurveyView'])->name('pertanyaan_test.show');
 
-Route::post('/blog/create', [BlogController::class, 'create'])->name('postCreateBlog');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
 // Uncomment the following line if you want to use the blog route
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 
+// Pertanyaan Test
+Route::get('/interest-test', function () {
+    return view('pertanyaan.interest-test');
+})->name('interest-test');
 
-Route::get('/testing', function () {
-    return view('testing');
-})->name('testing');
+Route::get('/cognitive-test', function () {
+    return view('pertanyaan.cognitive-test');
+})->name('cognitive-test');
+
+Route::get('/validation-test', function () {
+    return view('pertanyaan.validation-test');
+})->name('validation-test');

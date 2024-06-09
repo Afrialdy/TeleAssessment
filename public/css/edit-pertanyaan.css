@@ -88,8 +88,32 @@
     background-color: transparent;
 }
 
-.btn {
-    margin-top: 25px;
+.dropdown {
+    margin: 20px 0;
+}
+
+.dropdown-toggle {
+    padding: 5px 20px;
+    font-size: 16px;
+}
+
+.dropdown-menu {
+    border-radius: 5px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2);
+}
+
+.dropdown-item {
+    padding: 10px 20px;
+    color: #fff;
+    text-decoration: none;
+}
+
+.dropdown-item:hover {
+    background-color: #f8f9fa;
+}
+
+.submit{
     background-color: #0e4ebe;
     padding: 5px 20px;
+    width: 105px;
 }

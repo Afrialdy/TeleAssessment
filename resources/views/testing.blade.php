@@ -1,7 +1,7 @@
 @extends('layout.master')
 
 @section('content')
-<link rel="stylesheet" href="{{ asset('css/testing.css') }}">
+<link rel="stylesheet" href="{{ asset('css/pertanyaan-test.css') }}">
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">

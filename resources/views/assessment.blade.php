@@ -2,6 +2,8 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/assessment.css') }}">
+    <!-- Flatpickr CSS -->
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/flatpickr/dist/flatpickr.min.css">
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">
@@ -15,9 +17,9 @@
             <div class="d-flex justify-content-between align-items-center">
                 <form method="GET" action="{{ route('filter') }}">
                     <div class="date-picker-body d-flex align-items-center">
-                        <input type="date" id="start_date" class="date-input me-2" name="start_date" value="{{ request()->input('start_date') }}">
+                        <input type="text" id="start_date" class="date-input me-2" name="start_date" value="{{ request()->input('start_date') }}">
                         <span class="separator me-2">—</span>
-                        <input type="date" id="end_date" class="date-input me-4" name="end_date" value="{{ request()->input('end_date') }}">
+                        <input type="text" id="end_date" class="date-input me-4" name="end_date" value="{{ request()->input('end_date') }}">
                         <button type="submit" class="btn btn-primary filter">Filter</button>
                         <button type="button" class="btn btn-danger ms-2 reset" onclick="resetFilter()">Reset</button>
                     </div>
@@ -70,9 +72,11 @@
                     </div>
                 @endif
             </div>
-
+        </div>
     </main>
 
+    <!-- Flatpickr JS -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.17/jspdf.plugin.autotable.min.js"></script>
     <script>
@@ -119,6 +123,14 @@
         function resetFilter() {
             window.location.href = "{{ route('assessment') }}";
         }
-    </script>
 
+        // Initialize Flatpickr
+        flatpickr("#start_date", {
+            dateFormat: "Y-m-d"
+        });
+
+        flatpickr("#end_date", {
+            dateFormat: "Y-m-d"
+        });
+    </script>
 @endsection

@@ -11,7 +11,7 @@ class SurveyController extends Controller
     public function index()
     {
         $surveys = Survey::all();
-        return view('pertanyaan_test', compact('surveys'));
+        return view('pertanyaan.pertanyaan_test', compact('surveys'));
     }
 
     public function showSurveyView($id)

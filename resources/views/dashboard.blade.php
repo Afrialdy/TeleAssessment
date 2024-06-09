@@ -62,7 +62,7 @@
                         </div>
                     </div>
 
-                    <!-- Pertanyaan Interview -->
+                    {{-- <!-- Pertanyaan Interview -->
                     <div class="question-box mt-4">
                         <div class="q-box d-flex flex-column">
                             <h5 class="fw-bold mb-4">Pertanyaan Interview</h5>
@@ -182,7 +182,7 @@
                                 <button type="button" class="btn btn-primary">Show Details</button>
                             </a>
                         </div>
-                    </div>
+                    </div> --}}
 
                 </div>
             </div>
