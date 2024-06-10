@@ -7,12 +7,12 @@
         <div class="container-fluid">
             <div class="hasil-test">
                 <div class="hasil-box d-flex mt-3">
-                    <img src="img/profil-review/adudu.jpeg" alt="" class="img-fluid">
+                    <img src="{{ asset('img/profil-review/adudu.jpeg') }}" alt="" class="img-fluid">
                     <div class="profil d-flex flex-column">
-                        <h2 class="fw-bolder fs-4">Afrialdy Syaputra</h2>
+                        <h2 class="fw-bolder fs-4">{{ $user->name }}</h2>
                         <div class="profil-set d-flex">
-                            <h6>afrialdysyaputra@gmail.com</h6>
-                            <h6>081296154504</h6>
+                            <h6>{{ $user->email }}</h6>
+                            <h6>{{ $user->phone }}</h6>
                             <div class="icons">
                                 <button id="exportPDF" class="btn btn-primary">
                                     <span>Export PDF</span>
@@ -37,7 +37,7 @@
                 </div>
 
                 <div class="header-box">
-                    <img src="img/interview test.png" alt="" class="img-fluid">
+                    <img src="{{ asset('img/interview test.png') }}" alt="" class="img-fluid">
                     <h2>INTERVIEW TEST</h2>
                 </div>
                 <div class="test-box">
@@ -153,7 +153,7 @@
                 </div>
 
                 <div class="header-box">
-                    <img src="img/interest and talent.png" alt="" class="img-fluid">
+                    <img src="{{ asset('img/interest and talent.png') }}" alt="" class="img-fluid">
                     <h2>INTEREST AND TALENT TEST</h2>
                 </div>
                 <div class="test-box">
@@ -269,7 +269,7 @@
                 </div>
 
                 <div class="header-box">
-                    <img src="img/cognitive style.png" alt="" class="img-fluid">
+                    <img src="{{ asset('img/cognitive style.png') }}" alt="" class="img-fluid">
                     <h2>COGNITIVE STYLE TEST</h2>
                 </div>
                 <div class="test-box">
@@ -346,7 +346,7 @@
                 </div>
 
                 <div class="header-box">
-                    <img src="img/validation test.png" alt="" class="img-fluid">
+                    <img src="{{ asset('img/validation test.png') }}" alt="" class="img-fluid">
                     <h2>VALIDATION TEST</h2>
                 </div>
                 <div class="test-box">

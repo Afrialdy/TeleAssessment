@@ -1,3 +1,20 @@
+#exportPDF {
+    background-color: #004BE0;
+}
+
+#exportPDF:hover {
+    background-color: #0055ff;
+}
+
+#exportPDF span {
+    margin-right: 8px;
+}
+
+#exportPDF i {
+    font-size: 18px;
+    font-weight: 600;
+}
+
 .row .profil-box,
 .row .deskripsi-box,
 .row .kesimpulan-box {

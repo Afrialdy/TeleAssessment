@@ -47,7 +47,7 @@ class AssessmentController extends Controller
     }
 
     public function filterData(Request $request)
-{
+    {
     $start_date = $request->input('start_date') . ' 00:00:00';
     $end_date = $request->input('end_date') . ' 23:59:59';
 
@@ -61,5 +61,17 @@ class AssessmentController extends Controller
     }
 
     return view('assessment', compact('users'));
+    }
+
+    public function hasilTest($id)
+{
+    $user = User::find($id);
+
+    if (!$user) {
+        return redirect()->route('assessment')->with('error', 'User not found');
+    }
+
+    // Pass the user data to the view
+    return view('hasil-test', compact('user'));
 }
 }

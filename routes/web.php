@@ -39,6 +39,7 @@ Route::get('/dataKandidat', [DatakandidatController::class, 'index'])
     ->name('dataKandidat')
     ->middleware('auth');
 Route::get('user/{id}',[DatakandidatController::class,'update']);
+Route::get('/detail-laporan/{id}', [DatakandidatController::class, 'detailLaporan'])->name('detail-laporan')->middleware('auth');
 
 /* AssessmentController */
 Route::get('/assessment', [AssessmentController::class, 'index'])
@@ -47,10 +48,7 @@ Route::get('/assessment', [AssessmentController::class, 'index'])
 Route::get('/search', [AssessmentController::class, 'search'])->name('search');
 Route::get('/all-users', [AssessmentController::class, 'getAllUsers'])->name('all_users');
 Route::get('/filter', [AssessmentController::class, 'filterData'])->name('filter');
-
-Route::get('/hasil-test', function () {
-    return view('hasil-test');
-})->name('hasil-test');
+Route::get('/hasil-test/{id}', [AssessmentController::class, 'hasilTest'])->name('hasil-test')->middleware('auth');
 
 Route::get('/laporan', function () {
     return view('laporan', [
@@ -58,9 +56,6 @@ Route::get('/laporan', function () {
     ]);
 })->name('laporan')->middleware('auth');
 
-Route::get('/detail-laporan', function () {
-    return view('detail-laporan');
-})->name('detail-laporan');
 
 Route::get('/blog', function () {
     return view('blog');

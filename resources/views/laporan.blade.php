@@ -38,7 +38,6 @@
                                         <button class="btn btn-primary">Detail</button>
                                     </a>
                                 </td>
-
                             </tr>
                         @endforeach
                     </tbody>

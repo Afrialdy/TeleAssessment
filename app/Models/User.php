@@ -19,6 +19,9 @@ class User extends Authenticatable
         'email',
         'password',
         'is_active',
+        'kepribadian',
+        'bakat_minat',
+        'intelegensi',
     ];
 
     /**

@@ -2,204 +2,155 @@
 
 @section('content')
     <link rel="stylesheet" href="{{ asset('css/detail-laporan.css') }}">
+    <style>
+        .table th {
+            padding: 10px 35px 10px 15px;
+            background-color: #f8f9fa;
+            text-align: left;
+            border-top: 1px solid #dee2e6;
+        }
+    </style>
     <!-- Main Content -->
     <main class="content px-3 py-4">
         <div class="container-fluid">
-            <div class="row">
-                <div class="col-md-6">
-                    <div class="profil-box">
-                        <img src="img/profil-review/adudu.jpeg" alt="">
-                        <div class="user-box px-4">
-                            <h2>Rafli Diptana</h2>
-                            <div class="user-info">
-                                <div>
-                                    <div class="icon-item">
-                                        <i class="lni lni-phone"></i>
-                                        <h3>081296154504</h3>
-                                    </div>
-                                    <div class="icon-item">
-                                        <i class="lni lni-envelope"></i>
-                                        <h3>farlidiptana@gmail.com</h3>
-                                    </div>
-                                </div>
-                                <div class="icons">
-                                    <button id="exportPDF" class="btn btn-primary">
-                                        <span>Export PDF</span>
-                                        <i class="lni lni-download"></i>
-                                    </button>
-                                </div>
-                            </div>
-                            <div class="user-detail d-flex mt-2">
-                                <h4>21</h4>
-                                <h4>-</h4>
-                                <h4>Male</h4>
-                                <h4>-</h4>
-                                <h4>No ID: 175</h4>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                <div class="col-md-6">
-                    <div class="deskripsi-box">
-                        <div class="header-box">
-                            <h2>Kepribadian INTJ</h2>
-                        </div>
-                        <ol class="mt-4">
-                            <li>Karakteristik Kunci:</li>
-                            <ul>
-                                <li>Pemikir Strategis</li>
-                                <li>Logis dan analitis</li>
-                                <li>Kreatif</li>
-                                <li>Mandiri</li>
-                                <li>Detail-oriented</li>
-                            </ul>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mt-4">
-                    <div class="deskripsi-box">
-                        <div class="header-box">
-                            <h2>Bakat dan Minat</h2>
-                        </div>
-                        <ol class="mt-4">
-                            <li>Bakat: Pengembangan Software</li>
-                            <li>Minat:</li>
-                            <ul>
-                                <li>Memecahkan masalah</li>
-                                <li>Belajar hal-hal baru</li>
-                                <li>Bekerja secara mandiri</li>
-                            </ul>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="col-md-6 mt-4">
-                    <div class="deskripsi-box">
-                        <div class="header-box">
-                            <h2>Intelegensi</h2>
-                        </div>
-                        <ol class="mt-4">
-                            <li>Tingkat Kecerdasan: Tinggi</li>
-                            <li>Keterampilan Kognitif</li>
-                            <ul>
-                                <li>Pemecahan masalah</li>
-                                <li>Berpikir kritis</li>
-                                <li>Belajar</li>
-                                <li>Memori</li>
-                            </ul>
-                        </ol>
-                    </div>
-                </div>
-
-                <div class="col-md-12 mt-4">
-                    <div class="kesimpulan-box">
-                        <div class="header-box">
-                            <h2>Kesimpulan</h2>
-                        </div>
-                        <p class="mt-4 px-3">Rafli Diptana adalah individu yang cerdas dan berbakat dengan potensi besar untuk sukses dalam pengembangan perangkat lunak. Dia memiliki semua keterampilan dan kemampuan yang diperlukan untuk menjadi pengembang perangkat lunak yang sukses. Namun, dia perlu mengembangkan beberapa kemampuannya, seperti kemampuannya untuk beradaptasi dan bekerja sama dengan orang lain. Dengan mengembangkan kemampuannya, Rafli Diptana dapat mencapai potensi penuhnya dan menjadi pengembang perangkat lunak yang sukses.</p>
-                    </div>
-                </div>
+            <div class="mb-3 d-flex justify-content-between align-items-center">
+                <h3 class="fw-bold mb-0">Detail Laporan</h3>
+                <button id="exportPDF" class="btn btn-primary">
+                    <span>Export PDF</span>
+                    <i class="lni lni-download"></i>
+                </button>
+            </div>
+            <div class="detail-kandidat mt-4">
+                <table class="table table-striped">
+                    <tbody>
+                        <tr>
+                            <th>ID</th>
+                            <td>{{ $user->id }}</td>
+                        </tr>
+                        <tr>
+                            <th>Nama</th>
+                            <td>{{ $user->name }}</td>
+                        </tr>
+                        <tr>
+                            <th>Email</th>
+                            <td>{{ $user->email }}</td>
+                        </tr>
+                        <tr>
+                            <th>Kepribadian</th>
+                            <td>
+                                @if ($user->kepribadian)
+                                    {{ $user->kepribadian }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Bakat Minat</th>
+                            <td>
+                                @if ($user->bakat_minat)
+                                    {{ $user->bakat_minat }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Intelegensi</th>
+                            <td>
+                                @if ($user->intelegensi)
+                                    {{ $user->intelegensi }}
+                                @else
+                                    -
+                                @endif
+                            </td>
+                        </tr>
+                        <tr>
+                            <th>Kesimpulan</th>
+                            <td><strong>{{ $user->name }}</strong> dengan ID: <strong>{{ $user->id }}</strong> dan Email <strong>{{ $user->email }}</strong> dikenal dengan kepribadian yang
+                                <strong>@if ($user->kepribadian)
+                                    {{ $user->kepribadian }}
+                                @else
+                                    (-)
+                                @endif</strong>
+                                dengan bakat minat
+                                <strong>@if ($user->bakat_minat)
+                                    {{ $user->bakat_minat }}
+                                @else
+                                    (-)
+                                @endif</strong>
+                                dan memiliki intelegensi
+                                <strong>@if ($user->intelegensi)
+                                    {{ $user->intelegensi }}
+                                @else
+                                    (-)
+                                @endif</strong>
+                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique obcaecati architecto voluptatem cumque quasi animi velit corporis doloribus blanditiis minima.
+                            </td>
+                        </tr>
+                    </tbody>
+                </table>
+                <a href="{{ route('laporan') }}" class="btn btn-secondary">Back to Laporan</a>
             </div>
         </div>
     </main>
 
-    <!-- jsPDF dan jsPDF-AutoTable -->
+    <script src="https://cdn.jsdelivr.net/npm/flatpickr"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.17/jspdf.plugin.autotable.min.js"></script>
     <script>
-        document.getElementById('exportPDF').addEventListener('click', () => {
+        document.getElementById('exportPDF').addEventListener('click', async () => {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF();
+            const doc = new jsPDF('landscape', 'pt', 'A4');
+            const rows = [];
 
-            // Header
-            doc.setFontSize(18);
-            doc.text('Detail Laporan', 14, 22);
-            doc.setLineWidth(0.5);
-            doc.line(14, 24, 196, 24);
+            // Fetch all users from the server
+            const response = await fetch('{{ route('all_users') }}');
+            const users = await response.json();
 
-            // User Profile
-            doc.setFontSize(12);
-            doc.text('Profil Pengguna', 14, 32);
-            doc.setFontSize(10);
-            doc.text('Nama:', 14, 42);
-            doc.text('Rafli Diptana', 40, 42);
-            doc.text('Telepon:', 14, 52);
-            doc.text('081296154504', 40, 52);
-            doc.text('Email:', 14, 62);
-            doc.text('farlidiptana@gmail.com', 40, 62);
-            doc.text('Umur:', 14, 72);
-            doc.text('21', 40, 72);
-            doc.text('Jenis Kelamin:', 14, 82);
-            doc.text('Male', 40, 82);
-            doc.text('No ID:', 14, 92);
-            doc.text('175', 40, 92);
+            // Function to format date with explicit timezone
+            const formatDate = (dateString) => {
+                const date = new Date(dateString);
+                const formattedDate = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')} ${date.getUTCHours().toString().padStart(2, '0')}:${date.getUTCMinutes().toString().padStart(2, '0')}:${date.getUTCSeconds().toString().padStart(2, '0')}`;
+                return formattedDate;
+            };
 
-            // Section Headers
-            doc.setFontSize(12);
-            doc.text('Kepribadian INTJ', 14, 112);
-            doc.setFontSize(10);
-            doc.text('Karakteristik Kunci:', 14, 122);
-            const characteristics = [
-                'Pemikir Strategis',
-                'Logis dan analitis',
-                'Kreatif',
-                'Mandiri',
-                'Detail-oriented'
-            ];
-            let yOffset = 132;
-            characteristics.forEach(item => {
-                doc.text(`- ${item}`, 14, yOffset);
-                yOffset += 10;
+            // Push all users to the rows array
+            users.forEach(user => {
+                rows.push([
+                    user.name,
+                    user.email,
+                    user.id,
+                    formatDate(user.updated_at),
+                ]);
             });
 
-            doc.setFontSize(12);
-            doc.text('Bakat dan Minat', 14, 172);
-            doc.setFontSize(10);
-            doc.text('Bakat: Pengembangan Software', 14, 182);
-            doc.text('Minat:', 14, 192);
-            const interests = [
-                'Memecahkan masalah',
-                'Belajar hal-hal baru',
-                'Bekerja secara mandiri'
-            ];
-            yOffset = 202;
-            interests.forEach(item => {
-                doc.text(`- ${item}`, 14, yOffset);
-                yOffset += 10;
+            // Generate PDF with all users
+            doc.autoTable({
+                head: [['Pengguna', 'Email', 'ID', 'Penilaian Kandidat']],
+                body: rows,
+                margin: { top: 30, left: 30, right: 30, bottom: 30 },
+                styles: {
+                    fontSize: 10,
+                    cellPadding: 10
+                }
             });
 
-            doc.setFontSize(12);
-            doc.text('Intelegensi', 14, 232);
-            doc.setFontSize(10);
-            doc.text('Tingkat Kecerdasan: Tinggi', 14, 242);
-            doc.text('Keterampilan Kognitif:', 14, 252);
-            const skills = [
-                'Pemecahan masalah',
-                'Berpikir kritis',
-                'Belajar',
-                'Memori'
-            ];
-            yOffset = 262;
-            skills.forEach(item => {
-                doc.text(`- ${item}`, 14, yOffset);
-                yOffset += 10;
-            });
+            doc.save('Assessment.pdf');
+        });
 
-            doc.setFontSize(12);
-            doc.text('Kesimpulan', 14, 292);
-            doc.setFontSize(10);
-            const conclusion = 'Rafli Diptana adalah individu yang cerdas dan berbakat dengan potensi besar untuk sukses dalam pengembangan perangkat lunak. Dia memiliki semua keterampilan dan kemampuan yang diperlukan untuk menjadi pengembang perangkat lunak yang sukses. Namun, dia perlu mengembangkan beberapa kemampuannya, seperti kemampuannya untuk beradaptasi dan bekerja sama dengan orang lain. Dengan mengembangkan kemampuannya, Rafli Diptana dapat mencapai potensi penuhnya dan menjadi pengembang perangkat lunak yang sukses.';
-            doc.text(conclusion, 14, 302, { maxWidth: 180 });
+        function resetFilter() {
+            window.location.href = "{{ route('assessment') }}";
+        }
 
-            // Footer
-            doc.setLineWidth(0.5);
-            doc.line(14, 290, 196, 290);
-            doc.setFontSize(10);
-            doc.text('Generated on: ' + new Date().toLocaleDateString(), 14, 295);
+        // Initialize Flatpickr
+        flatpickr("#start_date", {
+            dateFormat: "Y-m-d"
+        });
 
-            // Save the PDF
-            doc.save('Detail_Laporan_Rafli_Diptana.pdf');
+        flatpickr("#end_date", {
+            dateFormat: "Y-m-d"
         });
     </script>
+
 @endsection

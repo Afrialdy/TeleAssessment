@@ -46,7 +46,7 @@
                                     <h3>Penilaian Kandidat : {{ $user->updated_at }}</h3>
                                 </div>
                             </div>
-                            <a href="{{ route('hasil-test') }}" class="hasil-tes">
+                            <a href="{{ route('hasil-test', ['id' => $user->id]) }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Hasil Tes</button>
                             </a>
                         </div>

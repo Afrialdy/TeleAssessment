@@ -28,4 +28,16 @@ class DatakandidatController extends Controller
         }
         return back();
     }
+
+    public function detailLaporan($id)
+    {
+        $user = User::find($id);
+
+        if (!$user) {
+            return redirect()->route('laporan')->with('error', 'User not found');
+        }
+
+        // Pass the user data to the view
+        return view('detail-laporan', compact('user'));
+    }
 }
