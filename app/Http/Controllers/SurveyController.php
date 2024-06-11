@@ -43,4 +43,19 @@ class SurveyController extends Controller
             return response()->json(['error' => 'Survey not found'], 404);
         }
     }
+
+    public function getSurvey($id)
+    {
+        $survey = Survey::find($id);
+        return response()->json(['json' => $survey->json]);
+    }
+
+    public function saveSurvey(Request $request, $id)
+    {
+        $survey = Survey::find($id);
+        $survey->json = $request->input('json');
+        $survey->save();
+
+        return response()->json(['success' => true]);
+    }
 }

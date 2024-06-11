@@ -8,6 +8,7 @@ use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DatakandidatController;
 use App\Http\Controllers\DashboardController;
+use App\Http\Controllers\SkorvideoController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -56,7 +57,6 @@ Route::get('/laporan', function () {
     ]);
 })->name('laporan')->middleware('auth');
 
-
 Route::get('/blog', function () {
     return view('blog');
 })->name('blog')->middleware('auth');
@@ -85,11 +85,18 @@ Route::get('/edit-pertanyaan', function () {
     return view('edit-pertanyaan');
 })->name('edit-pertanyaan');
 
+Route::get('/surveyView', function () {
+    return view('surveyView');
+})->name('surveyView');
+
 
 // Survey Routes
 Route::get('/pertanyaan_test', [SurveyController::class, 'index'])->name('pertanyaan_test');
 Route::get('/pertanyaan_test/json/{id}', [SurveyController::class, 'getSurveyJson'])->name('pertanyaan_test.get');
 Route::get('/pertanyaan_test/{id}', [SurveyController::class, 'showSurveyView'])->name('pertanyaan_test.show');
+
+Route::get('/api/surveys/{id}', [SurveyController::class, 'getSurvey']);
+Route::put('/api/surveys/{id}', [SurveyController::class, 'saveSurvey']);
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
 
@@ -101,10 +108,26 @@ Route::get('/interest-test', function () {
     return view('pertanyaan.interest-test');
 })->name('interest-test');
 
+Route::get('/interest-edit', function () {
+    return view('pertanyaan.interest-edit');
+})->name('interest-edit');
+
 Route::get('/cognitive-test', function () {
     return view('pertanyaan.cognitive-test');
 })->name('cognitive-test');
 
+Route::get('/cognitive-edit', function () {
+    return view('pertanyaan.cognitive-edit');
+})->name('cognitive-edit');
+
 Route::get('/validation-test', function () {
     return view('pertanyaan.validation-test');
 })->name('validation-test');
+
+Route::get('/validation-edit', function () {
+    return view('pertanyaan.validation-edit');
+})->name('validation-edit');
+
+// Hasil Test Pisikogram
+Route::get('/hasil-test', [SkorvideoController::class, 'index']);
+

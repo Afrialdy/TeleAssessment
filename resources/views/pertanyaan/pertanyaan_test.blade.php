@@ -90,7 +90,6 @@
                             </div>
                             <div class="btn-test d-flex">
                                 <button class="btn btn-success">Aktif</button>
-                                <button class="btn btn-primary">View Survey</button>
                                 <a href="{{ route('edit-pertanyaan') }}">
                                     <button class="btn btn-secondary">Edit Survey</button>
                                 </a>
