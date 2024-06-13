@@ -100,14 +100,6 @@ Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashb
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
 
 // Pertanyaan Test
-Route::get('/interest-test', function () {
-    return view('pertanyaan.interest-test');
-})->name('interest-test');
-
-Route::get('/interest-edit', function () {
-    return view('pertanyaan.interest-edit');
-})->name('interest-edit');
-
 Route::get('/cognitive-test', function () {
     return view('pertanyaan.cognitive-test');
 })->name('cognitive-test');

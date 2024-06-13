@@ -52,7 +52,6 @@
                     INTERVIEW TEST
                 </a>
                 <ul class="dropdown-menu" aria-labelledby="dropdownMenuLink">
-                    <li><a class="dropdown-item" href="{{ route('interest-test') }}">INTEREST AND TALENT TEST</a></li>
                     <li><a class="dropdown-item" href="{{ route('cognitive-test') }}">COGNITIVE STYLE TEST</a></li>
                     <li><a class="dropdown-item" href="{{ route('validation-test') }}">VALIDATION TEST</a></li>
                 </ul>
