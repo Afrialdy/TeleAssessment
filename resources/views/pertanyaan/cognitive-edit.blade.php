@@ -43,6 +43,20 @@
 
         #surveyContainer {
             margin-top: 10px;
+            height: 100vh; /* Set to full viewport height */
+        }
+
+        #surveyCreatorContainer {
+            position: relative;
+            height: 100%;
+            width: 100%;
+            box-sizing: border-box;
+        }
+
+        @media (max-width: 768px) {
+            #surveyCreatorContainer {
+                padding: 10px;
+            }
         }
     </style>
 @endsection
@@ -88,7 +102,7 @@
                 </div>
             </div>
             <div id="surveyContainer">
-                <div id="surveyCreatorContainer" style="position: absolute; height: 100%; width: 100%"></div>
+                <div id="surveyCreatorContainer"></div>
             </div>
         </div>
     </main>

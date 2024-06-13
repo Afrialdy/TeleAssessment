@@ -19,6 +19,14 @@
     margin-bottom: 0.5px;
 }
 
+.date-picker-body .date-input::placeholder {
+    padding-left: 10px; /* Adjust padding for placeholder */
+}
+
+.date-picker-body .date-input {
+    padding-left: 10px; /* Adjust padding for text input */
+}
+
 .date-picker-body .filter {
     background-color: #004BE0;
 }
@@ -139,4 +147,8 @@ input[type="date"] {
     .pagination {
         justify-content: center;
     }
+}
+
+.date-width {
+    width: 150px; /* Adjust the width as necessary */
 }

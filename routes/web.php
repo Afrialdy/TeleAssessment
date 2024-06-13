@@ -31,10 +31,6 @@ Route::get('/index', [AuthController::class, 'index'])->name('index')->middlewar
 Route::get('dataKandidat',[UserController::class,'dataKandidat']);
 Route::get('user/{id}',[UserController::class,'update']);
 
-Route::get('/dashboard', function () {
-    return view('dashboard');
-})->name('dashboard')->middleware('auth');
-
 /* DatakandidatController */
 Route::get('/dataKandidat', [DatakandidatController::class, 'index'])
     ->name('dataKandidat')
@@ -98,7 +94,7 @@ Route::get('/pertanyaan_test/{id}', [SurveyController::class, 'showSurveyView'])
 Route::get('/api/surveys/{id}', [SurveyController::class, 'getSurvey']);
 Route::put('/api/surveys/{id}', [SurveyController::class, 'saveSurvey']);
 
-Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard');
+Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 // Uncomment the following line if you want to use the blog route
 // Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
@@ -130,4 +126,3 @@ Route::get('/validation-edit', function () {
 
 // Hasil Test Pisikogram
 Route::get('/hasil-test', [SkorvideoController::class, 'index']);
-

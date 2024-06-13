@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <title>Tele Assessment | Sign Up</title>
+    <link rel="icon" href="../img/logo/ta.png" type="image/x-icon">
 </head>
 <body>
 
@@ -32,7 +33,12 @@
                             <input type="text" name="name" class="form-control form-control-lg fs-6" placeholder="Full Name" required>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control form-control-lg fs-6" placeholder="Email address" required>
+                            <input type="email" name="email" class="form-control form-control-lg fs-6 @error('email') is-invalid @enderror" placeholder="Email address" value="{{ old('email') }}" required>
+                            @error('email')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="input-group mb-3">
                             <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" required>

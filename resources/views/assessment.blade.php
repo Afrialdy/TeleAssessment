@@ -17,9 +17,9 @@
             <div class="d-flex justify-content-between align-items-center">
                 <form method="GET" action="{{ route('filter') }}">
                     <div class="date-picker-body d-flex align-items-center">
-                        <input type="text" id="start_date" class="date-input me-2" name="start_date" value="{{ request()->input('start_date') }}">
+                        <input type="text" id="start_date" class="date-input date-width me-2" name="start_date" placeholder="Start Date" value="{{ request()->input('start_date') }}">
                         <span class="separator me-2">—</span>
-                        <input type="text" id="end_date" class="date-input me-4" name="end_date" value="{{ request()->input('end_date') }}">
+                        <input type="text" id="end_date" class="date-input date-width me-4" name="end_date" placeholder="End Date" value="{{ request()->input('end_date') }}">
                         <button type="submit" class="btn btn-primary filter">Filter</button>
                         <button type="button" class="btn btn-danger ms-2 reset" onclick="resetFilter()">Reset</button>
                     </div>

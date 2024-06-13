@@ -10,6 +10,16 @@ use Illuminate\Support\Facades\Validator;
 
 class AuthController extends Controller
 {
+    public function getLogin()
+    {
+        return view('auth.login'); // Updated path
+    }
+
+    public function getSignup()
+    {
+        return view('auth.signup'); // Updated path
+    }
+
     public function postLogin(Request $request)
     {
         $validated = $request->validate([
@@ -18,14 +28,24 @@ class AuthController extends Controller
         ]);
 
         $credentials = $request->only('email', 'password');
+        $remember = $request->has('remember'); // Cek apakah checkbox 'remember' tercentang
 
-        if (Auth::attempt($credentials)) {
+        if (Auth::attempt($credentials, $remember)) {
             $request->session()->regenerate();
             $user = Auth::user();
             $request->session()->put('name', $user->name); // Store the user's name in the session
-            return redirect()->route('dashboard'); // Ensure this route exists
+
+            // Simpan email di session jika 'Remember Me' dicentang
+            if ($remember) {
+                $request->session()->put('email', $request->email);
+                $request->session()->put('remember', true);
+            } else {
+                $request->session()->forget('email');
+                $request->session()->forget('remember');
+            }
+
+            return redirect()->route('dashboard');
         } else {
-            // Check if email exists
             $user = User::where('email', $request->email)->first();
 
             if ($user) {
@@ -44,17 +64,18 @@ class AuthController extends Controller
     {
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
-            'email' => 'required|string|email|max:255|unique:users',
+            'email' => ['required', 'email', function ($attribute, $value, $fail) {
+                $domain = substr(strrchr($value, "@"), 1);
+                if (!checkdnsrr($domain, 'MX')) {
+                    $fail($attribute.' has an invalid domain.');
+                }
+            }],
             'password' => 'required|string|confirmed',
             'password_confirmation' => 'required'
         ]);
 
         if ($validator->fails()) {
-            return response([
-                'status' => false,
-                'message' => 'Validation errors !',
-                'error' => $validator->errors()
-            ]);
+            return redirect()->back()->withErrors($validator)->withInput();
         }
 
         $input = $request->all();
@@ -74,9 +95,9 @@ class AuthController extends Controller
         Auth::logout();
         $request->session()->invalidate();
         $request->session()->regenerateToken();
+        $request->session()->forget('email'); // Hapus email dari session
+        $request->session()->forget('remember'); // Hapus remember dari session
 
-        return redirect()->route('login'); // Ensure this route exists
+        return redirect()->route('login');
     }
 }
-
-

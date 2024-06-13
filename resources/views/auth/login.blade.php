@@ -7,6 +7,7 @@
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.2.3/dist/css/bootstrap.min.css" integrity="sha384-rbsA2VBKQhggwzxH7pPCaAqO46MgnOM80zW1RWuH61DGLwZJEdK2Kadq2F9CUG65" crossorigin="anonymous">
     <link rel="stylesheet" href="{{ asset('css/auth.css') }}">
     <title>Tele Assessment | Login</title>
+    <link rel="icon" href="../img/logo/ta.png" type="image/x-icon">
 </head>
 <body>
 
@@ -24,7 +25,7 @@
                     <form action="{{ route('postLogin') }}" method="post">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control form-control-lg fs-6" placeholder="Email address" id="email" value="{{ old('email') }}" required>
+                            <input type="email" name="email" class="form-control form-control-lg fs-6" placeholder="Email address" id="email" value="{{ old('email', session('email')) }}" required>
                         </div>
                         <div class="input-group mb-1">
                             <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" id="password" required>
@@ -42,7 +43,7 @@
                         </div>
                         <div class="mba input-group mb-5 d-flex justify-content-between">
                             <div class="form-check">
-                                <input type="checkbox" class="form-check-input" id="formCheck">
+                                <input type="checkbox" class="form-check-input" id="formCheck" name="remember" {{ old('remember') || session('remember') ? 'checked' : '' }}>
                                 <label for="formCheck" class="form-check-label text-secondary"><small>Remember Me</small></label>
                             </div>
                             <div class="forgot">
