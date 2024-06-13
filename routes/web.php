@@ -9,6 +9,7 @@ use App\Http\Controllers\AssessmentController;
 use App\Http\Controllers\DatakandidatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SkorvideoController;
+use App\Http\Controllers\LaporanController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -96,8 +97,8 @@ Route::put('/api/surveys/{id}', [SurveyController::class, 'saveSurvey']);
 
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
-// Uncomment the following line if you want to use the blog route
-// Route::get('/blog', [BlogController::class, 'index'])->name('blog.index');
+Route::get('/laporan', [LaporanController::class, 'laporan'])->name('laporan');
+
 
 // Pertanyaan Test
 Route::get('/cognitive-test', function () {

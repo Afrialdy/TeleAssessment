@@ -46,10 +46,10 @@
                             </td>
                         </tr>
                         <tr>
-                            <th>Bakat Minat</th>
+                            <th>Bakat</th>
                             <td>
-                                @if ($user->bakat_minat)
-                                    {{ $user->bakat_minat }}
+                                @if ($user->bakat)
+                                    {{ $user->bakat }}
                                 @else
                                     -
                                 @endif
@@ -73,9 +73,9 @@
                                 @else
                                     (-)
                                 @endif</strong>
-                                dengan bakat minat
-                                <strong>@if ($user->bakat_minat)
-                                    {{ $user->bakat_minat }}
+                                dengan bakat
+                                <strong>@if ($user->bakat)
+                                    {{ $user->bakat }}
                                 @else
                                     (-)
                                 @endif</strong>
@@ -104,9 +104,8 @@
             const doc = new jsPDF('landscape', 'pt', 'A4');
             const rows = [];
 
-            // Fetch all users from the server
-            const response = await fetch('{{ route('all_users') }}');
-            const users = await response.json();
+            // Fetch the user data from the server
+            const user = @json($user);
 
             // Function to format date with explicit timezone
             const formatDate = (dateString) => {
@@ -115,17 +114,15 @@
                 return formattedDate;
             };
 
-            // Push all users to the rows array
-            users.forEach(user => {
-                rows.push([
-                    user.name,
-                    user.email,
-                    user.id,
-                    formatDate(user.updated_at),
-                ]);
-            });
+            // Push user data to the rows array
+            rows.push([
+                user.name,
+                user.email,
+                user.id,
+                formatDate(user.updated_at),
+            ]);
 
-            // Generate PDF with all users
+            // Generate PDF with the user data
             doc.autoTable({
                 head: [['Pengguna', 'Email', 'ID', 'Penilaian Kandidat']],
                 body: rows,

@@ -30,9 +30,9 @@
                             <tr>
                                 <td><h5>{{ $user->id }}</h5></td>
                                 <td><h5 class="fw-bold">{{ $user->name }}</h5></td>
-                                <td class="kepribadian"><h5></h5></td>
-                                <td class="bakat-minat"><h5></h5></td>
-                                <td class="intelegensi"><h5></h5></td>
+                                <td class="kepribadian"><h5>{{ $user->kepribadian }}</h5></td>
+                                <td class="bakat-minat"><h5>{{ $user->bakat }}</h5></td>
+                                <td class="intelegensi"><h5>{{ $user->intelegensi }}</h5></td>
                                 <td>
                                     <a href="{{ route('detail-laporan', ['id' => $user->id]) }}">
                                         <button class="btn btn-primary">Detail</button>
@@ -41,14 +41,12 @@
                             </tr>
                         @endforeach
                     </tbody>
-
                 </table>
             </div>
         </div>
     </main>
 
-
-    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRMSOm4l6H2z+EuhvzrQF2s6D8zjri5+7NfXKhv6N" crossorigin="anonymous"></script>
+    <script src="https://code.jquery.com/jquery-3.6.0.min.js" integrity="sha384-KyZXEAg3QhqLMpG8r+8fhAXLRMSOm4l6H2z+EuhvzrQF2s6D8zjri5+7NfXKhv6H" crossorigin="anonymous"></script>
     <script src="https://code.jquery.com/jquery-3.7.1.min.js" integrity="sha256-/JqT3SQfawRcv/BIHPThkBvs0OEvtFFmqPF/lYI/Cxo=" crossorigin="anonymous"></script>
     <script type="text/javascript" src="https://cdn.datatables.net/v/bs5/dt-2.0.7/datatables.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.5.1/jspdf.umd.min.js"></script>
@@ -60,32 +58,6 @@
                 "order": [], // Menghapus pengaturan default order
             });
 
-            function randomKepribadian() {
-                const kepribadianOptions = ['INTJ', 'ENTP', 'INFJ', 'ESTP', 'ISTJ', 'ENFJ'];
-                return kepribadianOptions[Math.floor(Math.random() * kepribadianOptions.length)];
-            }
-
-            function randomBakatMinat() {
-                const bakatMinatOptions = ['Pengembangan Software', 'Desain Grafis', 'Musik', 'Pengelolaan Proyek', 'Penulisan Kreatif', 'Pemasaran'];
-                return bakatMinatOptions[Math.floor(Math.random() * bakatMinatOptions.length)];
-            }
-
-            function randomIntelegensi() {
-                const intelegensiOptions = ['Tinggi', 'Sedang', 'Rendah'];
-                return intelegensiOptions[Math.floor(Math.random() * intelegensiOptions.length)];
-            }
-
-            // Populate random values for each row
-            table.on('draw', function() {
-                $('#myTable tbody tr').each(function() {
-                    $(this).find('.kepribadian h5').text(randomKepribadian());
-                    $(this).find('.bakat-minat h5').text(randomBakatMinat());
-                    $(this).find('.intelegensi h5').text(randomIntelegensi());
-                });
-            });
-
-            table.draw();
-
             $('#exportPDF').on('click', function () {
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF('landscape', 'pt', 'A4');
@@ -95,7 +67,9 @@
                     rows.push([
                         '{{ $user->name }}',
                         '{{ $user->id }}',
-
+                        '{{ $user->kepribadian }}',
+                        '{{ $user->bakat }}',
+                        '{{ $user->intelegensi }}'
                     ]);
                 @endforeach
 
