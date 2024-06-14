@@ -28,9 +28,9 @@
                                 <th>Intelegensi</th>
                             </tr>
                             <tr class="">
-                                <td>ENTP</td>
-                                <td>Programmer</td>
-                                <td>Tinggi</td>
+                                <td>{{ $user->kepribadian }}</td>
+                                <td>{{ $user->bakat }}</td>
+                                <td>{{ $user->intelegensi }}</td>
                             </tr>
                         </table>
                     </div>

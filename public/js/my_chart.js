@@ -41,7 +41,7 @@ $(document).ready(function() {
 
 /* Line and Doughnut Chart */
 const ctx = document.getElementById('lineChart');
-const cts = document.getElementById('doughnut');
+const cts = document.getElementById('pieChart');
 
 const getTextColor = (bgColor) => {
     // Function to calculate luminance and determine text color
@@ -84,6 +84,9 @@ new Chart(ctx, {
             }
         },
         plugins: {
+            legend: {
+                display: false
+            },
             datalabels: {
                 color: (context) => {
                     const backgroundColor = context.dataset.backgroundColor[context.dataIndex];
@@ -100,13 +103,13 @@ new Chart(ctx, {
     plugins: [ChartDataLabels]
 });
 
+// Pie Chart
 new Chart(cts, {
     type: 'doughnut',
     data: {
-        labels: ['INTJ', 'INTP', 'ISTP', 'ENTJ', 'ENTP', 'ISFP', 'INFJ', 'INFP', 'ESTP', 'ENFJ', 'ENFP', 'ESFP'],
+        labels: JSON.parse(document.getElementById('pieChart').dataset.labels),
         datasets: [{
-            label: 'Peserta',
-            data: [18, 45, 12, 50, 30, 20, 33, 34, 12, 40, 44, 23],
+            data: JSON.parse(document.getElementById('pieChart').dataset.data),
             backgroundColor: [
                 'rgb(70,129,198)',
                 'rgb(183,127,240)',

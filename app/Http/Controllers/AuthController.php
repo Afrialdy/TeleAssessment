@@ -65,9 +65,10 @@ class AuthController extends Controller
         $validator = Validator::make($request->all(), [
             'name' => 'required|string|max:255',
             'email' => ['required', 'email', function ($attribute, $value, $fail) {
-                $domain = substr(strrchr($value, "@"), 1);
-                if (!checkdnsrr($domain, 'MX')) {
-                    $fail($attribute.' has an invalid domain.');
+                $emailParts = explode('@', $value);
+                $domain = array_pop($emailParts);
+                if (!filter_var($value, FILTER_VALIDATE_EMAIL) || !checkdnsrr($domain, 'MX')) {
+                    $fail($attribute . ' has an invalid domain.');
                 }
             }],
             'password' => 'required|string|confirmed',
@@ -101,3 +102,4 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 }
+

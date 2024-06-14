@@ -61,7 +61,7 @@
             $('#exportPDF').on('click', function () {
                 const { jsPDF } = window.jspdf;
                 const doc = new jsPDF('landscape', 'pt', 'A4');
-                const rows = [];
+                let rows = [];
 
                 @foreach ($users as $user)
                     rows.push([
@@ -72,6 +72,9 @@
                         '{{ $user->intelegensi }}'
                     ]);
                 @endforeach
+
+                // Sort rows by the first element (ID)
+                rows.sort((a, b) => a[1] - b[1])
 
                 doc.autoTable({
                     head: [['Pengguna', 'ID', 'Kepribadian', 'Bakat Minat', 'Intelegensi']],

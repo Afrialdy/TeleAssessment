@@ -9,7 +9,10 @@ use Illuminate\Support\Facades\DB;
 class LaporanController extends Controller
 {
     public function laporan() {
-        $users = User::select('id', 'name', 'kepribadian', 'bakat', 'intelegensi')->get();
+        // Mengambil data user dan mengurutkan berdasarkan 'updated_at' secara descending
+        $users = User::select('id', 'name', 'kepribadian', 'bakat', 'intelegensi')
+                     ->orderBy('updated_at', 'desc')
+                     ->get();
 
         return view('laporan', compact('users'));
     }
