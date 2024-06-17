@@ -1,7 +1,3 @@
-.video-upload {
-    margin-top: 25px;
-}
-
 .upload-container {
     position: relative;
     width: 100%;
@@ -88,7 +84,7 @@
     background-color: transparent;
 }
 
-.dropdown {
+.dropdown-container {
     margin: 20px 0;
 }
 

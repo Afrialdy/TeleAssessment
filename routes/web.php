@@ -119,3 +119,68 @@ Route::get('/validation-edit', function () {
 
 // Hasil Test Pisikogram
 Route::get('/hasil-test', [SkorvideoController::class, 'index']);
+
+// Interview Test List
+Route::get('/add-video', function () {
+    return view('interview-list.add-video');
+})->name('add-video');
+
+Route::get('/agreeableness', function () {
+    return view('interview-list.agreeableness');
+})->name('agreeableness');
+
+Route::get('/artistic', function () {
+    return view('interview-list.artistic');
+})->name('artistic');
+
+Route::get('/conscientiousness', function () {
+    return view('interview-list.conscientiousness');
+})->name('conscientiousness');
+
+Route::get('/conventional', function () {
+    return view('interview-list.conventional');
+})->name('conventional');
+
+Route::get('/enterprising', function () {
+    return view('interview-list.enterprising');
+})->name('enterprising');
+
+Route::get('/extraversion', function () {
+    return view('interview-list.extraversion');
+})->name('extraversion');
+
+Route::get('/intelektual', function () {
+    return view('interview-list.intelektual');
+})->name('intelektual');
+
+Route::get('/investigative', function () {
+    return view('interview-list.investigative');
+})->name('investigative');
+
+Route::get('/live-cognition', function () {
+    return view('interview-list.live-cognition');
+})->name('live-cognition');
+
+Route::get('/neuroticism', function () {
+    return view('interview-list.neuroticism');
+})->name('neuroticism');
+
+Route::get('/openness', function () {
+    return view('interview-list.openness');
+})->name('openness');
+
+Route::get('/perseptual', function () {
+    return view('interview-list.perseptual');
+})->name('perseptual');
+
+Route::get('/psikomotor', function () {
+    return view('interview-list.psikomotor');
+})->name('psikomotor');
+
+Route::get('/realistic', function () {
+    return view('interview-list.realistic');
+})->name('realistic');
+
+Route::get('/social', function () {
+    return view('interview-list.social');
+})->name('social');

@@ -43,7 +43,7 @@
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
-        <li>Interview Test</li>
+        <li>Interview Test List</li>
     </ul>
     <main class="content px-3 py-4">
         <div class="container-fluid">
@@ -57,25 +57,216 @@
                 </ul>
             </div>
 
-            <div class="title d-flex justify-content-between align-items-center">
+            <div class="title d-flex justify-content-between align-items-center mb-2">
                 <div class="d-flex align-items-center">
                     <img src="img/interview test.png" alt="">
                     <div class="d-flex flex-column">
-                        <h2 class="fw-bold">INTERVIEW TEST</h2>
+                        <h2 class="fw-bold">INTERVIEW TEST LIST</h2>
                         <p>Face Sentiment Analysis & Voice Sentiment Analysis.</p>
                     </div>
                 </div>
-                <div class="d-flex gap-2">
+                {{-- <div class="d-flex gap-2">
                     <a href="">
                         <button class="btn btn-secondary edit">Edit</button>
                     </a>
                     <a href="">
                         <button class="btn btn-primary view">View</button>
                     </a>
+                </div> --}}
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Agreeableness</h1>
+                            </div>
+                            <a href="{{ route('agreeableness') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Artistic</h1>
+                            </div>
+                            <a href="{{ route('artistic') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                                <h1>Conscientiousness</h1>
+                            <a href="{{ route('conscientiousness') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Conventional</h1>
+                            </div>
+                            <a href="{{ route('conventional') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
                 </div>
             </div>
 
-            <div class="test-box">
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Enterprising</h1>
+                            </div>
+                            <a href="{{ route('enterprising') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Extraversion</h1>
+                            </div>
+                            <a href="{{ route('extraversion') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                                <h1>Intelektual</h1>
+                            <a href="{{ route('intelektual') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Investigative</h1>
+                            </div>
+                            <a href="{{ route('investigative') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>LiveCognition</h1>
+                            </div>
+                            <a href="{{ route('live-cognition') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Neuroticism</h1>
+                            </div>
+                            <a href="{{ route('neuroticism') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                                <h1>Openness</h1>
+                            <a href="{{ route('openness') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Perseptual</h1>
+                            </div>
+                            <a href="{{ route('perseptual') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Psikomotor</h1>
+                            </div>
+                            <a href="{{ route('psikomotor') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                            <div class="">
+                                <h1>Realistic</h1>
+                            </div>
+                            <a href="{{ route('realistic') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex mt-3">
+                                <h1>Social</h1>
+                            <a href="{{ route('social') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+
+            {{-- <div class="test-box">
                 <h2>01</h2>
                 <div class="box-content d-flex flex-column">
                     <div class="content-test d-flex">
@@ -105,7 +296,7 @@
                             blanditiis!</p>
                     </div>
                 </div>
-            </div>
+            </div> --}}
         </div>
     </main>
 @endsection

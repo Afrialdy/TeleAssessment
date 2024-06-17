@@ -36,12 +36,12 @@
     </style>
 @endsection
 
-@section('content') 
+@section('content')
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Interview Test List</a></li>
-        <li>Edit Video</li>
+        <li>Add Video</li>
     </ul>
     <link rel="stylesheet" href="{{ asset('css/pertanyaan-test.css') }}">
     <link rel="stylesheet" href="{{ asset('css/edit-pertanyaan.css') }}">
@@ -73,20 +73,20 @@
 
             <div class="deskripsi">
                 <div class="box-deskripsi">
-                    <label for="description" class="form-label">Edit Pertanyaan</label>
+                    <label for="description" class="form-label">Pertanyaan</label>
                     <textarea class="form-control" id="description" name="description" rows="5" placeholder="Masukkan Pertanyaan"
                         required></textarea>
                 </div>
             </div>
 
-            <div class="deskripsi">
+            <div class="deskripsi mb-3">
                 <div class="box-deskripsi">
-                    <label for="description" class="form-label">Edit Deskripsi</label>
+                    <label for="description" class="form-label">Deskripsi</label>
                     <textarea class="form-control" id="description" name="description" rows="5" placeholder="Masukkan Deskripsi"
                         required></textarea>
                 </div>
             </div>
-            <div class="dropdown">
+            <div class="dropdown mb-3">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     Status
                 </button>
