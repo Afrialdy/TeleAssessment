@@ -3,6 +3,7 @@
 namespace App\Http\Controllers;
 
 use App\Models\Survey;
+use App\Models\VideoKepribadian;
 use Illuminate\Http\Request;
 
 class SurveyController extends Controller
@@ -58,4 +59,18 @@ class SurveyController extends Controller
 
         return response()->json(['success' => true]);
     }
+
+
+    public function showPersonality($personality)
+    {
+        // Fetch videos based on personality type
+        $videos = VideoKepribadian::where('kepribadian', $personality)->get();
+        
+        // Determine the view name dynamically
+        $viewName = 'interview-list.' . strtolower($personality);
+        
+        // Pass videos data to the view
+        return view($viewName, compact('videos'));
+    }
+    
 }

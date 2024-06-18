@@ -51,7 +51,7 @@
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
-        <li>Cognitive Style Test</li>
+        <li>View Cognitive Style Test</li>
     </ul>
     <main class="content px-3 py-4">
         <div class="container-fluid">

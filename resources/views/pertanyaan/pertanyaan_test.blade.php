@@ -65,23 +65,14 @@
                         <p>Face Sentiment Analysis & Voice Sentiment Analysis.</p>
                     </div>
                 </div>
-                {{-- <div class="d-flex gap-2">
-                    <a href="">
-                        <button class="btn btn-secondary edit">Edit</button>
-                    </a>
-                    <a href="">
-                        <button class="btn btn-primary view">View</button>
-                    </a>
-                </div> --}}
             </div>
 
             <div class="row">
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Agreeableness</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Agreeableness</h1>
+                            <p>Agreeableness adalah ciri kepribadian yang ditandai dengan kerja sama, kebaikan hati, dan keramahan. Individu dengan skor tinggi dalam agreeableness cenderung empatik dan senang membantu orang lain.</p>
                             <a href="{{ route('agreeableness') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
@@ -91,32 +82,33 @@
 
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Artistic</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Artistic</h1>
+                            <p>Individu artistik adalah kreatif dan senang mengekspresikan diri melalui berbagai bentuk seni, seperti melukis, musik, dan menulis. Mereka menghargai keindahan dan orisinalitas.</p>
                             <a href="{{ route('artistic') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                                <h1>Conscientiousness</h1>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Conscientiousness</h1>
+                            <p>Conscientiousness adalah ciri yang ditandai dengan keteraturan, keandalan, dan rasa tanggung jawab yang kuat. Orang yang conscientious bersifat teliti, hati-hati, dan dapat diandalkan.</p>
                             <a href="{{ route('conscientiousness') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Conventional</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Conventional</h1>
+                            <p>Individu konvensional lebih suka aktivitas yang terstruktur dan diatur oleh aturan, dan sering unggul dalam pekerjaan administratif atau clerical. Mereka menghargai ketertiban dan ketepatan.</p>
                             <a href="{{ route('conventional') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
@@ -128,10 +120,9 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Enterprising</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Enterprising</h1>
+                            <p>Individu enterprising adalah energik, ambisius, dan suka bergaul. Mereka sering tertarik pada peran kepemimpinan dan berkembang dalam lingkungan yang kompetitif.</p>
                             <a href="{{ route('enterprising') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
@@ -141,32 +132,33 @@
 
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Extraversion</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Extraversion</h1>
+                            <p>Extraversion ditandai dengan keramahan, kepandaian berbicara, dan sikap tegas. Extravert senang berinteraksi sosial dan sering dianggap antusias dan berorientasi pada tindakan.</p>
                             <a href="{{ route('extraversion') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                                <h1>Intelektual</h1>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Intellectual</h1>
+                            <p>Individu intelektual adalah penasaran dan senang terlibat dalam aktivitas yang merangsang pemikiran. Mereka sering tertarik pada ide-ide abstrak dan konsep-konsep teoretis.</p>
                             <a href="{{ route('intelektual') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Investigative</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Investigative</h1>
+                            <p>Individu investigatif adalah analitis, logis, dan senang memecahkan masalah yang kompleks. Mereka sering tertarik pada karir ilmiah dan berbasis penelitian.</p>
                             <a href="{{ route('investigative') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
@@ -178,11 +170,10 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>LiveCognition</h1>
-                            </div>
-                            <a href="{{ route('live-cognition') }}" class="hasil-tes">
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Live Cognition</h1>
+                            <p>Live Cognition merujuk pada kemampuan untuk memproses informasi secara real-time, membuat keputusan yang cepat dan akurat. Individu dengan keterampilan live cognition yang kuat unggul dalam lingkungan yang dinamis.</p>
+                            <a href="{{ route('livecognition') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
@@ -191,32 +182,33 @@
 
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Neuroticism</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Neuroticism</h1>
+                            <p>Neuroticism adalah ciri yang ditandai dengan ketidakstabilan emosi, kecemasan, dan perubahan suasana hati. Individu dengan skor tinggi dalam neuroticism mungkin lebih sering mengalami stres dan emosi negatif.</p>
                             <a href="{{ route('neuroticism') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                                <h1>Openness</h1>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Openness</h1>
+                            <p>Openness ditandai dengan kesediaan untuk mengalami hal-hal baru, kreativitas, dan rasa ingin tahu. Individu yang open seringkali imajinatif dan terbuka terhadap ide dan pengalaman baru.</p>
                             <a href="{{ route('openness') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Perseptual</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Perceptual</h1>
+                            <p>Individu perceptual sangat menyadari lingkungan mereka dan memiliki keterampilan observasi yang kuat. Mereka unggul dalam tugas-tugas yang membutuhkan perhatian terhadap detail dan kesadaran situasional.</p>
                             <a href="{{ route('perseptual') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
@@ -228,10 +220,9 @@
             <div class="row">
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Psikomotor</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Psychomotor</h1>
+                            <p>Keterampilan psikomotor melibatkan koordinasi antara fungsi kognitif dan gerakan fisik. Individu dengan keterampilan psikomotor yang kuat unggul dalam aktivitas yang memerlukan ketelitian dan ketangkasan manual.</p>
                             <a href="{{ route('psikomotor') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
@@ -241,62 +232,28 @@
 
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                            <div class="">
-                                <h1>Realistic</h1>
-                            </div>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Realistic</h1>
+                            <p>Individu realistis lebih suka aktivitas praktis dan hands-on dan sering unggul dalam bidang teknis atau mekanik. Mereka menghargai kepraktisan dan menikmati bekerja dengan hasil yang nyata.</p>
                             <a href="{{ route('realistic') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
+
                 <div class="col-md-3">
                     <div class="asess">
-                        <div class="asessbox d-flex mt-3">
-                                <h1>Social</h1>
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Social</h1>
+                            <p>Individu sosial adalah penyayang dan senang membantu orang lain. Mereka unggul dalam peran yang memerlukan keterampilan interpersonal, seperti mengajar, konseling, dan merawat.</p>
                             <a href="{{ route('social') }}" class="hasil-tes">
                                 <button type="button" class="btn btn-primary">Detail</button>
                             </a>
                         </div>
                     </div>
                 </div>
-
             </div>
-
-
-
-            {{-- <div class="test-box">
-                <h2>01</h2>
-                <div class="box-content d-flex flex-column">
-                    <div class="content-test d-flex">
-                        <video controls>
-                            <source src="{{ asset('videos/FRONTEND PROGRESS.mp4') }}" type="video/mp4">
-                        </video>
-                        <div class="d-flex flex-column">
-                            <div class="title-video d-flex flex-column mb-3">
-                                <h3 class="fw-bold fs-5">Interview Video AI</h3>
-                                <p>Ceritakan tentang situasi di mana Anda harus mengatasi konflik di tempat kerja. Bagaimana Anda menyelesaikannya?</p>
-                            </div>
-                            <div class="btn-test d-flex">
-                                <button class="btn btn-success">Aktif</button>
-                                <a href="{{ route('edit-pertanyaan') }}">
-                                    <button class="btn btn-secondary">Edit Survey</button>
-                                </a>
-                                <button class="btn btn-danger"><i class="lni lni-trash-can"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="deskripsi d-flex flex-column">
-                        <h3 class="fw-bold mt-4 fs-4">Deskripsi Video</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus expedita fugit quod quia
-                            officia tenetur voluptates at odit dicta optio facilis reiciendis commodi inventore quae eos,
-                            consectetur cupiditate praesentium excepturi ut odio. Suscipit error dignissimos ex cum a,
-                            perferendis reiciendis ipsam dolor, autem harum, officiis dolorum quis assumenda provident
-                            blanditiis!</p>
-                    </div>
-                </div>
-            </div> --}}
         </div>
     </main>
 @endsection

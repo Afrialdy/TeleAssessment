@@ -43,7 +43,7 @@
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
-        <li><a href="{{ route('pertanyaan_test') }}">Interview Test List</a></li>
+        
         <li>Conventional</li>
     </ul>
     <main class="content px-3 py-3">
@@ -61,7 +61,7 @@
                         <li><a class="dropdown-item" href="{{ route('extraversion') }}">EXTRAVERSION</a></li>
                         <li><a class="dropdown-item" href="{{ route('intelektual') }}">INTELEKTUAL</a></li>
                         <li><a class="dropdown-item" href="{{ route('investigative') }}">INVESTIGATIVE</a></li>
-                        <li><a class="dropdown-item" href="{{ route('live-cognition') }}">LIVE COGNITION</a></li>
+                        <li><a class="dropdown-item" href="{{ route('livecognition') }}">LIVE COGNITION</a></li>
                         <li><a class="dropdown-item" href="{{ route('neuroticism') }}">NEUROTICISM</a></li>
                         <li><a class="dropdown-item" href="{{ route('openness') }}">OPENNESS</a></li>
                         <li><a class="dropdown-item" href="{{ route('perseptual') }}">PERSEPTUAL</a></li>
@@ -71,76 +71,45 @@
                     </ul>
                 </div>
 
-                <div class="d-flex gap-2">
+               {{-- <div class="d-flex gap-2">
                     <a href="{{ route('add-video') }}">
                         <button class="btn btn-success edit">+ Video</button>
                     </a>
-                </div>
+                </div> --}}
             </div>
 
-            <div class="test-box">
-                <h2>01</h2>
-                <div class="box-content d-flex flex-column">
-                    <div class="content-test d-flex">
-                        <video controls>
-                            <source src="{{ asset('videos/FRONTEND PROGRESS.mp4') }}" type="video/mp4">
-                        </video>
-                        <div class="d-flex flex-column">
-                            <div class="title-video d-flex flex-column mb-3">
-                                <h3 class="fw-bold fs-5">Interview Video AI</h3>
-                                <p>Ceritakan tentang situasi di mana Anda harus mengatasi konflik di tempat kerja. Bagaimana Anda menyelesaikannya?</p>
-                            </div>
-                            <div class="btn-test d-flex">
-                                <button class="btn btn-success">Aktif</button>
-                                <a href="{{ route('edit-pertanyaan') }}">
-                                    <button class="btn btn-secondary">Edit Survey</button>
-                                </a>
-                                <button class="btn btn-danger"><i class="lni lni-trash-can"></i></button>
-                            </div>
-                        </div>
-                    </div>
-                    <div class="deskripsi d-flex flex-column">
-                        <h3 class="fw-bold mt-4 fs-4">Deskripsi Video</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus expedita fugit quod quia
-                            officia tenetur voluptates at odit dicta optio facilis reiciendis commodi inventore quae eos,
-                            consectetur cupiditate praesentium excepturi ut odio. Suscipit error dignissimos ex cum a,
-                            perferendis reiciendis ipsam dolor, autem harum, officiis dolorum quis assumenda provident
-                            blanditiis!</p>
-                    </div>
-                </div>
-            </div>
-
-            <div class="test-box">
-                <h2>01</h2>
-                <div class="box-content d-flex flex-column">
-                    <div class="content-test d-flex">
-                        <video controls>
-                            <source src="{{ asset('videos/FRONTEND PROGRESS.mp4') }}" type="video/mp4">
-                        </video>
-                        <div class="d-flex flex-column">
-                            <div class="title-video d-flex flex-column mb-3">
-                                <h3 class="fw-bold fs-5">Interview Video AI</h3>
-                                <p>Ceritakan tentang situasi di mana Anda harus mengatasi konflik di tempat kerja. Bagaimana Anda menyelesaikannya?</p>
-                            </div>
-                            <div class="btn-test d-flex">
-                                <button class="btn btn-success">Aktif</button>
-                                <a href="{{ route('edit-pertanyaan') }}">
-                                    <button class="btn btn-secondary">Edit Survey</button>
-                                </a>
-                                <button class="btn btn-danger"><i class="lni lni-trash-can"></i></button>
+            @foreach($videos as $video)
+                <div class="test-box">
+                    <h2>{{ $loop->iteration }}</h2>
+                    <div class="box-content d-flex flex-column">
+                        <div class="content-test d-flex">
+                            <video controls>
+                            <source src="{{ asset('videos/' . $video->kepribadian . '/' . $video->name . '.mp4') }}">                            </video>
+                            <div class="d-flex flex-column">
+                                <div class="title-video d-flex flex-column mb-3">
+                                    <h3 class="fw-bold fs-5">{{ $video->name }}</h3>
+                                    <p>{{ $video->pertanyaan }}</p>
+                                </div>
+                                <div class="btn-test d-flex">
+                                    <button class="btn btn-success">Aktif</button>
+                                    <a href="{{ route('edit-pertanyaan', ['id' => $video->id]) }}">
+                                        <button class="btn btn-secondary">Edit Survey</button>
+                                    </a>
+                                    {{-- <form action="{{ route('delete-pertanyaan', ['id' => $video->id]) }}" method="POST" style="display:inline;">
+                                        @csrf
+                                        @method('DELETE')
+                                        <button class="btn btn-danger"><i class="lni lni-trash-can"></i></button>
+                                    </form> --}}
+                                </div>
                             </div>
                         </div>
-                    </div>
-                    <div class="deskripsi d-flex flex-column">
-                        <h3 class="fw-bold mt-4 fs-4">Deskripsi Video</h3>
-                        <p>Lorem ipsum dolor, sit amet consectetur adipisicing elit. Ducimus expedita fugit quod quia
-                            officia tenetur voluptates at odit dicta optio facilis reiciendis commodi inventore quae eos,
-                            consectetur cupiditate praesentium excepturi ut odio. Suscipit error dignissimos ex cum a,
-                            perferendis reiciendis ipsam dolor, autem harum, officiis dolorum quis assumenda provident
-                            blanditiis!</p>
+                        <div class="deskripsi d-flex flex-column">
+                            <h3 class="fw-bold mt-4 fs-4">Deskripsi Video</h3>
+                            <p>{{ $video->deskripsi }}</p>
+                        </div>
                     </div>
                 </div>
-            </div>
+            @endforeach
         </div>
     </main>
 @endsection

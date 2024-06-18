@@ -40,7 +40,7 @@
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
-        <li><a href="{{ route('pertanyaan_test') }}">Interview Test List</a></li>
+        
         <li>Edit Video</li>
     </ul>
     <link rel="stylesheet" href="{{ asset('css/pertanyaan-test.css') }}">
