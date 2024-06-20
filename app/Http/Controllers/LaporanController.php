@@ -10,7 +10,7 @@ class LaporanController extends Controller
 {
     public function laporan() {
         // Mengambil data user dan mengurutkan berdasarkan 'updated_at' secara descending
-        $users = User::select('id', 'name', 'kepribadian', 'bakat', 'intelegensi')
+        $users = User::select('id', 'nama_lengkap', 'kepribadian', 'bakat', 'intelegensi')
                      ->orderBy('updated_at', 'desc')
                      ->get();
 

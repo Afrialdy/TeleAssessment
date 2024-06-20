@@ -23,40 +23,32 @@ class AuthController extends Controller
     public function postLogin(Request $request)
     {
         $validated = $request->validate([
-            'email' => 'required|email',
+            'username' => 'required|string',
             'password' => 'required'
         ]);
 
-        $credentials = $request->only('email', 'password');
-        $remember = $request->has('remember'); // Cek apakah checkbox 'remember' tercentang
+        $user = User::where('username', $request->username)->first();
 
-        if (Auth::attempt($credentials, $remember)) {
+        if ($user && $user->password === $request->password) {
+            // Manual login
+            Auth::login($user);
+
             $request->session()->regenerate();
-            $user = Auth::user();
-            $request->session()->put('name', $user->name); // Store the user's name in the session
+            $request->session()->put('name', $user->name);
 
-            // Simpan email di session jika 'Remember Me' dicentang
-            if ($remember) {
-                $request->session()->put('email', $request->email);
+            if ($request->has('remember')) {
+                $request->session()->put('username', $request->username);
                 $request->session()->put('remember', true);
             } else {
-                $request->session()->forget('email');
+                $request->session()->forget('username');
                 $request->session()->forget('remember');
             }
 
             return redirect()->route('dashboard');
         } else {
-            $user = User::where('email', $request->email)->first();
-
-            if ($user) {
-                return back()->withErrors([
-                    'password' => 'Password yang anda masukkan salah.',
-                ])->withInput($request->only('email'));
-            } else {
-                return back()->withErrors([
-                    'email' => 'Email yang anda masukkan salah.',
-                ]);
-            }
+            return back()->withErrors([
+                'password' => 'Password yang anda masukkan salah.',
+            ])->withInput($request->only('username'));
         }
     }
 

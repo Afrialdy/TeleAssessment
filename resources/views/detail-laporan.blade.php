@@ -29,7 +29,7 @@
                         </tr>
                         <tr>
                             <th>Nama</th>
-                            <td>{{ $user->name }}</td>
+                            <td>{{ $user->nama_lengkap }}</td>
                         </tr>
                         <tr>
                             <th>Email</th>
@@ -67,7 +67,7 @@
                         </tr>
                         <tr>
                             <th>Kesimpulan</th>
-                            <td><strong>{{ $user->name }}</strong> dengan ID: <strong>{{ $user->id }}</strong> dan Email <strong>{{ $user->email }}</strong> dikenal dengan kepribadian yang
+                            <td><strong>{{ $user->nama_lengkap }}</strong> dengan ID: <strong>{{ $user->id }}</strong> dan Email <strong>{{ $user->email }}</strong> dikenal dengan kepribadian yang
                                 <strong>@if ($user->kepribadian)
                                     {{ $user->kepribadian }}
                                 @else
@@ -116,7 +116,7 @@
 
             // Push user data to the rows array
             rows.push([
-                user.name,
+                user.nama_lengkap,
                 user.email,
                 user.id,
                 formatDate(user.updated_at),

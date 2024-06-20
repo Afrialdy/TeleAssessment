@@ -8,10 +8,10 @@ use Illuminate\Http\Request;
 class DatakandidatController extends Controller
 {
     public function index()
-    {
-        $users = User::orderBy('updated_at', 'desc')->get();
-        return view('dataKandidat', compact('users'));
-    }
+{
+    $users = User::orderBy('updated_at', 'desc')->get();
+    return view('dataKandidat', compact('users'));
+}
 
     public function update($userId) {
         $user = User::find($userId);

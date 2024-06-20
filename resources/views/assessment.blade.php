@@ -40,7 +40,7 @@
                     <div class="asess">
                         <div class="asessbox d-flex mt-3">
                             <div class="">
-                                <h1>{{ $user->name }}</h1>
+                                <h1>{{ $user->nama_lengkap }}</h1>
                                 <div class="d-flex flex-column items">
                                     <h3>No ID : {{ $user->id }}</h3>
                                     <h3>Penilaian Kandidat : {{ $user->updated_at }}</h3>
@@ -99,7 +99,7 @@
             // Push all users to the rows array
             users.forEach(user => {
                 rows.push([
-                    user.name,
+                    user.nama_lengkap,
                     user.email,
                     user.id,
                     formatDate(user.updated_at),

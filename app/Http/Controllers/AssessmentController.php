@@ -23,7 +23,7 @@ class AssessmentController extends Controller
                 $users = User::whereDate('updated_at', '=', date('Y-m-d', strtotime($query)))->get();
             } else {
                 // Jika bukan tanggal, coba cari berdasarkan nama atau ID
-                $users = User::where('name', 'LIKE', '%' . $query . '%')
+                $users = User::where('nama_lengkap', 'LIKE', '%' . $query . '%')
                             ->orWhere('id', 'LIKE', '%' . $query . '%')
                             ->paginate(10);
             }

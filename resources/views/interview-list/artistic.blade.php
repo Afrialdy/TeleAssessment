@@ -92,7 +92,7 @@
                                 </div>
                                 <div class="btn-test d-flex">
                                     <button class="btn btn-success">Aktif</button>
-                                    <a href="{{ route('edit-pertanyaan', ['id' => $video->id]) }}">
+                                    <a href="{{ url('edit-pertanyaan', ['id' => $video->id]) }}">
                                         <button class="btn btn-secondary">Edit Survey</button>
                                     </a>
                                     {{-- <form action="{{ route('delete-pertanyaan', ['id' => $video->id]) }}" method="POST" style="display:inline;">

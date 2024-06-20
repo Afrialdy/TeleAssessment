@@ -1,4 +1,3 @@
-
 /* Test Chart */
 'use strict';
 
@@ -44,12 +43,21 @@ const ctx = document.getElementById('lineChart');
 const cts = document.getElementById('pieChart');
 
 const getTextColor = (bgColor) => {
-    // Function to calculate luminance and determine text color
-    const color = bgColor.match(/\d+/g).map(Number);
-    const luminance = (0.299 * color[0] + 0.587 * color[1] + 0.114 * color[2]) / 255;
-
-    return luminance > 0.5 ? '#000' : '#fff';
+    if (typeof bgColor === 'string') {
+        // Mengatasi format RGB
+        const colorMatch = bgColor.match(/\d+/g);
+        if (colorMatch) {
+            const color = colorMatch.map(Number);
+            const luminance = (0.299 * color[0] + 0.587 * color[1] + 0.114 * color[2]) / 255;
+            return luminance > 0.5 ? '#000' : '#fff';
+        }
+    }
+    // Default color jika format tidak dikenali
+    return '#000';
 };
+
+
+const monthlyData = JSON.parse(ctx.dataset.monthlyData);
 
 new Chart(ctx, {
     type: 'bar',
@@ -57,7 +65,7 @@ new Chart(ctx, {
         labels: ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'],
         datasets: [{
             label: 'Peserta',
-            data: [200, 300, 250, 500, 600, 450, 100, 350, 320, 400, 500, 250],
+            data: monthlyData,
             backgroundColor: [
                 'rgb(70,129,198)',
                 'rgb(183,127,240)',

@@ -36,11 +36,11 @@
     </style>
 @endsection
 
-@section('content') 
+@section('content')
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
-        
+
         <li>Edit Video</li>
     </ul>
     <link rel="stylesheet" href="{{ asset('css/pertanyaan-test.css') }}">
@@ -86,7 +86,7 @@
                         required></textarea>
                 </div>
             </div>
-            <div class="dropdown">
+            <div class="dropdown mt-3">
                 <button class="btn btn-secondary dropdown-toggle" type="button" id="dropdownMenuButton" data-bs-toggle="dropdown" aria-expanded="false">
                     Status
                 </button>
@@ -96,7 +96,7 @@
                 </ul>
             </div>
 
-            <button type="submit" class="btn btn-primary submit">Simpan</button>
+            <button type="submit" class="btn btn-primary submit mt-3">Simpan</button>
 
         </div>
     </main>

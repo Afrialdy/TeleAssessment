@@ -32,15 +32,15 @@
                                 <td class="profil d-flex">
                                     <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
                                     <div class="user">
-                                        <h5 class="mt-3">{{ $user->name }}</h5>
+                                        <h5 class="mt-3">{{ $user->nama_lengkap }}</h5>
                                         <p>{{ $user->email }}</p>
                                     </div>
                                 </td>
                                 <td><h5>{{ $user->id }}</h5></td>
                                 <td><h5>{{ $user->updated_at }}</h5></td>
                                 <td><h5>{{ $user->phone }}</h5></td>
-                                <td><h5>{{ $user->age }}</h5></td>
-                                <td><h5>{{ $user->gender }}</h5></td>
+                                <td><h5>{{ $user->usia }}</h5></td>
+                                <td><h5>{{ $user->jenis_kelamin == 1 ? 'Pria' : 'Perempuan' }}</h5></td>
                                 <td>
                                     <a href="user/{{ $user->id }}" class="btn btn-sm {{ $user->is_active ? 'btn-custom-active' : 'btn-custom-nonactive' }}">
                                         {{ $user->is_active ? 'Aktif' : 'Tidak Aktif' }}
@@ -90,21 +90,24 @@
                 const doc = new jsPDF('landscape', 'pt', 'A4');
                 const rows = [];
 
-                @foreach ($users as $user)
+                // Sort the data array based on ID
+                let sortedData = @json($users).sort((a, b) => a.id - b.id);
+
+                sortedData.forEach(user => {
                     rows.push([
-                        '{{ $user->name }}',
-                        '{{ $user->email }}',
-                        '{{ $user->id }}',
-                        '{{ $user->updated_at }}',
-                        '{{ $user->phone }}',
-                        '{{ $user->age }}',
-                        '{{ $user->gender }}',
-                        '{{ $user->is_active ? "Aktif" : "Tidak Aktif" }}'
+                        user.nama_lengkap,
+                        user.email,
+                        user.id,
+                        user.updated_at,
+                        user.phone,
+                        user.usia,
+                        user.jenis_kelamin == 1 ? 'Pria' : 'Perempuan',
+                        user.is_active ? "Aktif" : "Tidak Aktif"
                     ]);
-                @endforeach
+                });
 
                 doc.autoTable({
-                    head: [['Pengguna', 'Email', 'ID', 'Tanggal', 'No Telepon', 'Usia', 'Gender', 'Keterangan']],
+                    head: [['Pengguna', 'Email', 'ID', 'Tanggal', 'No Telepon', 'Usia', 'Jenis Kelamin', 'Keterangan']],
                     body: rows,
                     margin: { top: 30, left: 30, right: 30, bottom: 30 },
                     styles: {
@@ -116,5 +119,6 @@
                 doc.save('data_kandidat.pdf');
             });
         });
+
     </script>
 @endsection

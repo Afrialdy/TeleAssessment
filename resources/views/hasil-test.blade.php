@@ -9,7 +9,7 @@
                 <div class="hasil-box d-flex mt-3">
                     <img src="{{ asset('img/profil-review/adudu.jpeg') }}" alt="" class="img-fluid">
                     <div class="profil d-flex flex-column">
-                        <h2 class="fw-bolder fs-4">{{ $user->name }}</h2>
+                        <h2 class="fw-bolder fs-4">{{ $user->nama_lengkap }}</h2>
                         <div class="profil-set d-flex">
                             <h6>{{ $user->email }}</h6>
                             <h6>{{ $user->phone }}</h6>

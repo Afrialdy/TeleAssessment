@@ -19,6 +19,17 @@ class DashboardController extends Controller
         $labels = $kepribadianData->pluck('kepribadian');
         $data = $kepribadianData->pluck('total');
 
-        return view('dashboard', compact('userCount', 'labels', 'data'));
+        $monthlyUsers = User::select(DB::raw('MONTH(created_at) as month'), DB::raw('count(*) as count'))
+                            ->groupBy('month')
+                            ->get()
+                            ->pluck('count', 'month')
+                            ->toArray();
+
+        $monthlyData = [];
+        for ($i = 1; $i <= 12; $i++) {
+            $monthlyData[] = $monthlyUsers[$i] ?? 0;
+        }
+
+        return view('dashboard', compact('userCount', 'labels', 'data', 'monthlyData'));
     }
 }

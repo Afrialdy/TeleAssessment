@@ -53,7 +53,7 @@
                 <div class="charts">
                     <div class="box-chart">
                         <h2>Grafik Peserta Perbulan</h2>
-                        <canvas id="lineChart"></canvas>
+                        <canvas id="lineChart" data-monthly-data="{{ json_encode($monthlyData) }}"></canvas>
                     </div>
 
                     <div class="box-chart" id="doughtnut-chart">

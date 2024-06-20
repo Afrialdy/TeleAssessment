@@ -29,7 +29,7 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td><h5>{{ $user->id }}</h5></td>
-                                <td><h5 class="fw-bold">{{ $user->name }}</h5></td>
+                                <td><h5 class="fw-bold">{{ $user->nama_lengkap }}</h5></td>
                                 <td class="kepribadian"><h5>{{ $user->kepribadian }}</h5></td>
                                 <td class="bakat-minat"><h5>{{ $user->bakat }}</h5></td>
                                 <td class="intelegensi"><h5>{{ $user->intelegensi }}</h5></td>
@@ -65,7 +65,7 @@
 
                 @foreach ($users as $user)
                     rows.push([
-                        '{{ $user->name }}',
+                        '{{ $user->nama_lengkap }}',
                         '{{ $user->id }}',
                         '{{ $user->kepribadian }}',
                         '{{ $user->bakat }}',

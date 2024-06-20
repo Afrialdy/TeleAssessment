@@ -1,3 +1,5 @@
+<!-- login.blade.php -->
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -25,7 +27,7 @@
                     <form action="{{ route('postLogin') }}" method="post">
                         @csrf
                         <div class="input-group mb-3">
-                            <input type="email" name="email" class="form-control form-control-lg fs-6" placeholder="Email address" id="email" value="{{ old('email', session('email')) }}" required>
+                            <input type="text" name="username" class="form-control form-control-lg fs-6" placeholder="Username" id="username" value="{{ old('username', session('username')) }}" required>
                         </div>
                         <div class="input-group mb-1">
                             <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" id="password" required>

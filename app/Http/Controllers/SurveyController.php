@@ -65,12 +65,12 @@ class SurveyController extends Controller
     {
         // Fetch videos based on personality type
         $videos = VideoKepribadian::where('kepribadian', $personality)->get();
-        
+
         // Determine the view name dynamically
-        $viewName = 'interview-list.' . strtolower($personality);
-        
+        $viewName =         'interview-list.' . strtolower($personality);
+
         // Pass videos data to the view
-        return view($viewName, compact('videos'));
+        return view($viewName        , compact('videos'));
     }
-    
+
 }
