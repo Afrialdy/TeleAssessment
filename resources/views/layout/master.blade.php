@@ -146,7 +146,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                             </div>
                         </form>
 
-                        <li class="nav-item dropdown">
+                        {{-- <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
                                 <i class="lni lni-alarm alarm"></i>
                             </a>
@@ -177,7 +177,7 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                                     <span>Notification 2</span>
                                 </a>
                             </div>
-                        </li>
+                        </li> --}}
 
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
@@ -185,13 +185,13 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded mt-4">
                                 <a href="#" class="dropdown-item">
-                                    <i class="lni lni-timer"></i>
-                                    <span>Analytics</span>
+                                    <i class="lni lni-exit"></i>
+                                    <span>Logout</span>
                                 </a>
-                                <a href="#" class="dropdown-item">
+                                {{-- <a href="#" class="dropdown-item">
                                     <i class="lni lni-cog"></i>
                                     <span>Setting</span>
-                                </a>
+                                </a> --}}
                                 <!-- <div class="dropdown-divider"></div>
                                 <a href="#" class="dropdown-item">
                                     <i class="lni lni-question-circle"></i>

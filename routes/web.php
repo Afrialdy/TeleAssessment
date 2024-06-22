@@ -2,7 +2,6 @@
 
 use App\Models\User;
 use App\Http\Controllers\AuthController;
-use App\Http\Controllers\BlogController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\SurveyController;
 use App\Http\Controllers\AssessmentController;
@@ -10,6 +9,7 @@ use App\Http\Controllers\DatakandidatController;
 use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SkorvideoController;
 use App\Http\Controllers\LaporanController;
+use App\Http\Controllers\HasiltestController;
 
 use Illuminate\Support\Facades\Route;
 
@@ -23,7 +23,7 @@ Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
 Route::get('/signup', [AuthController::class, 'getSignup'])->name('signup');
 
 Route::post('/login', [AuthController::class, 'postLogin'])->name('postLogin');
-Route::post('/register', [AuthController::class, 'postRegister'])->name('postRegister'); // Ensure this route exists
+Route::post('/signup', [AuthController::class, 'postRegister'])->name('postRegister');
 
 Route::post('/logout', [AuthController::class, 'postLogout'])->name('logout');
 
@@ -46,7 +46,9 @@ Route::get('/assessment', [AssessmentController::class, 'index'])
 Route::get('/search', [AssessmentController::class, 'search'])->name('search');
 Route::get('/all-users', [AssessmentController::class, 'getAllUsers'])->name('all_users');
 Route::get('/filter', [AssessmentController::class, 'filterData'])->name('filter');
-Route::get('/hasil-test/{id}', [AssessmentController::class, 'hasilTest'])->name('hasil-test')->middleware('auth');
+
+/* HasiltestController */
+Route::get('/hasil-test/{id}', [HasiltestController::class, 'hasilTest'])->name('hasil-test')->middleware('auth');
 
 Route::get('/laporan', function () {
     return view('laporan', [

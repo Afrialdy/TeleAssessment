@@ -62,16 +62,4 @@ class AssessmentController extends Controller
 
     return view('assessment', compact('users'));
     }
-
-    public function hasilTest($id)
-{
-    $user = User::find($id);
-
-    if (!$user) {
-        return redirect()->route('assessment')->with('error', 'User not found');
-    }
-
-    // Pass the user data to the view
-    return view('hasil-test', compact('user'));
-}
 }

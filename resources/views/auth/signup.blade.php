@@ -30,7 +30,15 @@
                         </div>
                         <!-- End Alert Section -->
                         <div class="input-group mb-3">
-                            <input type="text" name="name" class="form-control form-control-lg fs-6" placeholder="Full Name" required>
+                            <input type="text" name="nama_lengkap" class="form-control form-control-lg fs-6" placeholder="Full Name" required>
+                        </div>
+                        <div class="input-group mb-3">
+                            <input type="text" name="username" class="form-control form-control-lg fs-6 @error('username') is-invalid @enderror" placeholder="Username" value="{{ old('username') }}" required>
+                            @error('username')
+                                <div class="invalid-feedback">
+                                    {{ $message }}
+                                </div>
+                            @enderror
                         </div>
                         <div class="input-group mb-3">
                             <input type="email" name="email" class="form-control form-control-lg fs-6 @error('email') is-invalid @enderror" placeholder="Email address" value="{{ old('email') }}" required>
@@ -40,11 +48,36 @@
                                 </div>
                             @enderror
                         </div>
-                        <div class="input-group mb-3">
-                            <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" required>
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <input type="password" name="password" class="form-control form-control-lg fs-6" placeholder="Password" required>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="password" name="password_confirmation" class="form-control form-control-lg fs-6" placeholder="Confirm Password" required>
+                            </div>
+                        </div>
+                        <div class="row mb-3">
+                            <div class="col-md-6 mb-3 mb-md-0">
+                                <select name="jenis_kelamin" class="form-control form-control-lg fs-6" required>
+                                    <option value="" disabled selected>Pilih Gender</option>
+                                    <option value="1">Male</option>
+                                    <option value="2">Female</option>
+                                </select>
+                            </div>
+                            <div class="col-md-6">
+                                <input type="number" name="usia" class="form-control form-control-lg fs-6" placeholder="Age" required>
+                            </div>
                         </div>
                         <div class="input-group mb-3">
-                            <input type="password" name="password_confirmation" class="form-control form-control-lg fs-6" placeholder="Confirm Password" required>
+                            <select name="pendidikan_terakhir" class="form-control form-control-lg fs-6" required>
+                                <option value="" disabled selected>Pilih Pendidikan</option>
+                                <option value="SD">SD</option>
+                                <option value="SMP">SMP</option>
+                                <option value="SMA/SMK">SMA/SMK</option>
+                                <option value="S1">S1</option>
+                                <option value="S2">S2</option>
+                                <option value="S3">S3</option>
+                            </select>
                         </div>
                         <div class="input-group mb-3">
                             <input type="submit" name="signup" class="btn btn-lg btn-dark w-100 fs-6 text-uppercase btn-signup" value="Sign up">
