@@ -1,3 +1,4 @@
+// assessment.blade.php
 @extends('layout.master')
 
 @section('content')
@@ -43,7 +44,7 @@
                                 <h1>{{ $user->nama_lengkap }}</h1>
                                 <div class="d-flex flex-column items">
                                     <h3>No ID : {{ $user->id }}</h3>
-                                    <h3>Penilaian Kandidat : {{ $user->updated_at }}</h3>
+                                    <h3>Penilaian Kandidat : {{ optional($user->penilaianBeo)->tanggal_penilaian ?? 'N/A' }}</h3>
                                 </div>
                             </div>
                             <a href="{{ route('hasil-test', ['id' => $user->id]) }}" class="hasil-tes">
@@ -102,7 +103,7 @@
                     user.nama_lengkap,
                     user.email,
                     user.id,
-                    formatDate(user.updated_at),
+                    formatDate(user.penilaian_beo?.tanggal_penilaian ?? 'N/A'),
                 ]);
             });
 

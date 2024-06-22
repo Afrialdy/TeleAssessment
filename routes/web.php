@@ -138,3 +138,5 @@ Route::get('/perseptual', [SurveyController::class, 'showPersonality'])->name('p
 Route::get('/psikomotor', [SurveyController::class, 'showPersonality'])->name('psikomotor')->defaults('personality', 'Psikomotor');
 Route::get('/realistic', [SurveyController::class, 'showPersonality'])->name('realistic')->defaults('personality', 'Realistic');
 Route::get('/social', [SurveyController::class, 'showPersonality'])->name('social')->defaults('personality', 'Social');
+
+

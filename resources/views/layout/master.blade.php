@@ -139,12 +139,12 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 <div class="navbar-collapse collapse">
                     <h2 class="fw-bold">Hello, {{ Auth::user()->nama_lengkap }}</h2>
                     <ul class="navbar-nav ms-auto align-items-center d-flex">
-                        <form action="">
+                        {{-- <form action="">
                             <div class="search-box">
                                 <input type="text" placeholder="Search...">
                                 <button type="submit"><i class="lni lni-search-alt"></i></button>
                             </div>
-                        </form>
+                        </form> --}}
 
                         {{-- <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">

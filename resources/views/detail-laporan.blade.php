@@ -85,7 +85,6 @@
                                 @else
                                     (-)
                                 @endif</strong>
-                                Lorem ipsum dolor sit, amet consectetur adipisicing elit. Similique obcaecati architecto voluptatem cumque quasi animi velit corporis doloribus blanditiis minima.
                             </td>
                         </tr>
                     </tbody>
@@ -99,54 +98,57 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf-autotable/3.5.17/jspdf.plugin.autotable.min.js"></script>
     <script>
-        document.getElementById('exportPDF').addEventListener('click', async () => {
+        document.getElementById('exportPDF').addEventListener('click', () => {
             const { jsPDF } = window.jspdf;
-            const doc = new jsPDF('landscape', 'pt', 'A4');
-            const rows = [];
+            const doc = new jsPDF('portrait', 'pt', 'A4');
 
-            // Fetch the user data from the server
-            const user = @json($user);
-
-            // Function to format date with explicit timezone
-            const formatDate = (dateString) => {
-                const date = new Date(dateString);
-                const formattedDate = `${date.getUTCFullYear()}-${(date.getUTCMonth() + 1).toString().padStart(2, '0')}-${date.getUTCDate().toString().padStart(2, '0')} ${date.getUTCHours().toString().padStart(2, '0')}:${date.getUTCMinutes().toString().padStart(2, '0')}:${date.getUTCSeconds().toString().padStart(2, '0')}`;
-                return formattedDate;
+            const data = {
+                id: "{{ $user->id }}",
+                nama_lengkap: "{{ $user->nama_lengkap }}",
+                email: "{{ $user->email }}",
+                kepribadian: "{{ $user->kepribadian ?? '-' }}",
+                bakat: "{{ $user->bakat ?? '-' }}",
+                intelegensi: "{{ $user->intelegensi ?? '-' }}"
             };
 
-            // Push user data to the rows array
-            rows.push([
-                user.nama_lengkap,
-                user.email,
-                user.id,
-                formatDate(user.updated_at),
-            ]);
-
-            // Generate PDF with the user data
-            doc.autoTable({
-                head: [['Pengguna', 'Email', 'ID', 'Penilaian Kandidat']],
-                body: rows,
-                margin: { top: 30, left: 30, right: 30, bottom: 30 },
-                styles: {
-                    fontSize: 10,
-                    cellPadding: 10
+            const tableData = [
+                { "key": "ID", "value": data.id },
+                { "key": "Nama", "value": data.nama_lengkap },
+                { "key": "Email", "value": data.email },
+                { "key": "Kepribadian", "value": data.kepribadian },
+                { "key": "Bakat", "value": data.bakat },
+                { "key": "Intelegensi", "value": data.intelegensi },
+                {
+                    "key": "Kesimpulan", "value": `${data.nama_lengkap} dengan ID: ${data.id} dan Email ${data.email} dikenal dengan kepribadian yang ${data.kepribadian} dengan bakat ${data.bakat} dan memiliki intelegensi ${data.intelegensi}.`
                 }
+            ];
+
+            const tableBody = tableData.map(row => [row.key, row.value]);
+
+            doc.autoTable({
+                body: tableBody,
+                theme: 'striped',
+                headStyles: {
+                    fillColor: [248, 249, 250],
+                    textColor: 0,
+                    fontStyle: 'bold',
+                },
+                styles: {
+                    halign: 'left',
+                    cellPadding: { top: 10, right: 30, bottom: 10, left: 15 },
+                    fontSize: 10,
+                    overflow: 'linebreak',
+                    lineColor: [0, 0, 0],
+                    lineWidth: 0.1
+                },
+                columnStyles: {
+                    0: { cellWidth: 100 },
+                    1: { cellWidth: 400 }
+                },
+                margin: { top: 50 }
             });
 
             doc.save('Assessment.pdf');
-        });
-
-        function resetFilter() {
-            window.location.href = "{{ route('assessment') }}";
-        }
-
-        // Initialize Flatpickr
-        flatpickr("#start_date", {
-            dateFormat: "Y-m-d"
-        });
-
-        flatpickr("#end_date", {
-            dateFormat: "Y-m-d"
         });
     </script>
 

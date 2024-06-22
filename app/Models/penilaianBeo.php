@@ -19,9 +19,13 @@ class penilaianBeo extends Model
         'v_sentimen',
         'skor_validasi',
         'kepercayaan',
-
         'cognitive_video_score',
         'skor_validasi_kepribadianbakatminat',
         'skor_validasi_cognitif',
+        'tanggal_penilaian',
+    ];
+
+    protected $dates = [
+        'tanggal_penilaian', // Add this line to handle date casting
     ];
 }
