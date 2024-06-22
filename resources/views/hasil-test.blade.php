@@ -7,7 +7,7 @@
         <div class="container-fluid">
             <div class="hasil-test">
                 <div class="hasil-box d-flex mt-3">
-                    <img src="{{ asset('img/profil-review/adudu.jpeg') }}" alt="" class="img-fluid">
+                    <img src="{{ asset('img/avatar.png') }}" alt="" class="img-fluid">
                     <div class="profil d-flex flex-column">
                         <h2 class="fw-bolder fs-4">{{ $user->nama_lengkap }}</h2>
                         <div class="profil-set d-flex">
@@ -885,19 +885,19 @@
                 // var maxV = Math.max(vpos, vneg, vneu);
 
                 if (fpos === fneg) {
-                    rows[i].cells[3].textContent = "◯"; // "Fpos" column
+                    rows[i].cells[3].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Fpos" column
                 } else if (fneg > fpos) {
-                    rows[i].cells[2].textContent = "◯"; // "Fneg" column
+                    rows[i].cells[2].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Fneg" column
                 } else if (fpos > fenu) {
-                    rows[i].cells[4].textContent = "◯"; // "Fneu" column
+                    rows[i].cells[4].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Fneu" column
                 }
 
                 if (voice == 3) {
-                    rows[i].cells[6].textContent = "◯"; // "Vpos" column
+                    rows[i].cells[6].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Vpos" column
                 } else if (voice < 3) {
-                    rows[i].cells[5].textContent = "◯"; // "Vneg" column
+                    rows[i].cells[5].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Vneg" column
                 } else if (voice > 3) {
-                    rows[i].cells[7].textContent = "◯"; // "Vneu" column
+                    rows[i].cells[7].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Vneu" column
                 }
 
                 indexData++
@@ -906,185 +906,182 @@
     };
 </script>
 
-<script>
+    <script>
         // Function to generate a random score between 1 and 100
-        function generateRandomScore() {
-            return Math.floor(Math.random() * 10) + 1;
-        }
+function generateRandomScore() {
+    return Math.floor(Math.random() * 10) + 1;
+}
 
-        // Function to determine the values for "Rendah," "Tinggi," and "Rata-Rata" based on the raw score
-        function determineValues(rawScore) {
-            if (rawScore <= 14) {
-                return ["◯", "", ""];
-            } else if (rawScore <= 24) {
-                return ["", "◯", ""];
-            } else {
-                return ["", "", "◯"];
-            }
-        }
+// Function to determine the values for "Rendah," "Tinggi," and "Rata-Rata" based on the raw score
+function determineValues(rawScore) {
+    if (rawScore <= 14) {
+        return ['<i class="lni lni-checkmark-circle"></i>', "", ""];
+    } else if (rawScore <= 24) {
+        return ["", '<i class="lni lni-checkmark-circle"></i>', ""];
+    } else {
+        return ["", "", '<i class="lni lni-checkmark-circle"></i>'];
+    }
+}
 
-        function determineValuesValidasi(rawScore) {
-            if (rawScore <= 14) {
-                return ["◯", "", ""];
-            } else if (rawScore <= 24) {
-                return ["", "◯", ""];
-            } else {
-                return ["", "", "◯"];
-            }
-        }
-        // ○ 🔘 ◯
-        // Get the table element by its ID
-        var table = document.getElementById("scoreTable");
+function determineValuesValidasi(rawScore) {
+    if (rawScore <= 14) {
+        return ['<i class="lni lni-checkmark-circle"></i>', "", ""];
+    } else if (rawScore <= 24) {
+        return ["", '<i class="lni lni-checkmark-circle"></i>', ""];
+    } else {
+        return ["", "", '<i class="lni lni-checkmark-circle"></i>'];
+    }
+}
 
-        // Iterate through the rows and populate the "Raw Score" column
-        for (var i = 1; i < table.rows.length; i++) { // Start from 1 to skip the header row
-            var row = table.rows[i];
-            var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
+// Get the table element by its ID
+var table = document.getElementById("scoreTable");
 
-            // Generate a random score and set it in the cell
+// Iterate through the rows and populate the "Raw Score" column
+for (var i = 1; i < table.rows.length; i++) { // Start from 1 to skip the header row
+    var row = table.rows[i];
+    var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
 
+    // Generate a random score and set it in the cell
+    var values = determineValuesValidasi(rawScoreCell.textContent);
 
-            // Determine the values for "Rendah," "Tinggi," and "Rata-Rata" based on the raw score
-            var values = determineValuesValidasi(rawScoreCell.textContent);
+    // Fill in the corresponding cells
+    var rendahCell = row.cells[3]; // Index 3 is the "Rendah" column
+    rendahCell.innerHTML = values[0];
 
+    var tinggiCell = row.cells[4]; // Index 4 is the "Tinggi" column
+    tinggiCell.innerHTML = values[1];
 
-            // Fill in the corresponding cells
-            var rendahCell = row.cells[3]; // Index 3 is the "Rendah" column
-            rendahCell.textContent = values[0];
+    var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
+    rataRataCell.innerHTML = values[2];
+}
 
-            var tinggiCell = row.cells[4]; // Index 4 is the "Tinggi" column
-            tinggiCell.textContent = values[1];
+var tableValidasi = document.getElementById("scoreTableValidasi");
 
-            var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
-            rataRataCell.textContent = values[2];
-        }
+// Iterate through the rows and populate the "Raw Score" column
+for (var i = 1; i < tableValidasi.rows.length; i++) { // Start from 1 to skip the header row
+    var row = tableValidasi.rows[i];
+    var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
 
-        var table = document.getElementById("scoreTableValidasi");
+    var values = determineValuesValidasi(rawScoreCell.textContent);
 
-        // Iterate through the rows and populate the "Raw Score" column
-        for (var i = 1; i < table.rows.length; i++) { // Start from 1 to skip the header row
-            var row = table.rows[i];
-            var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
+    // Fill in the corresponding cells
+    var rendahCell = row.cells[3]; // Index 3 is the "Rendah" column
+    rendahCell.innerHTML = values[0];
 
-            // Determine the values for "Rendah," "Tinggi," and "Rata-Rata" based on the raw score
-            var values = determineValuesValidasi(rawScoreCell.textContent);
+    var tinggiCell = row.cells[4]; // Index 4 is the "Tinggi" column
+    tinggiCell.innerHTML = values[1];
 
-            // Fill in the corresponding cells
-            var rendahCell = row.cells[3]; // Index 3 is the "Rendah" column
-            rendahCell.textContent = values[0];
+    var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
+    rataRataCell.innerHTML = values[2];
+}
 
-            var tinggiCell = row.cells[4]; // Index 4 is the "Tinggi" column
-            tinggiCell.textContent = values[1];
-
-            var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
-            rataRataCell.textContent = values[2];
-        }
     </script>
 
     <script>
         // Function to generate a random score between 1 and 100
-        function generateRandomScore() {
-            return Math.floor(Math.random() * 10) + 1;
-        }
+function generateRandomScore() {
+    return Math.floor(Math.random() * 10) + 1;
+}
 
-        // Function to determine the values for "Rendah," "Tinggi," and "Rata-Rata" based on the raw score
-        //  REMINDER: buat Determinevalues buat semua isi biar soale peniliaiane unik
-        function determineValues(rawScore) {
-            if (rawScore <= 20) {
-                return ["◯", "", "", "", ""];
-            } else if (rawScore <= 40) {
-                return ["", "◯", "", "", ""];
-            } else if (rawScore <= 60) {
-                return ["", "", "◯", "", ""];
-            } else if (rawScore <= 80) {
-                return ["", "", "", "◯", ""];
-            } else {
-                return ["", "", "", "", "◯"];
-            }
-        }
+// Function to determine the values for "Rendah," "Tinggi," and "Rata-Rata" based on the raw score
+//  REMINDER: buat Determinevalues buat semua isi biar soale peniliaiane unik
+function determineValues(rawScore) {
+    if (rawScore <= 20) {
+        return ["<i class='lni lni-checkmark-circle'></i>", "", "", "", ""];
+    } else if (rawScore <= 40) {
+        return ["", "<i class='lni lni-checkmark-circle'></i>", "", "", ""];
+    } else if (rawScore <= 60) {
+        return ["", "", "<i class='lni lni-checkmark-circle'></i>", "", ""];
+    } else if (rawScore <= 80) {
+        return ["", "", "", "<i class='lni lni-checkmark-circle'></i>", ""];
+    } else {
+        return ["", "", "", "", "<i class='lni lni-checkmark-circle'></i>"];
+    }
+}
 
-        // Get the table element by its ID
-        var table = document.getElementById("tabelKepribadianValidasi");
+// Get the table element by its ID
+var table = document.getElementById("tabelKepribadianValidasi");
 
-        // Iterate through the rows and populate the "Raw Score" column
-        for (var i = 1; i < table.rows.length; i++) { // Start from 1 to skip the header row
-            if (i == 6 || i == 13) {
-                continue;
+// Iterate through the rows and populate the "Raw Score" column
+for (var i = 1; i < table.rows.length; i++) { // Start from 1 to skip the header row
+    if (i == 6 || i == 13) {
+        continue;
 
-            } else if (i < 6) {
-                var row = table.rows[i];
-                var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
-                console.log(rawScoreCell);
-                // Determine the values for "Sangat Rendah" to "Sangat Tinggi" based on the raw score
-                var rawScoreCellValue = parseInt(rawScoreCell.textContent, 10); // Parse as an integer
-                var values = determineValues((rawScoreCellValue / 50) * 100);
-
-
-                // Fill in the corresponding cells
-                var sangatRendahCell = row.cells[3]; // Index 3 is the "Sangat Rendah" column
-                sangatRendahCell.textContent = values[0];
-
-                var rendahCell = row.cells[4]; // Index 4 is the "Rendah" column
-                rendahCell.textContent = values[1];
-
-                var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
-                rataRataCell.textContent = values[2];
-
-                var tinggiCell = row.cells[6]; // Index 6 is the "Tinggi" column
-                tinggiCell.textContent = values[3];
-
-                var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
-                sangatTinggiCell.textContent = values[4];
-            } else if (i > 6 && i < 13) {
-                var row = table.rows[i];
-                var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
-                console.log(rawScoreCell);
-                // Determine the values for "Sangat Rendah" to "Sangat Tinggi" based on the raw score
-                var rawScoreCellValue = parseInt(rawScoreCell.textContent, 10); // Parse as an integer
-                var values = determineValues((rawScoreCellValue / 10) * 100);
+    } else if (i < 6) {
+        var row = table.rows[i];
+        var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
+        console.log(rawScoreCell);
+        // Determine the values for "Sangat Rendah" to "Sangat Tinggi" based on the raw score
+        var rawScoreCellValue = parseInt(rawScoreCell.textContent, 10); // Parse as an integer
+        var values = determineValues((rawScoreCellValue / 50) * 100);
 
 
+        // Fill in the corresponding cells
+        var sangatRendahCell = row.cells[3]; // Index 3 is the "Sangat Rendah" column
+        sangatRendahCell.innerHTML = values[0];
 
-                // Fill in the corresponding cells
-                var sangatRendahCell = row.cells[3]; // Index 3 is the "Sangat Rendah" column
-                sangatRendahCell.textContent = values[0];
+        var rendahCell = row.cells[4]; // Index 4 is the "Rendah" column
+        rendahCell.innerHTML = values[1];
 
-                var rendahCell = row.cells[4]; // Index 4 is the "Rendah" column
-                rendahCell.textContent = values[1];
+        var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
+        rataRataCell.innerHTML = values[2];
 
-                var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
-                rataRataCell.textContent = values[2];
+        var tinggiCell = row.cells[6]; // Index 6 is the "Tinggi" column
+        tinggiCell.innerHTML = values[3];
 
-                var tinggiCell = row.cells[6]; // Index 6 is the "Tinggi" column
-                tinggiCell.textContent = values[3];
+        var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
+        sangatTinggiCell.innerHTML = values[4];
+    } else if (i > 6 && i < 13) {
+        var row = table.rows[i];
+        var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
+        console.log(rawScoreCell);
+        // Determine the values for "Sangat Rendah" to "Sangat Tinggi" based on the raw score
+        var rawScoreCellValue = parseInt(rawScoreCell.textContent, 10); // Parse as an integer
+        var values = determineValues((rawScoreCellValue / 10) * 100);
 
-                var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
-                sangatTinggiCell.textContent = values[4];
-            } else {
-                var row = table.rows[i];
-                var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
 
-                // Determine the values for "Sangat Rendah" to "Sangat Tinggi" based on the raw score
-                var rawScoreCellValue = parseInt(rawScoreCell.textContent, 10); // Parse as an integer
-                var values = determineValues((rawScoreCellValue / 5) * 100);
 
-                // Fill in the corresponding cells
-                var sangatRendahCell = row.cells[3];
-                sangatRendahCell.textContent = values[0];
+        // Fill in the corresponding cells
+        var sangatRendahCell = row.cells[3]; // Index 3 is the "Sangat Rendah" column
+        sangatRendahCell.innerHTML = values[0];
 
-                var rendahCell = row.cells[4]; // Index 4 is the "Rendah" column
-                rendahCell.textContent = values[1];
+        var rendahCell = row.cells[4]; // Index 4 is the "Rendah" column
+        rendahCell.innerHTML = values[1];
 
-                var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
-                rataRataCell.textContent = values[2];
+        var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
+        rataRataCell.innerHTML = values[2];
 
-                var tinggiCell = row.cells[6]; // Index 6 is the "Tinggi" column
-                tinggiCell.textContent = values[3];
+        var tinggiCell = row.cells[6]; // Index 6 is the "Tinggi" column
+        tinggiCell.innerHTML = values[3];
 
-                var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
-                sangatTinggiCell.textContent = values[4];
-            }
-        }
+        var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
+        sangatTinggiCell.innerHTML = values[4];
+    } else {
+        var row = table.rows[i];
+        var rawScoreCell = row.cells[2]; // Index 2 is the "Raw Score" column
+
+        // Determine the values for "Sangat Rendah" to "Sangat Tinggi" based on the raw score
+        var rawScoreCellValue = parseInt(rawScoreCell.textContent, 10); // Parse as an integer
+        var values = determineValues((rawScoreCellValue / 5) * 100);
+
+        // Fill in the corresponding cells
+        var sangatRendahCell = row.cells[3];
+        sangatRendahCell.innerHTML = values[0];
+
+        var rendahCell = row.cells[4]; // Index 4 is the "Rendah" column
+        rendahCell.innerHTML = values[1];
+
+        var rataRataCell = row.cells[5]; // Index 5 is the "Rata-Rata" column
+        rataRataCell.innerHTML = values[2];
+
+        var tinggiCell = row.cells[6]; // Index 6 is the "Tinggi" column
+        tinggiCell.innerHTML = values[3];
+
+        var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
+        sangatTinggiCell.innerHTML = values[4];
+    }
+}
+
     </script>
 
 

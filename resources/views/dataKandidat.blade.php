@@ -30,7 +30,7 @@
                         @foreach ($users as $user)
                             <tr>
                                 <td class="profil d-flex">
-                                    <img src="img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
+                                    <img src="img/avatar.png" class="avatar img-fluid" alt="avatar">
                                     <div class="user">
                                         <h5 class="mt-3">{{ $user->nama_lengkap }}</h5>
                                         <p>{{ $user->email }}</p>
