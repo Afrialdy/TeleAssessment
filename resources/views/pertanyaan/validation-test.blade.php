@@ -65,16 +65,43 @@
                         <p>Test tertulis untuk memvalidasi hasil asesmen interaktif.</p>
                     </div>
                 </div>
-                <div class="d-flex gap-2">
-                    <a href="">
-                        <button class="btn btn-secondary edit">Edit</button>
-                    </a>
-                    <a href="">
-                        <button class="btn btn-primary view">View</button>
-                    </a>
-                </div>
             </div>
 
+            <div class="row">
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Test Kognitif Validasi Mudah</h1>
+                            <p>Serangkaian test validasi kognitif tingkat mudah (Rendah).</p>
+                            <a href="{{ route('validationRendah') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Test Kognitif Validasi Susah</h1>
+                            <p>Serangkaian test validasi kognitif tingkat susah (Tinggi).</p>
+                            <a href="{{ route('validationTinggi') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                <div class="col-md-3">
+                    <div class="asess">
+                        <div class="asessbox d-flex flex-column align-items-start mt-3">
+                            <h1>Test Validasi Kepribadian</h1>
+                            <p>Serangkaian test validasi kepribadian.</p>
+                            <a href="{{ route('validationKepribadian') }}" class="hasil-tes">
+                                <button type="button" class="btn btn-primary">Detail</button>
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
     </main>
 @endsection

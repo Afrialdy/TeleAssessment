@@ -1,4 +1,3 @@
-// assessment.blade.php
 @extends('layout.master')
 
 @section('content')

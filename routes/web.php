@@ -119,6 +119,18 @@ Route::get('/validation-edit', function () {
     return view('pertanyaan.validation-edit');
 })->name('validation-edit');
 
+Route::get('/validasiRendah', function () {
+    return view('validation.validasiRendah');
+})->name('validationRendah');
+
+Route::get('/validasiTinggi', function () {
+    return view('validation.validasiTinggi');
+})->name('validationTinggi');
+
+Route::get('/validasiKepribadian', function () {
+    return view('validation.validasiKepribadian');
+})->name('validationKepribadian');
+
 // Hasil Test Pisikogram
 Route::get('/hasil-test', [SkorvideoController::class, 'index']);
 
