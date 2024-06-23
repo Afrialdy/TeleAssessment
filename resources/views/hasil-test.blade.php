@@ -55,26 +55,26 @@
                     // Assuming $penilaianBeo->scoreString contains the comma-separated string
                     $scoreArrayfpos = explode(',', $penilaianBeo->f_sentimen_positif);
                     $scoreArrayfpos = array_map('floatval', $scoreArrayfpos);
-                    
+
                     $scoreArrayfneu = explode(',', $penilaianBeo->f_sentimen_netral);
                     $scoreArrayfneu = array_map('floatval', $scoreArrayfneu);
-                    
+
                     $scoreArrayfneg = explode(',', $penilaianBeo->f_sentimen_negatif);
                     $scoreArrayfneg = array_map('floatval', $scoreArrayfneg);
-                    
+
                     $scoreArrayv = explode(',', $penilaianBeo->v_sentimen);
                     $scoreArrayv = array_map('floatval', $scoreArrayv);
-                    
+
                     $scoreArrayvalidasi = explode(',', $penilaianBeo->skor_validasi_kepribadianbakatminat);
                     $scoreArrayvalidasi = array_map('floatval', $scoreArrayvalidasi);
-                    
+
                     $scoreArraykepercayaan = explode(',', $penilaianBeo->kepercayaan);
                     $scoreArraykepercayaan = array_map('floatval', $scoreArraykepercayaan);
                     ?>
 
                     <div class="header-box">
                         <img src="{{ asset('img/interview test.png') }}" alt="" class="img-fluid">
-                        <h2>INTERVIEW TEST</h2>
+                        <h2>Hasil Tele-asesmen Interview</h2>
                     </div>
                     <div class="test-box">
                         <table class="table table-bordered text-center" id="tabelKepribadian">
@@ -103,7 +103,7 @@
                                 <!-- Row 3 Kepribadian -->
                                 <tr>
                                     <th>Extraversion</th>
-                                    <td>Mudah bergaul, aktif, talk-active, personoriented, optimis, menyenangkan, kasih
+                                    <td class="deskrip">Mudah bergaul, aktif, talk-active, personoriented, optimis, menyenangkan, kasih
                                         sayang,
                                         bersahabat</td>
                                     <td class="center-align"></td>
@@ -118,7 +118,7 @@
                                 </tr>
                                 <tr>
                                     <th>Conscientiousness</th>
-                                    <td>Teratur, dapat dipercaya, pekerja keras, displin, tepat waktu, teliti, rapi,
+                                    <td class="deskrip">Teratur, dapat dipercaya, pekerja keras, displin, tepat waktu, teliti, rapi,
                                         ambisius,
                                         tekun
                                     </td>
@@ -134,7 +134,7 @@
                                 </tr>
                                 <tr>
                                     <th>Agreeableness</th>
-                                    <td>Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
+                                    <td class="deskrip">Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
                                         dimaafkan,
                                         terus terang</td>
                                     <td class="center-align"></td>
@@ -149,7 +149,7 @@
                                 </tr>
                                 <tr>
                                     <th>Openness</th>
-                                    <td>Rasa ingin tahu tinggi, ketertarikan luas, kreatif, original, imajinatif, tidak
+                                    <td class="deskrip">Rasa ingin tahu tinggi, ketertarikan luas, kreatif, original, imajinatif, tidak
                                         ketinggalan
                                         zaman</td>
                                     <td class="center-align"></td>
@@ -164,7 +164,7 @@
                                 </tr>
                                 <tr>
                                     <th>Neuroticism</th>
-                                    <td>Kuatir, cemas, emosional, tidak merasa nyaman, kurang penyesuaian, kesedihan yang
+                                    <td class="deskrip">Kuatir, cemas, emosional, tidak merasa nyaman, kurang penyesuaian, kesedihan yang
                                         tidak
                                         beralasan</td>
                                     <td class="center-align"></td>
@@ -179,12 +179,12 @@
                                 </tr>
                                 <!-- Row 7 Minat -->
                                 <tr>
-                                    <th colspan="10">Minat</th>
+                                    <th colspan="10" class="head-deskrip">Minat</th>
                                 </tr>
 
                                 <tr>
                                     <th>Realistic</th>
-                                    <td>Terampil secara mekanik dan/atau pekerjaan yang mengutamakan keterampilan fisik, dan
+                                    <td class="deskrip">Terampil secara mekanik dan/atau pekerjaan yang mengutamakan keterampilan fisik, dan
                                         kekuatan
                                         otot</td>
                                     <td class="center-align"></td>
@@ -199,7 +199,7 @@
                                 </tr>
                                 <tr>
                                     <th>Investigative</th>
-                                    <td>Cenderung memiliki ketertarikan/minat untuk mengobservasi, belajar, menganalisis dan
+                                    <td class="deskrip">Cenderung memiliki ketertarikan/minat untuk mengobservasi, belajar, menganalisis dan
                                         memecahkan
                                         masalah</td>
                                     <td class="center-align"></td>
@@ -214,7 +214,7 @@
                                 </tr>
                                 <tr>
                                     <th>Artistic</th>
-                                    <td>Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
+                                    <td class="deskrip">Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
                                         dimaafkan,
                                         terus terang</td>
                                     <td class="center-align"></td>
@@ -229,7 +229,7 @@
                                 </tr>
                                 <tr>
                                     <th>Social</th>
-                                    <td>Memiliki minat bekerja dengan individu lain dibandingkan dengan peralatan</td>
+                                    <td class="deskrip">Memiliki minat bekerja dengan individu lain dibandingkan dengan peralatan</td>
                                     <td class="center-align"></td>
                                     <td class="center-align"></td>
                                     <td class="center-align"></td>
@@ -242,7 +242,7 @@
                                 </tr>
                                 <tr>
                                     <th>Enterprising</th>
-                                    <td>Memiliki minat bekerja dengan individu lain, serta mempersuasi orang lain dan tampil
+                                    <td class="deskrip">Memiliki minat bekerja dengan individu lain, serta mempersuasi orang lain dan tampil
                                         di
                                         muka
                                         umum</td>
@@ -258,7 +258,7 @@
                                 </tr>
                                 <tr>
                                     <th>Conventional</th>
-                                    <td>Memiliki minat terhadap hal-hal yang mendetail, terorganisir, dan berkaitan dengan
+                                    <td class="deskrip">Memiliki minat terhadap hal-hal yang mendetail, terorganisir, dan berkaitan dengan
                                         data
                                     </td>
                                     <td class="center-align"></td>
@@ -273,11 +273,11 @@
                                 </tr>
                                 <!-- Row 14 Bakat -->
                                 <tr>
-                                    <th colspan="10">Bakat</th>
+                                    <th colspan="10" class="head-deskrip">Bakat</th>
                                 </tr>
                                 <tr>
                                     <th>Dimensi perseptual</th>
-                                    <td>Potensi kemampuan yang berhubungan pada bentuk persepsi, dimana terdapat faktor yang
+                                    <td class="deskrip">Potensi kemampuan yang berhubungan pada bentuk persepsi, dimana terdapat faktor yang
                                         meliputi
                                         seperti kepekaan indera, perhatian, orientasi ruang, waktu, luas daerah persepsi,
                                         kecepatan
@@ -294,7 +294,7 @@
                                 </tr>
                                 <tr>
                                     <th>Dimensi psikomotor</th>
-                                    <td>Terdiri dari (ketepatan statis yang menitik beratkan pada posisi, dan ketepatan
+                                    <td class="deskrip">Terdiri dari (ketepatan statis yang menitik beratkan pada posisi, dan ketepatan
                                         dinamis
                                         yang
                                         menitikberatkan pada gerakan), koordinasi, dan keluwesan</td>
@@ -310,7 +310,7 @@
                                 </tr>
                                 <tr>
                                     <th>Dimensi intelektual</th>
-                                    <td>Terdiri dari ingatan, pengenalan, evaluatif, konvergen, dan berfikir divergen</td>
+                                    <td class="deskrip">Terdiri dari ingatan, pengenalan, evaluatif, konvergen, dan berfikir divergen</td>
                                     <td class="center-align"></td>
                                     <td class="center-align"></td>
                                     <td class="center-align"></td>
@@ -327,7 +327,7 @@
 
                     <div class="header-box">
                         <img src="{{ asset('img/cognitive style.png') }}" alt="" class="img-fluid">
-                        <h2>Hasil Tele-Asesmen COGNITIVE</h2>
+                        <h2>Hasil Tele-Asesmen Cognitive</h2>
                     </div>
                     <div class="test-box">
                         <table id="scoreTable" class="table table-bordered text-center">
@@ -344,7 +344,7 @@
                             <tbody>
                                 <tr>
                                     <th>Satzerganzung (SE) → Melengkapi Kalimat</th>
-                                    <td>Kemampuan pengambilan keputusan, keinginan berprestasi, penilaian atau pembentukan
+                                    <td class="deskrip">Kemampuan pengambilan keputusan, keinginan berprestasi, penilaian atau pembentukan
                                         opini, common
                                         sense, penekanan pada berpikir praktis dan konkrit pemaknaan realitas, dan berpikir
                                         secara
@@ -356,7 +356,7 @@
                                 </tr>
                                 <tr>
                                     <th>Wortauswahl (WA) → Melengkapi Kata-kata</th>
-                                    <td>Kemampuan menangkap inti atau makna dari sesuatu yang disampaikan melalui bahasa,
+                                    <td class="deskrip">Kemampuan menangkap inti atau makna dari sesuatu yang disampaikan melalui bahasa,
                                         perasaan
                                         empati atau kemampuan menyelami perasaan, berpikir induktif menggunakan bahasa. WA
                                         juga
@@ -375,7 +375,7 @@
                                 </tr>
                                 <tr>
                                     <th>Analogien (AN) → Persamaan Kata</th>
-                                    <td>Kemampuan fleksibilitas dalam berpikir, kemampuan mengkombinasikan atau
+                                    <td class="deskrip">Kemampuan fleksibilitas dalam berpikir, kemampuan mengkombinasikan atau
                                         menghubungkan,
                                         kelincahan dalam berubah dan berganti dalam berpikir, resistensi atau kemampuan
                                         untuk
@@ -390,7 +390,7 @@
                                 </tr>
                                 <tr>
                                     <th>Gemeinsamkeiten (GE) → Sifat yang Dimiliki Bersama</th>
-                                    <td>Kemampuan abstraksi verbal, menemukan ciri yang sama atau khas dari dua objek dan
+                                    <td class="deskrip">Kemampuan abstraksi verbal, menemukan ciri yang sama atau khas dari dua objek dan
                                         menyusun suatu
                                         pengertian tentangnya. Kemampuan untuk menyatakan pengertian akan sesuatu dalam
                                         bentuk
@@ -406,7 +406,7 @@
                                 </tr>
                                 <tr>
                                     <th>Rechhenaufgaben (RA) → Kemampuan Berhitung</th>
-                                    <td>Kemampuan berpikir atau memecahkan masalah praktis dalam berhitung, matematis,
+                                    <td class="deskrip">Kemampuan berpikir atau memecahkan masalah praktis dalam berhitung, matematis,
                                         berpikir
                                         logis,
                                         dan lugas penalaran, dan kemampuan berpikir runtut mengambil kesimpulan</td>
@@ -417,7 +417,7 @@
                                 </tr>
                                 <tr>
                                     <th>Zahlenreihen (ZR) → Deret Angka</th>
-                                    <td>Cara berpikir teoritis dengan hitungan. Maksudnya mengukur kemampuan berhitung
+                                    <td class="deskrip">Cara berpikir teoritis dengan hitungan. Maksudnya mengukur kemampuan berhitung
                                         testee
                                         yang
                                         didasarkan pada pendekatan analisis atas informasi factual berbentuk angka sehingga
@@ -432,7 +432,7 @@
                                 </tr>
                                 <tr>
                                     <th>Figurenauswahl (FA) → Memilih Bentuk</th>
-                                    <td>Kemampuan membayangkan, kemampuan mengkonstruksi (sintesa dan Analisa) sehingga
+                                    <td class="deskrip">Kemampuan membayangkan, kemampuan mengkonstruksi (sintesa dan Analisa) sehingga
                                         dapat
                                         menggabungkan potongan suatu objek visual dan menghasilkan suatu bentuk tertentu,
                                         serta
@@ -444,7 +444,7 @@
                                 </tr>
                                 <tr>
                                     <th>Wurfelaufgaben (WU) → Latihan Balok</th>
-                                    <td>Kemampuan analisis yakni daya bayang ruang, didalamnya terkandung kreativitas,
+                                    <td class="deskrip">Kemampuan analisis yakni daya bayang ruang, didalamnya terkandung kreativitas,
                                         kemampuan
                                         tiga
                                         dimensi, imajinasi dan fleksibilitas berpikir, serta kemampuan konstruktif teknis
@@ -458,7 +458,7 @@
                                 </tr>
                                 <tr>
                                     <th>Merkaufgaben (ME) → Latihan Simbol</th>
-                                    <td>Kemampuan daya ingat seseorang, fokus, perhatian, konsentrasi yang menetap, dan daya
+                                    <td class="deskrip">Kemampuan daya ingat seseorang, fokus, perhatian, konsentrasi yang menetap, dan daya
                                         tahan</td>
                                     <td>{{ $penilaianBeo->cognitive_video_score }}</td>
                                     <td class="center-align"></td>
@@ -496,7 +496,7 @@
                                 <!-- Row 1 Kepribadian -->
                                 <tr>
                                     <th>Extraversion</th>
-                                    <td>Mudah bergaul, aktif, talk-active, personoriented, optimis, menyenangkan, kasih
+                                    <td class="deskrip">Mudah bergaul, aktif, talk-active, personoriented, optimis, menyenangkan, kasih
                                         sayang,
                                         bersahabat</td>
                                     <td><?php echo $scoreArray[0]; ?></td>
@@ -508,7 +508,7 @@
                                 </tr>
                                 <tr>
                                     <th>Conscientiousness</th>
-                                    <td>Teratur, dapat dipercaya, pekerja keras, displin, tepat waktu, teliti, rapi,
+                                    <td class="deskrip">Teratur, dapat dipercaya, pekerja keras, displin, tepat waktu, teliti, rapi,
                                         ambisius,
                                         tekun
                                     </td>
@@ -521,7 +521,7 @@
                                 </tr>
                                 <tr>
                                     <th>Agreeableness</th>
-                                    <td>Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
+                                    <td class="deskrip">Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
                                         dimaafkan,
                                         terus terang</td>
                                     <td><?php echo $scoreArray[2]; ?></td>
@@ -533,7 +533,7 @@
                                 </tr>
                                 <tr>
                                     <th>Openness</th>
-                                    <td>Rasa ingin tahu tinggi, ketertarikan luas, kreatif, original, imajinatif, tidak
+                                    <td class="deskrip">Rasa ingin tahu tinggi, ketertarikan luas, kreatif, original, imajinatif, tidak
                                         ketinggalan
                                         zaman</td>
                                     <td><?php echo $scoreArray[3]; ?></td>
@@ -545,7 +545,7 @@
                                 </tr>
                                 <tr>
                                     <th>Neuroticism</th>
-                                    <td>Kuatir, cemas, emosional, tidak merasa nyaman, kurang penyesuaian, kesedihan yang
+                                    <td class="deskrip">Kuatir, cemas, emosional, tidak merasa nyaman, kurang penyesuaian, kesedihan yang
                                         tidak
                                         beralasan</td>
                                     <td><?php echo $scoreArray[4]; ?></td>
@@ -557,11 +557,11 @@
                                 </tr>
                                 <!-- Row 6 Minat -->
                                 <tr>
-                                    <th colspan="10">Minat</th>
+                                    <th colspan="10" class="head-deskrip">Minat</th>
                                 </tr>
                                 <tr>
                                     <th>Realistic</th>
-                                    <td>Terampil secara mekanik dan/atau pekerjaan yang mengutamakan keterampilan fisik, dan
+                                    <td class="deskrip">Terampil secara mekanik dan/atau pekerjaan yang mengutamakan keterampilan fisik, dan
                                         kekuatan
                                         otot</td>
                                     <td><?php echo $scoreArray[5]; ?></td>
@@ -573,7 +573,7 @@
                                 </tr>
                                 <tr>
                                     <th>Investigative</th>
-                                    <td>Cenderung memiliki ketertarikan/minat untuk mengobservasi, belajar, menganalisis dan
+                                    <td class="deskrip">Cenderung memiliki ketertarikan/minat untuk mengobservasi, belajar, menganalisis dan
                                         memecahkan
                                         masalah</td>
                                     <td><?php echo $scoreArray[6]; ?></td>
@@ -585,7 +585,7 @@
                                 </tr>
                                 <tr>
                                     <th>Artistic</th>
-                                    <td>Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
+                                    <td class="deskrip">Berhati lembut, baik, suka menolong, dapat dipercaya, mudah memaafkan, mudah untuk
                                         dimaafkan,
                                         terus terang</td>
                                     <td><?php echo $scoreArray[7]; ?></td>
@@ -597,7 +597,7 @@
                                 </tr>
                                 <tr>
                                     <th>Social</th>
-                                    <td>Memiliki minat bekerja dengan individu lain dibandingkan dengan peralatan</td>
+                                    <td class="deskrip">Memiliki minat bekerja dengan individu lain dibandingkan dengan peralatan</td>
                                     <td><?php echo $scoreArray[8]; ?></td>
                                     <td class="center-align"></td>
                                     <td class="center-align"></td>
@@ -607,7 +607,7 @@
                                 </tr>
                                 <tr>
                                     <th>Enterprising</th>
-                                    <td>Memiliki minat bekerja dengan individu lain, serta mempersuasi orang lain dan tampil
+                                    <td class="deskrip">Memiliki minat bekerja dengan individu lain, serta mempersuasi orang lain dan tampil
                                         di
                                         muka
                                         umum</td>
@@ -620,7 +620,7 @@
                                 </tr>
                                 <tr>
                                     <th>Conventional</th>
-                                    <td>Memiliki minat terhadap hal-hal yang mendetail, terorganisir, dan berkaitan dengan
+                                    <td class="deskrip">Memiliki minat terhadap hal-hal yang mendetail, terorganisir, dan berkaitan dengan
                                         data
                                     </td>
                                     <td><?php echo $scoreArray[10]; ?></td>
@@ -632,11 +632,11 @@
                                 </tr>
                                 <!-- Row 13 Bakat -->
                                 <tr>
-                                    <th colspan="10">Bakat</th>
+                                    <th colspan="10" class="head-deskrip">Bakat</th>
                                 </tr>
                                 <tr>
                                     <th>Dimensi perseptual</th>
-                                    <td>Potensi kemampuan yang berhubungan pada bentuk persepsi, dimana terdapat faktor yang
+                                    <td class="deskrip">Potensi kemampuan yang berhubungan pada bentuk persepsi, dimana terdapat faktor yang
                                         meliputi
                                         seperti kepekaan indera, perhatian, orientasi ruang, waktu, luas daerah persepsi,
                                         kecepatan
@@ -650,7 +650,7 @@
                                 </tr>
                                 <tr>
                                     <th>Dimensi psikomotor</th>
-                                    <td>Terdiri dari (ketepatan statis yang menitik beratkan pada posisi, dan ketepatan
+                                    <td class="deskrip">Terdiri dari (ketepatan statis yang menitik beratkan pada posisi, dan ketepatan
                                         dinamis
                                         yang
                                         menitikberatkan pada gerakan), koordinasi, dan keluwesan</td>
@@ -663,7 +663,7 @@
                                 </tr>
                                 <tr>
                                     <th>Dimensi intelektual</th>
-                                    <td>Terdiri dari ingatan, pengenalan, evaluatif, konvergen, dan berfikir divergen</td>
+                                    <td class="deskrip">Terdiri dari ingatan, pengenalan, evaluatif, konvergen, dan berfikir divergen</td>
                                     <td><?php echo $scoreArray[13]; ?></td>
                                     <td class="center-align"></td>
                                     <td class="center-align"></td>
@@ -694,7 +694,7 @@
                             <tbody>
                                 <tr>
                                     <th>Satzerganzung (SE) → Melengkapi Kalimat</th>
-                                    <td>Kemampuan pengambilan keputusan, keinginan berprestasi, penilaian atau pembentukan
+                                    <td class="deskrip">Kemampuan pengambilan keputusan, keinginan berprestasi, penilaian atau pembentukan
                                         opini, common
                                         sense, penekanan pada berpikir praktis dan konkrit pemaknaan realitas, dan berpikir
                                         secara
@@ -706,7 +706,7 @@
                                 </tr>
                                 <tr>
                                     <th>Wortauswahl (WA) → Melengkapi Kata-kata</th>
-                                    <td>Kemampuan menangkap inti atau makna dari sesuatu yang disampaikan melalui bahasa,
+                                    <td class="deskrip">Kemampuan menangkap inti atau makna dari sesuatu yang disampaikan melalui bahasa,
                                         perasaan
                                         empati atau kemampuan menyelami perasaan, berpikir induktif menggunakan bahasa. WA
                                         juga
@@ -725,7 +725,7 @@
                                 </tr>
                                 <tr>
                                     <th>Analogien (AN) → Persamaan Kata</th>
-                                    <td>Kemampuan fleksibilitas dalam berpikir, kemampuan mengkombinasikan atau
+                                    <td class="deskrip">Kemampuan fleksibilitas dalam berpikir, kemampuan mengkombinasikan atau
                                         menghubungkan,
                                         kelincahan dalam berubah dan berganti dalam berpikir, resistensi atau kemampuan
                                         untuk
@@ -740,7 +740,7 @@
                                 </tr>
                                 <tr>
                                     <th>Gemeinsamkeiten (GE) → Sifat yang Dimiliki Bersama</th>
-                                    <td>Kemampuan abstraksi verbal, menemukan ciri yang sama atau khas dari dua objek dan
+                                    <td class="deskrip">Kemampuan abstraksi verbal, menemukan ciri yang sama atau khas dari dua objek dan
                                         menyusun suatu
                                         pengertian tentangnya. Kemampuan untuk menyatakan pengertian akan sesuatu dalam
                                         bentuk
@@ -756,7 +756,7 @@
                                 </tr>
                                 <tr>
                                     <th>Rechhenaufgaben (RA) → Kemampuan Berhitung</th>
-                                    <td>Kemampuan berpikir atau memecahkan masalah praktis dalam berhitung, matematis,
+                                    <td class="deskrip">Kemampuan berpikir atau memecahkan masalah praktis dalam berhitung, matematis,
                                         berpikir
                                         logis,
                                         dan lugas penalaran, dan kemampuan berpikir runtut mengambil kesimpulan</td>
@@ -767,7 +767,7 @@
                                 </tr>
                                 <tr>
                                     <th>Zahlenreihen (ZR) → Deret Angka</th>
-                                    <td>Cara berpikir teoritis dengan hitungan. Maksudnya mengukur kemampuan berhitung
+                                    <td class="deskrip">Cara berpikir teoritis dengan hitungan. Maksudnya mengukur kemampuan berhitung
                                         testee
                                         yang
                                         didasarkan pada pendekatan analisis atas informasi factual berbentuk angka sehingga
@@ -782,7 +782,7 @@
                                 </tr>
                                 <tr>
                                     <th>Figurenauswahl (FA) → Memilih Bentuk</th>
-                                    <td>Kemampuan membayangkan, kemampuan mengkonstruksi (sintesa dan Analisa) sehingga
+                                    <td class="deskrip">Kemampuan membayangkan, kemampuan mengkonstruksi (sintesa dan Analisa) sehingga
                                         dapat
                                         menggabungkan potongan suatu objek visual dan menghasilkan suatu bentuk tertentu,
                                         serta
@@ -794,7 +794,7 @@
                                 </tr>
                                 <tr>
                                     <th>Wurfelaufgaben (WU) → Latihan Balok</th>
-                                    <td>Kemampuan analisis yakni daya bayang ruang, didalamnya terkandung kreativitas,
+                                    <td class="deskrip">Kemampuan analisis yakni daya bayang ruang, didalamnya terkandung kreativitas,
                                         kemampuan
                                         tiga
                                         dimensi, imajinasi dan fleksibilitas berpikir, serta kemampuan konstruktif teknis
@@ -808,7 +808,7 @@
                                 </tr>
                                 <tr>
                                     <th>Merkaufgaben (ME) → Latihan Simbol</th>
-                                    <td>Kemampuan daya ingat seseorang, fokus, perhatian, konsentrasi yang menetap, dan daya
+                                    <td class="deskrip">Kemampuan daya ingat seseorang, fokus, perhatian, konsentrasi yang menetap, dan daya
                                         tahan</td>
                                     <td>{{ $penilaianBeo->skor_validasi_cognitif }}</td>
                                     <td class="center-align"></td>
@@ -884,7 +884,7 @@
                         rows[i].cells[3].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Fpos" column
                     } else if (fneg > fpos) {
                         rows[i].cells[2].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Fneg" column
-                    } else if (fpos > fenu) {
+                    } else if (fpos > fneu) {
                         rows[i].cells[4].innerHTML = '<i class="lni lni-checkmark-circle"></i>'; // "Fneu" column
                     }
 
@@ -1081,7 +1081,7 @@
             html2canvas(document.getElementById('content')).then(function (canvas) {
                 const imgData = canvas.toDataURL('image/png');
                 const { jsPDF } = window.jspdf;
-                
+
                 const pdf = new jsPDF('landscape');
 
                 // Get the width and height of the image
