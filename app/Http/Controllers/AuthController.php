@@ -29,7 +29,7 @@ class AuthController extends Controller
 
         $user = User::where('username', $request->username)->first();
 
-        if ($user && $user->password === $request->password) {
+        if ($user && Hash::check($request->password, $user->password)) {
             // Manual login
             Auth::login($user);
 
@@ -52,42 +52,43 @@ class AuthController extends Controller
         }
     }
 
-    public function postRegister(Request $request)
-{
-    $validator = Validator::make($request->all(), [
-        'nama_lengkap' => 'required|string|max:255',
-        'username' => 'required|string|max:64|unique:users,username',
-        'email' => ['required', 'email', function ($attribute, $value, $fail) {
-            $emailParts = explode('@', $value);
-            $domain = array_pop($emailParts);
-            if (!filter_var($value, FILTER_VALIDATE_EMAIL) || !checkdnsrr($domain, 'MX')) {
-                $fail($attribute . ' has an invalid domain.');
-            }
-        }],
-        'password' => 'required|string|confirmed',
-        'password_confirmation' => 'required',
-        'jenis_kelamin' => 'required|integer',
-        'usia' => 'required|integer',
-        'pendidikan_terakhir' => 'required|string|max:255'
-    ]);
 
-    if ($validator->fails()) {
-        return redirect()->back()->withErrors($validator)->withInput();
+    public function postRegister(Request $request)
+    {
+        $validator = Validator::make($request->all(), [
+            'nama_lengkap' => 'required|string|max:255',
+            'username' => 'required|string|max:64|unique:users,username',
+            'email' => ['required', 'email', function ($attribute, $value, $fail) {
+                $emailParts = explode('@', $value);
+                $domain = array_pop($emailParts);
+                if (!filter_var($value, FILTER_VALIDATE_EMAIL) || !checkdnsrr($domain, 'MX')) {
+                    $fail($attribute . ' has an invalid domain.');
+                }
+            }],
+            'password' => 'required|string|confirmed',
+            'password_confirmation' => 'required',
+            'jenis_kelamin' => 'required|integer',
+            'usia' => 'required|integer',
+            'pendidikan_terakhir' => 'required|string|max:255'
+        ]);
+
+        if ($validator->fails()) {
+            return redirect()->back()->withErrors($validator)->withInput();
+        }
+
+        $input = $request->all();
+        $input['password'] = Hash::make($input['password']); // Hash the password
+        $input['is_active'] = 1; // set is_active to 1
+
+        $user = User::create($input);
+
+        Auth::login($user);
+
+        $request->session()->regenerate();
+
+        return redirect()->route('dashboard');
     }
 
-    $input = $request->all();
-    // Remove this line to avoid hashing the password
-    // $input['password'] = Hash::make($input['password']);
-    $input['is_active'] = 1; // set is_active to 1
-
-    $user = User::create($input);
-
-    Auth::login($user);
-
-    $request->session()->regenerate();
-
-    return redirect()->route('dashboard');
-}
 
 
     public function postLogout(Request $request)
@@ -101,4 +102,3 @@ class AuthController extends Controller
         return redirect()->route('login');
     }
 }
-
