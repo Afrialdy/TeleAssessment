@@ -37,6 +37,7 @@
 @endsection
 
 @section('content')
+    <link rel="stylesheet" href="{{ asset('css/validation-test.css') }}">
     <link rel="stylesheet" href="{{ asset('css/pertanyaan-test.css') }}">
     <!-- Main Content -->
 

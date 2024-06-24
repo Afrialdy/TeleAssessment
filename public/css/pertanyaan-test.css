@@ -115,12 +115,19 @@
     position: relative;
     background: #e7effd;
     width: 100%;
+    min-height: 290px;
     padding: 10px 20px;
     border-radius: 10px;
     box-shadow: 0 2px 2px rgba(0, 0, 0, 0.5);
     display: flex;
+    flex-direction: column; /* Ensure flex-direction is column */
     justify-content: space-between; /* Ensure space between h1 and button */
-    align-items: center; /* Vertically center align the items */
+    align-items: flex-start; /* Align items to the start */
+}
+
+.asess .asessbox .hasil-tes {
+    margin-top: auto; /* Push the button to the bottom */
+    align-self: flex-end; /* Align button to the end of the box horizontally */
 }
 
 .asess .asessbox h1 {
@@ -128,9 +135,6 @@
     margin: 0; /* Ensure there's no extra margin */
 }
 
-.asess .asessbox .hasil-tes {
-    margin: auto 0 auto auto; /* Center vertically and push to the right */
-}
 
 .asess .asessbox .btn-primary {
     height: auto; /* Ensure button height is auto */

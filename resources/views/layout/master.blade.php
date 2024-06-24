@@ -39,16 +39,16 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
                 </button>
                 <div class="logo d-flex">
                     <a href="https://maxy.academy/" target="_blank">
-                        <img src="../img/logo/maxy_putih.png" alt="" class="sidebar-logo-img1">
+                        <img src="{{ asset('img/logo/maxy_putih.png') }}" alt="" class="sidebar-logo-img1">
                     </a>
                     <a href="https://www.ubaya.ac.id/" target="_black">
-                        <img src="../img/logo/logo-ubaya.png" alt="" class="sidebar-logo-img2">
+                        <img src="{{ asset('img/logo/logo-ubaya.png') }}" alt="" class="sidebar-logo-img2">
                     </a>
                 </div>
             </div>
             <div class="logo mt-2">
                 <a href="https://maxy.academy/" target="_blank">
-                    <img src="../img/logo/ta1.png" alt="" class="sidebar-logo-img">
+                    <img src="{{ asset('img/logo/ta1.png') }}" alt="" class="sidebar-logo-img">
                 </a>
             </div>
 
@@ -181,10 +181,10 @@ $fullname = isset($_SESSION['fullname']) ? $_SESSION['fullname'] : '';
 
                         <li class="nav-item dropdown">
                             <a href="#" class="nav-icon pe-md-0" data-bs-toggle="dropdown">
-                                <img src="../img/avatar.png" class="avatar img-fluid" alt="avatar">
+                                <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                             </a>
                             <div class="dropdown-menu dropdown-menu-end rounded mt-4">
-                                <a href="#" class="dropdown-item">
+                                <a href="{{ route('login') }}" class="dropdown-item">
                                     <i class="lni lni-exit"></i>
                                     <span>Logout</span>
                                 </a>

@@ -9,7 +9,7 @@
                 <h3 class="fw-bold">Review</h3>
                 <div class="rev mt-4">
                     <div class="revbox d-flex">
-                        <img src="../img/avatar.png" class="avatar img-fluid" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                         <div class="d-flex flex-column">
                             <h5 class="fw-bold">Afrialdy</h5>
                             <div class="d-flex star">
@@ -33,7 +33,7 @@
 
                 <div class="rev mt-4">
                     <div class="revbox d-flex">
-                        <img src="../img/profil-review/adudu.jpeg" class="avatar img-fluid" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                         <div class="d-flex flex-column">
                             <h5 class="fw-bold">Adu du</h5>
                             <div class="d-flex star">
@@ -57,7 +57,7 @@
 
                 <div class="rev mt-4">
                     <div class="revbox d-flex">
-                        <img src="../img/profil-review/probe.jpeg" class="avatar img-fluid" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                         <div class="d-flex flex-column">
                             <h5 class="fw-bold">Probe</h5>
                             <div class="d-flex star">
@@ -81,7 +81,7 @@
 
                 <div class="rev mt-4">
                     <div class="revbox d-flex">
-                        <img src="../img/profil-review/tok-abah.jpeg" class="avatar img-fluid" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                         <div class="d-flex flex-column">
                             <h5 class="fw-bold">Tok Abah</h5>
                             <div class="d-flex star">
@@ -105,7 +105,7 @@
 
                 <div class="rev mt-4">
                     <div class="revbox d-flex">
-                        <img src="../img/profil-review/upin.jpeg" class="avatar img-fluid" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                         <div class="d-flex flex-column">
                             <h5 class="fw-bold">Upin</h5>
                             <div class="d-flex star">
@@ -129,7 +129,7 @@
 
                 <div class="rev mt-4">
                     <div class="revbox d-flex">
-                        <img src="../img/profil-review/cikgu.jpg" class="avatar img-fluid" alt="avatar">
+                        <img src="{{ asset('img/avatar.png') }}" class="avatar img-fluid" alt="avatar">
                         <div class="d-flex flex-column">
                             <h5 class="fw-bold">Cikgu Besar</h5>
                             <div class="d-flex star">

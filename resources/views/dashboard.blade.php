@@ -21,7 +21,7 @@
                         <div class="col-md-3 mb-4">
                             <div class="test-item">
                                 <div class="chart-wrapper">
-                                    <div class="chart" data-percent="72" data-toggle="tooltip" title="User 23 dari 33">
+                                    <div class="chart" data-percent="72" data-toggle="tooltip" title="User 23 dari {{ $userCount }}">
                                         <span class="percent" data-after="%"></span>
                                     </div>
                                     <div class="chart-text">Tes Cognitive</div>
@@ -31,7 +31,7 @@
                         <div class="col-md-3 mb-4">
                             <div class="test-item">
                                 <div class="chart-wrapper">
-                                    <div class="chart" data-percent="96" data-toggle="tooltip" title="User 32 dari 33">
+                                    <div class="chart" data-percent="96" data-toggle="tooltip" title="User 32 dari {{ $userCount }}">
                                         <span class="percent" data-after="%"></span>
                                     </div>
                                     <div class="chart-text">Tes Interview</div>
@@ -41,7 +41,7 @@
                         <div class="col-md-3 mb-4">
                             <div class="test-item">
                                 <div class="chart-wrapper">
-                                    <div class="chart" data-percent="81" data-toggle="tooltip" title="User 27 dari 33">
+                                    <div class="chart" data-percent="81" data-toggle="tooltip" title="User 27 dari {{ $userCount }}">
                                         <span class="percent" data-after="%"></span>
                                     </div>
                                     <div class="chart-text">Tes Validasi</div>

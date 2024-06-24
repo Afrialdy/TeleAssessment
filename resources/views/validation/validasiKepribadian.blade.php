@@ -41,9 +41,9 @@
         p {
              font-size: 24px;
              margin-top: 20px;
- 
+
          }
- 
+
          .questionForm {
              margin-top: 20px;
              background-color: #fff;
@@ -82,12 +82,12 @@
         .answer-button:hover {
             background-color: #2980b9;
         }
-        
+
 
         .prev-button {
             max width: 600px;
             width: 50%;
-            
+
             margin-top: 20px;
             padding: 10px 20px;
             font-size: 18px;
@@ -123,7 +123,7 @@
             border-radius: 5px;
             cursor: pointer;
             transition: background-color 0.3s ease;
-            margin-top: 10px; 
+            margin-top: 10px;
         }
 
         .next-button:hover {
@@ -154,7 +154,7 @@
             display: flex;
             flex-direction: column;
             align-items: center;
-            margin-top: 10px; 
+            margin-top: 10px;
             /* width: 300px;
             display: inline-block;
             background-color: #fff;
@@ -174,7 +174,7 @@
         } */
         .image {
             max-width: 100%;
-            
+
             max-height: 100%;
         }
         .answerimage {
@@ -341,13 +341,13 @@
         .sidebar::-webkit-scrollbar {
             width: 8px; /* Lebar bilah pengguliran */
         }
-        
+
         /* Gaya untuk thumb atau pegangan pada bilah pengguliran WebKit */
         .sidebar::-webkit-scrollbar-thumb {
             background-color: rgba(0, 0, 0, 0.3); /* Warna pegangan */
             border-radius: 4px; /* Sudut melengkung pegangan */
         }
-        
+
         /* Gaya untuk track atau lintasan pada bilah pengguliran WebKit */
         .sidebar::-webkit-scrollbar-track {
             background-color: rgba(0, 0, 0, 0.1); /* Warna lintasan */
@@ -389,7 +389,7 @@
         .pagination .page-item.active .page-link:focus{
             box-shadow: none;
             cursor: pointer;
-        }    
+        }
         .pagination .page-item .page-link:focus{
             box-shadow: none;
             cursor: pointer;
@@ -437,7 +437,7 @@
         .page-item {
             position: relative;
         }
-        
+
         /* Position the images absolutely within their containers */
         .page-item.disabled img,
         .page-item img {
@@ -545,10 +545,10 @@
                 </div>
             </li>
         @endforeach
-        </ol>      
+        </ol>
     </div> --}}
     <!-- END COMMENT -->
-    
+
     <div class="container">
         <h1 class="d-flex justify-content-between" style="padding-top: 46px; padding-bottom: 54px;">
             <span style="opacity: 0; width: 148px;">30:00</span>
@@ -564,7 +564,7 @@
         <nav aria-label="Pagination" class="d-flex justify-content-center">
             <ul class="pagination">
             <li class="page-item disabled" id="previousPage">
-                <img src="../img/previous.png" alt="" width="43px" height="44px" class="previous" href="#">
+                <img src="{{ asset('img/previous.png') }}" alt="" width="43px" height="44px" class="previous" href="#">
             </li>
             <li class="page-item">
                 <a class="page-link" href="#" onclick="showContent(1)">1</a>
@@ -588,7 +588,7 @@
                 <a class="page-link" href="#" onclick="showContent(7)">7</a>
             </li>
             <li class="page-item" id="nextPage">
-                <img src="../img/next.png" alt="" width="43px" height="44px" class="next" href="#">
+                <img src="{{ asset('img/next.png') }}" alt="" width="43px" height="44px" class="next" href="#">
             </li>
             </ul>
         </nav>
@@ -886,7 +886,7 @@
                             </div>
                         </li>
                     </div>
-                </ol> 
+                </ol>
         </div>
     </div>
     <div class="content2" style="display: none;">
@@ -1182,7 +1182,7 @@
                         </div>
                     </li>
                 </div>
-            </ol> 
+            </ol>
         </div>
     </div>
     <div class="content3" style="display: none;">
@@ -1478,7 +1478,7 @@
                         </div>
                     </li>
                 </div>
-            </ol>  
+            </ol>
         </div>
     </div>
     <div class="content4" style="display: none;">
@@ -1773,8 +1773,8 @@
                             </form>
                         </div>
                     </li>
-                </div>   
-            </ol> 
+                </div>
+            </ol>
         </div>
     </div>
     <div class="content5" style="display: none;">
@@ -2069,8 +2069,8 @@
                             </form>
                         </div>
                     </li>
-                </div>   
-            </ol> 
+                </div>
+            </ol>
         </div>
     </div>
     <div class="content6" style="display: none;">
@@ -2365,8 +2365,8 @@
                             </form>
                         </div>
                     </li>
-                </div>   
-            </ol> 
+                </div>
+            </ol>
         </div>
     </div>
     <div class="content7" style="display: none;">
@@ -2517,13 +2517,13 @@
                         </div>
                     </li>
                 </div>
-            </ol> 
+            </ol>
         </div>
     </div>
 
     <button id="calculate-button" style="display:none">Calculate (Kepribadian)</button>
-    <button id="calculate-button-bakmi" style="display: none;">Calculate (Minat)</button> 
-    <button id="calculate-button-bakat" style="display: none;">Calculate (Bakat)</button> 
+    <button id="calculate-button-bakmi" style="display: none;">Calculate (Minat)</button>
+    <button id="calculate-button-bakat" style="display: none;">Calculate (Bakat)</button>
     <button class="calculate-score-button" id="calculate-score" style="display: none;">Calculate Score</button>
     <nav aria-label="Pagination" class="d-flex justify-content-center" style="padding-bottom: 30px;">
         <ul class="pagination">
@@ -2557,9 +2557,9 @@
         </ul>
       </nav>
     <button id="submit-button" class="submit-button" disabled title="Please finish all questions">Submit</button>
-    
+
     <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
-            
+
     <script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
     <script type="text/javascript">
     $.ajaxSetup({
@@ -2578,7 +2578,7 @@
 
         previousContent.style.display = 'none';
         currentContent.style.display = 'block';
-        
+
          window.scrollTo({ top: 0, behavior: 'smooth' });
         currentPage = page;
         updatePagination();
@@ -2654,7 +2654,7 @@
       }
     }
   </script>
-    
+
     {{-- <script>
     // Ini Script Untuk Hitung calculate Bakat Minat
     const scoreRMI1 = document.querySelector('input[name="answer51"]:checked')?.value || 0;
@@ -2681,7 +2681,7 @@
     const scoreCMI2 = document.querySelector('input[name="answer62"]:checked')?.value || 0;
     $resultC = parseInt(scoreCMI1) + parseInt(scoreCMI2);
 
-    
+
     // Function to calculate and assign scoresMI
 
     function calculateScoresMinat() {
@@ -2732,25 +2732,25 @@
         console.log("ScoreC: " + $resultCMI);
     }
 
-    // Untuk Bakat 
+    // Untuk Bakat
     const scorePer = document.querySelector('input[name="answer63"]:checked')?.value || 0;
-    $resultPer = parseInt(scorePer) 
+    $resultPer = parseInt(scorePer)
 
     const scorePsi = document.querySelector('input[name="answer64"]:checked')?.value || 0;
-    $resultPsi = parseInt(scorePsi) 
+    $resultPsi = parseInt(scorePsi)
 
     const scoreInt = document.querySelector('input[name="answer65"]:checked')?.value || 0;
-    $resultInt = parseInt(scoreInt) 
+    $resultInt = parseInt(scoreInt)
 
     function calculateScoresBakat() {
         const scorePer = document.querySelector('input[name="answer63"]:checked')?.value || 0;
-        $resultPer = parseInt(scorePer) 
+        $resultPer = parseInt(scorePer)
 
         const scorePsi = document.querySelector('input[name="answer64"]:checked')?.value || 0;
-        $resultPsi = parseInt(scorePsi) 
+        $resultPsi = parseInt(scorePsi)
 
         const scoreInt = document.querySelector('input[name="answer65"]:checked')?.value || 0;
-        $resultInt = parseInt(scoreInt) 
+        $resultInt = parseInt(scoreInt)
 
         axios.post('/gotoValidationBakat', {
             resultPer: $resultPer,
@@ -2767,7 +2767,7 @@
         console.log("ScorePer: " + $resultPer);
         console.log("ScorePsi: " + $resultPsi);
         console.log("ScoreInt: " + $resultInt);
-    
+
     }
 
     // Add an event listener to the Calculate button to trigger the calculation
@@ -2777,13 +2777,13 @@
 
     document.addEventListener('DOMContentLoaded', function () {
         const submitButton = document.getElementById('submit-button');
-        
+
         submitButton.addEventListener('click', function (event) {
             // Prevent the default form submission behavior
             event.preventDefault();
-            
+
             // Call the calculateScores() function here
-            
+
             // Moveto submitForm()
             submitForm();
             window.location.href = "{{ route('testvalidation1') }}";
@@ -2794,8 +2794,8 @@
 <script>
     function submitForm() {
         calculateScores();
-        calculateScoresMinat();    
-        calculateScoresBakat();    
+        calculateScoresMinat();
+        calculateScoresBakat();
         fetch('/store-data-in-session', {
             method: 'POST',
             headers: {
@@ -2827,7 +2827,7 @@
     const scoreEM8 = document.querySelector('input[name="answer8"]:checked')?.value || 0;
     const scoreEM9 = document.querySelector('input[name="answer9"]:checked')?.value || 0;
     const scoreEM10 = document.querySelector('input[name="answer10"]:checked')?.value || 0;
-    
+
     $resultEmotionalStability = parseInt(scoreEM1) + parseInt(scoreEM2) + parseInt(scoreEM3) + parseInt(scoreEM4)  + parseInt(scoreEM5) + parseInt(scoreEM6)  + parseInt(scoreEM7) + parseInt(scoreEM8)  + parseInt(scoreEM9) + parseInt(scoreEM10);
 
     const scoreE1 = document.querySelector('input[name="answer11"]:checked')?.value || 0;
@@ -2840,7 +2840,7 @@
     const scoreE8 = document.querySelector('input[name="answer18"]:checked')?.value || 0;
     const scoreE9 = document.querySelector('input[name="answer19"]:checked')?.value || 0;
     const scoreE10 = document.querySelector('input[name="answer20"]:checked')?.value || 0;
-    
+
     $resultExtraversion = parseInt(scoreE1) + parseInt(scoreE2) + parseInt(scoreE3) + parseInt(scoreE4)  + parseInt(scoreE5) + parseInt(scoreE6)  + parseInt(scoreE7) + parseInt(scoreE8)  + parseInt(scoreE9) + parseInt(scoreE10);
 
     const scoreC1 = document.querySelector('input[name="answer21"]:checked')?.value || 0;
@@ -2853,7 +2853,7 @@
     const scoreC8 = document.querySelector('input[name="answer28"]:checked')?.value || 0;
     const scoreC9 = document.querySelector('input[name="answer29"]:checked')?.value || 0;
     const scoreC10 = document.querySelector('input[name="answer30"]:checked')?.value || 0;
-    
+
     $resultConscien = parseInt(scoreC1) + parseInt(scoreC2) + parseInt(scoreC3) + parseInt(scoreC4)  + parseInt(scoreC5) + parseInt(scoreC6)  + parseInt(scoreC7) + parseInt(scoreC8)  + parseInt(scoreC9) + parseInt(scoreC10);
 
     const scoreA1 = document.querySelector('input[name="answer31"]:checked')?.value || 0;
@@ -2866,7 +2866,7 @@
     const scoreA8 = document.querySelector('input[name="answer38"]:checked')?.value || 0;
     const scoreA9 = document.querySelector('input[name="answer39"]:checked')?.value || 0;
     const scoreA10 = document.querySelector('input[name="answer40"]:checked')?.value || 0;
-    
+
     $resultAgree = parseInt(scoreA1) + parseInt(scoreA2) + parseInt(scoreA3) + parseInt(scoreA4)  + parseInt(scoreA5) + parseInt(scoreA6)  + parseInt(scoreA7) + parseInt(scoreA8)  + parseInt(scoreA9) + parseInt(scoreA10);
 
     const scoreI1 = document.querySelector('input[name="answer41"]:checked')?.value || 0;
@@ -2879,7 +2879,7 @@
     const scoreI8 = document.querySelector('input[name="answer48"]:checked')?.value || 0;
     const scoreI9 = document.querySelector('input[name="answer49"]:checked')?.value || 0;
     const scoreI10 = document.querySelector('input[name="answer50"]:checked')?.value || 0;
-    
+
     $resultIntellect = parseInt(scoreI1) + parseInt(scoreI2) + parseInt(scoreI3) + parseInt(scoreI4)  + parseInt(scoreI5) + parseInt(scoreI6)  + parseInt(scoreI7) + parseInt(scoreI8)  + parseInt(scoreI9) + parseInt(scoreI10);
 
     // Function to calculate and assign scores
@@ -2895,7 +2895,7 @@
         const scoreEM8 = document.querySelector('input[name="answer8"]:checked')?.value || 0;
         const scoreEM9 = document.querySelector('input[name="answer9"]:checked')?.value || 0;
         const scoreEM10 = document.querySelector('input[name="answer10"]:checked')?.value || 0;
-        
+
         $resultEmotionalStability = parseInt(scoreEM1) + parseInt(scoreEM2) + parseInt(scoreEM3) + parseInt(scoreEM4)  + parseInt(scoreEM5) + parseInt(scoreEM6)  + parseInt(scoreEM7) + parseInt(scoreEM8)  + parseInt(scoreEM9) + parseInt(scoreEM10);
 
         const scoreE1 = document.querySelector('input[name="answer11"]:checked')?.value || 0;
@@ -2908,7 +2908,7 @@
         const scoreE8 = document.querySelector('input[name="answer18"]:checked')?.value || 0;
         const scoreE9 = document.querySelector('input[name="answer19"]:checked')?.value || 0;
         const scoreE10 = document.querySelector('input[name="answer20"]:checked')?.value || 0;
-        
+
         $resultExtraversion = parseInt(scoreE1) + parseInt(scoreE2) + parseInt(scoreE3) + parseInt(scoreE4)  + parseInt(scoreE5) + parseInt(scoreE6)  + parseInt(scoreE7) + parseInt(scoreE8)  + parseInt(scoreE9) + parseInt(scoreE10);
 
         const scoreC1 = document.querySelector('input[name="answer21"]:checked')?.value || 0;
@@ -2921,7 +2921,7 @@
         const scoreC8 = document.querySelector('input[name="answer28"]:checked')?.value || 0;
         const scoreC9 = document.querySelector('input[name="answer29"]:checked')?.value || 0;
         const scoreC10 = document.querySelector('input[name="answer30"]:checked')?.value || 0;
-        
+
         $resultConscien = parseInt(scoreC1) + parseInt(scoreC2) + parseInt(scoreC3) + parseInt(scoreC4)  + parseInt(scoreC5) + parseInt(scoreC6)  + parseInt(scoreC7) + parseInt(scoreC8)  + parseInt(scoreC9) + parseInt(scoreC10);
 
         const scoreA1 = document.querySelector('input[name="answer31"]:checked')?.value || 0;
@@ -2934,7 +2934,7 @@
         const scoreA8 = document.querySelector('input[name="answer38"]:checked')?.value || 0;
         const scoreA9 = document.querySelector('input[name="answer39"]:checked')?.value || 0;
         const scoreA10 = document.querySelector('input[name="answer40"]:checked')?.value || 0;
-        
+
         $resultAgree = parseInt(scoreA1) + parseInt(scoreA2) + parseInt(scoreA3) + parseInt(scoreA4)  + parseInt(scoreA5) + parseInt(scoreA6)  + parseInt(scoreA7) + parseInt(scoreA8)  + parseInt(scoreA9) + parseInt(scoreA10);
 
         const scoreI1 = document.querySelector('input[name="answer41"]:checked')?.value || 0;
@@ -2947,7 +2947,7 @@
         const scoreI8 = document.querySelector('input[name="answer48"]:checked')?.value || 0;
         const scoreI9 = document.querySelector('input[name="answer49"]:checked')?.value || 0;
         const scoreI10 = document.querySelector('input[name="answer50"]:checked')?.value || 0;
-        
+
         $resultIntellect = parseInt(scoreI1) + parseInt(scoreI2) + parseInt(scoreI3) + parseInt(scoreI4)  + parseInt(scoreI5) + parseInt(scoreI6)  + parseInt(scoreI7) + parseInt(scoreI8)  + parseInt(scoreI9) + parseInt(scoreI10);
 
         axios.post('/gotoValidationbakatminat', {
@@ -2974,7 +2974,7 @@
     // Add an event listener to the Calculate button to trigger the calculation
     document.querySelector('#calculate-button').addEventListener('click', calculateScores);
 
-    
+
 </script>
 <script>
     // Get the list of questions and navigation buttons

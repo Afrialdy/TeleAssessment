@@ -46,6 +46,6 @@ class User extends Authenticatable
 
     public function penilaianbeo()
     {
-        return $this->hasOne(PenilaianBeo::class, 'id_user');
+        return $this->hasOne(penilaianBeo::class, 'id_user');
     }
 }

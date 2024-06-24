@@ -1,5 +1,3 @@
-<!-- resources/views/interview-list/agreeableness.blade.php -->
-
 @extends('layout.master')
 
 @section('style')
@@ -45,7 +43,6 @@
     <ul class="breadcrumb">
         <li><a href="{{ route('dashboard') }}">Home</a></li>
         <li><a href="{{ route('pertanyaan_test') }}">Pertanyaan Test</a></li>
-
         <li>Agreeableness</li>
     </ul>
     <main class="content px-3 py-3">
@@ -86,15 +83,19 @@
                     <div class="box-content d-flex flex-column">
                         <div class="content-test d-flex">
                             <video controls>
-                                <source src="{{ asset('videos/' . $video->kepribadian . '/' . $video->name . '.mp4') }}">                            </video>
-                                </video>
+                                <source src="{{ asset('videos/' . $video->kepribadian . '/' . $video->name . '.mp4') }}">
+                            </video>
                             <div class="d-flex flex-column">
                                 <div class="title-video d-flex flex-column mb-3">
                                     <h3 class="fw-bold fs-5">{{ $video->name }}</h3>
                                     <p>{{ $video->pertanyaan }}</p>
                                 </div>
                                 <div class="btn-test d-flex">
-                                    <button class="btn btn-success">Aktif</button>
+                                    @if($video->status)
+                                        <button class="btn btn-success">Aktif</button>
+                                    @else
+                                        <button class="btn btn-danger">Tidak Aktif</button>
+                                    @endif
                                     <a href="{{ route('edit-pertanyaan', ['id' => $video->id]) }}">
                                         <button class="btn btn-secondary">Edit Survey</button>
                                     </a>
