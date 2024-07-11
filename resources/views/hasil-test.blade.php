@@ -2,13 +2,68 @@
 
 @section('style')
 <style>
-    #content {
-        background-color: #f8f9fa;
-        padding: 20px;
-        border: 1px solid #dee2e6;
-        border-radius: 5px;
-        margin: 20px;
-    }
+#content {
+            background-color: #f8f9fa;
+            padding: 20px;
+            border: 1px solid #dee2e6;
+            border-radius: 5px;
+            margin: 20px;
+        }
+        .container {
+            margin-top: 20px;
+        }
+        .header {
+            text-align: center;
+            margin-bottom: 30px;
+        }
+        .header h1 {
+            margin: 0;
+            color: #0056b3;
+            font-size: 28px;
+        }
+        .header h2 {
+            margin: 0;
+            color: #666;
+            font-size: 16px;
+        }
+        .section {
+            margin-bottom: 30px;
+        }
+        .section h2 {
+            font-size: 22px;
+            color: #333;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+        }
+        .page {
+            margin-bottom: 20px;
+        }
+        .page-title {
+            font-size: 20px;
+            font-weight: bold;
+            color: #333;
+            margin-bottom: 15px;
+            border-bottom: 2px solid #0056b3;
+            padding-bottom: 5px;
+        }
+        .question-block {
+            margin-bottom: 20px;
+        }
+        .question-block img {
+            max-width: 100%;
+            height: auto;
+            border: 1px solid #ddd;
+            border-radius: 4px;
+            margin-top: 10px;
+        }
+        .final-score {
+            text-align: center;
+            font-size: 26px;
+            color: #28a745;
+            font-weight: bold;
+            border-top: 2px solid #ddd;
+            padding-top: 20px;
+        }
 </style>
 @endsection
 
@@ -818,10 +873,38 @@
                             </tbody>
                         </table>
                     </div>
-
                 </div>
             </div>
         </main>
+    </div>
+
+    <div class="container">
+        <div class="header">
+            <h1>Cognitive Test Report</h1>
+            <h2 class="report-id">Report ID: {{ $penilaianBeo->id_penilaian }}</h2>
+        </div>
+        <div class="section">
+            <h2>Survey Data</h2>
+            @foreach ($surveyJsCognitiveJson['pages'] as $pageIndex => $page)
+                <div class="page">
+                    <div class="page-title">Page {{ $pageIndex + 1 }}</div>
+                    @foreach ($page['elements'] as $element)
+                        <div class="question-block">
+                            @if ($element['type'] == 'radiogroup')
+                                <p><strong>Question:</strong> {{ $element['title'] }}</p>
+                                <p><strong>User Answer:</strong> {{ $responseCognitiveJson[$element['name']] ?? 'No answer provided' }}</p>
+                                <p><strong>Correct Answer:</strong> {{ $kunciJawaban[$element['name']] ?? 'No correct answer available' }}</p>
+                            @elseif ($element['type'] == 'image')
+                                <p><img src="{{ $element['imageLink'] }}" alt="Question Image"></p>
+                            @endif
+                        </div>
+                    @endforeach
+                </div>
+            @endforeach
+        </div>
+        <div class="section final-score">
+            <p><strong>Final Score:</strong> {{ $penilaianBeo->score_cognitive }} / 26</p>
+        </div>
     </div>
 
     <script src="https://cdnjs.cloudflare.com/ajax/libs/html2canvas/1.4.1/html2canvas.min.js"></script>
@@ -1075,36 +1158,32 @@
                 var sangatTinggiCell = row.cells[7]; // Index 7 is the "Sangat Tinggi" column
                 sangatTinggiCell.innerHTML = values[4];
             }
-        }
 
-        document.getElementById('exportPDF').addEventListener('click', function () {
-            html2canvas(document.getElementById('content')).then(function (canvas) {
+            document.getElementById('exportPDF').addEventListener('click', function () {
+            html2canvas(document.querySelector('.container')).then(function (canvas) {
                 const imgData = canvas.toDataURL('image/png');
                 const { jsPDF } = window.jspdf;
 
-                const pdf = new jsPDF('landscape');
-
-                // Get the width and height of the image
-                const imgWidth = 280;
-                const pageHeight = 190;
-                const imgHeight = (canvas.height * imgWidth) / canvas.width;
+                const pdf = new jsPDF('p', 'mm', 'a4');
+                const imgWidth = 210;
+                const pageHeight = 295;
+                const imgHeight = canvas.height * imgWidth / canvas.width;
                 let heightLeft = imgHeight;
                 let position = 0;
 
-                // Add image to PDF
-                pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
-
-                // Add new pages if the content is too long
+                pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                 heightLeft -= pageHeight;
+
                 while (heightLeft >= 0) {
                     position = heightLeft - imgHeight;
                     pdf.addPage();
-                    pdf.addImage(imgData, 'PNG', 10, position, imgWidth, imgHeight);
+                    pdf.addImage(imgData, 'PNG', 0, position, imgWidth, imgHeight);
                     heightLeft -= pageHeight;
                 }
 
-                pdf.save('Hasil-Test.pdf');
+                pdf.save('Cognitive-Test-Report.pdf');
             });
         });
+        }
     </script>
 @endsection

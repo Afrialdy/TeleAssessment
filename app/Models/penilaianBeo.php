@@ -11,18 +11,22 @@ class penilaianBeo extends Model
 
     protected $table = 'penilaianbeo';
 
+    protected $primaryKey = 'id_penilaian'; // Specify the correct primary key
+
     protected $fillable = [
         'id_user',
+        'survey_id',
         'f_sentimen_positif',
         'f_sentimen_netral',
         'f_sentimen_negatif',
         'v_sentimen',
         'skor_validasi',
         'kepercayaan',
-        'cognitive_video_score',
+        'response_cognitive_json',
+        'surveyjs_cognitive_json',
+        'score_cognitive',
         'skor_validasi_kepribadianbakatminat',
         'skor_validasi_cognitif',
-        'tanggal_penilaian',
     ];
 
     protected $dates = [

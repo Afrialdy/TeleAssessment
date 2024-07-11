@@ -10,13 +10,13 @@ use App\Http\Controllers\DashboardController;
 use App\Http\Controllers\SkorvideoController;
 use App\Http\Controllers\LaporanController;
 use App\Http\Controllers\HasiltestController;
+use App\Http\Controllers\CognitiveReportController;
 
 use Illuminate\Support\Facades\Route;
 
 Route::get('/', function () {
     return redirect()->route('login');
 })->name('home');
-
 
 /* AuthController */
 Route::get('/login', [AuthController::class, 'getLogin'])->name('login');
@@ -88,11 +88,14 @@ Route::get('/surveyView', function () {
     return view('surveyView');
 })->name('surveyView');
 
-
 // Survey Routes
 Route::get('/pertanyaan_test', [SurveyController::class, 'index'])->name('pertanyaan_test');
 Route::get('/pertanyaan_test/json/{id}', [SurveyController::class, 'getSurveyJson'])->name('pertanyaan_test.get');
 Route::get('/pertanyaan_test/{id}', [SurveyController::class, 'showSurveyView'])->name('pertanyaan_test.show');
+
+// Cognitive Report Routes
+Route::get('/cognitive-report', [CognitiveReportController::class, 'index'])->name('cognitive_report.index');
+Route::get('/cognitive-report/show', [CognitiveReportController::class, 'show'])->name('cognitive_report.show');
 
 Route::get('/api/surveys/{id}', [SurveyController::class, 'getSurvey']);
 Route::put('/api/surveys/{id}', [SurveyController::class, 'saveSurvey']);
@@ -100,7 +103,6 @@ Route::put('/api/surveys/{id}', [SurveyController::class, 'saveSurvey']);
 Route::get('/dashboard', [DashboardController::class, 'dashboard'])->name('dashboard')->middleware('auth');
 
 Route::get('/laporan', [LaporanController::class, 'laporan'])->name('laporan');
-
 
 // Pertanyaan Test
 Route::get('/cognitive-test', function () {
@@ -150,5 +152,3 @@ Route::get('/perseptual', [SurveyController::class, 'showPersonality'])->name('p
 Route::get('/psikomotor', [SurveyController::class, 'showPersonality'])->name('psikomotor')->defaults('personality', 'Psikomotor');
 Route::get('/realistic', [SurveyController::class, 'showPersonality'])->name('realistic')->defaults('personality', 'Realistic');
 Route::get('/social', [SurveyController::class, 'showPersonality'])->name('social')->defaults('personality', 'Social');
-
-
